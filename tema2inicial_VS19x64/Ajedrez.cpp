@@ -1,7 +1,10 @@
 #include "Coordinador.h"
 #include "freeglut.h"
+#include "Ajedrez.h"
+#include "Mundo.h"
 
 Coordinador coordinador;
+Mundo mundo;
 
 void OnDraw(void);											//Esta funcion sera llamada para dibujar
 void OnKeyboardDown(unsigned char key, int x, int y);		//Esta funcion sera llamada cuando se pulse una tecla	
@@ -47,15 +50,13 @@ void OnDraw(void) {
 	//Poner aqui el código de dibujo
 	coordinador.Dibuja();  //dibujamos coordinador
 
-
 	glutSwapBuffers();
 }
 
 void OnKeyboardDown(unsigned char key, int x_t, int y_t)
 {
 	//Poner aqui el código de teclado
-	
-
+	coordinador.tecla(key);
 	glutPostRedisplay();
 }
 
