@@ -18,13 +18,31 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Ajedrez.cpp" />
+    <ClCompile Include="src\Coordinador.cpp" />
+    <ClCompile Include="src\Master.cpp" />
+    <ClCompile Include="src\Movimientos.cpp" />
+    <ClCompile Include="src\Mundo.cpp" />
+    <ClCompile Include="src\Peon.cpp" />
+    <ClCompile Include="src\Tablero.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Coordinador.h" />
+    <ClInclude Include="src\Master.h" />
+    <ClInclude Include="src\Movimientos.h" />
+    <ClInclude Include="src\Mundo.h" />
+    <ClInclude Include="src\Peon.h" />
+    <ClInclude Include="src\Tablero.h" />
+    <ClInclude Include="src\vector2D.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{e575fade-b6eb-4154-a1ed-8067a12eae98}</ProjectGuid>
     <RootNamespace>Pang</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>Ajedrez2</ProjectName>
+    <ProjectName>AjedrezOroPlata</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -149,16 +167,6 @@
       <AdditionalLibraryDirectories>lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="Ajedrez.cpp" />
-    <ClCompile Include="Coordinador.cpp" />
-    <ClCompile Include="Mundo.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Coordinador.h" />
-    <ClInclude Include="Mundo.h" />
-    <ClInclude Include="vector2D.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
