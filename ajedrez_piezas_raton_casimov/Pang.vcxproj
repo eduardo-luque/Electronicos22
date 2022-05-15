@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BotLegal.cpp" />
     <ClCompile Include="src\Ajedrez.cpp" />
     <ClCompile Include="src\Coordinador.cpp" />
     <ClCompile Include="src\Master.cpp" />
@@ -28,6 +29,7 @@
     <ClCompile Include="src\Tablero.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BotLegal.h" />
     <ClInclude Include="src\Coordinador.h" />
     <ClInclude Include="src\Master.h" />
     <ClInclude Include="src\Movimientos.h" />

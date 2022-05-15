@@ -192,7 +192,7 @@ void Tablero::DibujaEnCelda(Master& t, int x, int y) {
 		glEnable(GL_LIGHTING);
 		break;
 
-	case (Peon::DAMA_BLANCA):
+	case (Peon::REINA_BLANCA):
 		localizarcentro(i, j, glx, gly);
 		glDisable(GL_LIGHTING);
 		glColor3ub(255, 0, 0);   //color DAMA blanca
@@ -202,7 +202,7 @@ void Tablero::DibujaEnCelda(Master& t, int x, int y) {
 		glEnable(GL_LIGHTING);
 		break;
 
-	case (Peon::DAMA_NEGRA):
+	case (Peon::REINA_NEGRA):
 		localizarcentro(i, j, glx, gly);
 		glDisable(GL_LIGHTING);
 		glColor3ub(255, 0, 0);   //color DAMA negra

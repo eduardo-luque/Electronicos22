@@ -5,7 +5,6 @@
 #include "Peon.h"
 
 
-//////////////////
 
 class Movimientos {
 public:

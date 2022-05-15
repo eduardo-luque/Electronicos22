@@ -1,10 +1,12 @@
 #pragma once
 #include "vector2D.h"
 
+using namespace std;
+
 class Peon {
 public:
 	enum obj_t { FICHA = 0, PEON_NEGRO, PEON_BLANCO, TORRE_BLANCA, TORRE_NEGRA, REY_BLANCO, REY_NEGRO,
-		CABALLO_BLANCO, CABALLO_NEGRO, ALFIL_BLANCO, ALFIL_NEGRO, DAMA_BLANCA, DAMA_NEGRA};
+		CABALLO_BLANCO, CABALLO_NEGRO, ALFIL_BLANCO, ALFIL_NEGRO, REINA_BLANCA, REINA_NEGRA};
 	virtual ~Peon() {};
 	cas_t cas;
 	obj_t rtt;
@@ -82,14 +84,14 @@ public:
 	//ostream& print(ostream& o = cout) const { o << "peon blanco en "; cas.print(o); return o; }
 };
 
-class db : public Peon {
+class reinab : public Peon {
 public:
-	db(cas_t c) :Peon(DAMA_BLANCA, c) {}
+	reinab(cas_t c) :Peon(REINA_BLANCA, c) {}
 	//ostream& print(ostream& o = cout) const { o << "peon blanco en "; cas.print(o); return o; }
 };
 
-class dn : public Peon {
+class reinan : public Peon {
 public:
-	dn(cas_t c) :Peon(DAMA_NEGRA, c) {}
+	reinan(cas_t c) :Peon(REINA_NEGRA, c) {}
 	//ostream& print(ostream& o = cout) const { o << "peon blanco en "; cas.print(o); return o; }
 };

@@ -1,6 +1,5 @@
 #pragma once
 #include <iostream>
-//#include "Ficha.h"
 #include "Vector2D.h"
 #include "freeglut.h"
 #include "Peon.h"
@@ -9,21 +8,23 @@
 using namespace std;
 
 class Master {
-	//friend class Engine;
+	//friend class Movimiento;
 
 private:
-	//void nulify();
+	void nulify();
+
 public:
 	static const int n = 8;
 	static const int dist = 2;
 	int nFichas;
-	Peon* peones[n][n];//vector de fichas
+	Peon* peones[n][n];//vector de fichas del tablero
 	////////////
 
-	Master();
+	Master(){}
 	virtual ~Master();
 	Master(const Master&);
 	void Inicializa();
+	int number_of_pieces();
 	//Master& operator =(const Master&); //SOBRECARGA PROHIBIDA SEGÚN LA TEORÍA
 	/////////////
     

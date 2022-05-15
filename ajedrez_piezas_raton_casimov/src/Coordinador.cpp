@@ -100,24 +100,94 @@ void Coordinador::TurnoMultiplayer()
 {
 	if (estado == MULTIPLAYER)
 	{
-		//mundo.setMovimiento({ 0,0 }, { 0,0 });
 		if (turno == JUGADOR_N)
 		{
-			int aux;
-			aux = mundo.MovimientoHumano('N', 's'); //turno simple negra(sin cadena)
-			mundo.setMovimiento({ 0,0 }, { 5,5 });  //con esta funcion puedo forzar el movimiento
+			
+				int aux;
+				aux = mundo.MovimientoHumano('N'); //turno simple (sin cadena)
+
+				switch (aux)
+				{
+				case 1:
+					if (bloqueo_b)
+					{
+						estado = GANA_N;
+						bloqueo_n = false;
+						bloqueo_b = false;
+					}
+
+					turno = JUGADOR_B;
+					mundo.setMovimiento({ 0,0 }, { 0,0 });
+					break;
+				case 2: //si me mete en 2 es porque viene de comer
+					turno = JUGADOR_N;
+					break;
+				case 3:
+					bloqueo_n = true;
+					if (bloqueo_b)
+					{
+						estado = TABLAS;
+						bloqueo_n = false;
+						bloqueo_b = false;
+					}
+					else
+					{
+						turno = JUGADOR_B;
+						mundo.setMovimiento({ 0,0 }, { 0,0 });
+					}
+				case 4://movimiento no valido
+					turno = JUGADOR_N;
+					break;
+				}
+			
+
+			
+
 		}
 
-		else if (turno == JUGADOR_B)
+		if (turno == JUGADOR_B)
 		{
-			int aux;
-			aux = mundo.MovimientoHumano('B', 's'); //turno simple blanca(sin cadena)
+			
+				int aux;
+				aux = mundo.MovimientoHumano('B'); //turno simple (sin cadena)
 
-			mundo.setMovimiento({ mundo.origen_b }, { mundo.destino_b });  //con esta funcion puedo forzar el movimiento
+				switch (aux)
+				{
+				case 1:
+					if (bloqueo_n)
+					{
+						estado = GANA_B;
+						bloqueo_n = false;
+						bloqueo_b = false;
+					}
 
-			//turno = JUGADOR_N;
-			//mundo.setMovimiento({ 0,0 }, { 3,3});  //con esta funcion puedo forzar el movimiento
+					turno = JUGADOR_N;
+					mundo.setMovimiento({ 0,0 }, { 0,0 });
+					break;
+				case 2: //si me mete en 2 es porque viene de comer
+					turno = JUGADOR_B;
+					break;
+				case 3:
+					bloqueo_n = true;
+					if (bloqueo_b)
+					{
+						estado = TABLAS;
+						bloqueo_n = false;
+						bloqueo_b = false;
+					}
+					else
+					{
+						turno = JUGADOR_N;
+						mundo.setMovimiento({ 0,0 }, { 0,0 });
+					}
+				case 4://si me mete en 4 es porque viene de que el movimiento no ha sido valido
+					turno = JUGADOR_B;
+					break;
+				}
+			
+
+			
+
 		}
 	}
-
 }

@@ -28,7 +28,6 @@ public:
 	void Dibuja(Master &);  //le meto la clase master
 	//void DibujaRepaso();
 	void DibujaEnCelda(Master&, int, int);
-	//void BotonMouse(int, int, int, bool);
 	//void DibujaMalla();
 	void drawFilledCircle(GLfloat, GLfloat, GLfloat);
 	void localizarcentro(int, int, float&, float&);
