@@ -28,8 +28,8 @@ move_t BotLegal::blancaMueve(Master t)
 						else { aux.dest.y = aux.ori.y + 1; }
 						if (Movimientos::is_legal(aux, t) == 2) { aux.tipo = 2; return aux; }
 					}
-					/*
-					if (fp->type() == Peon::REINA_BLANCA) //preguntar por los movimientos que pueden hacer las damas negras
+					
+					/*if (fp->type() == Peon::REINA_BLANCA) //preguntar por los movimientos que pueden hacer 
 					{
 						aux.ori = fp->square();
 						//preguntar por el movimiento hacia la izquierda abajo
@@ -45,8 +45,8 @@ move_t BotLegal::blancaMueve(Master t)
 						//pregunta por el movimiento a la derecha arriba si el de la izquierda arriba no es valido
 						else { aux.dest.y = aux.ori.y + 1; }
 						if (Movimientos::is_legal(aux, t) == 2) { aux.tipo = 2; return aux; }
-					}
-					*/
+					}*/
+					
 					/*
 					if (fp->type() == Peon::REY_BLANCO) //preguntar por los movimientos que pueden hacer las damas negras
 					{
@@ -101,8 +101,8 @@ move_t BotLegal::negraMueve(Master t)
 					else { aux.dest.y = aux.ori.y + 1; }
 					if (Movimientos::is_legal(aux, t) == 2) { aux.tipo = 2; return aux; }
 				}
-				/*
-				if (fp->type() == Peon::REINA_NEGRA) //preguntar por los movimientos que pueden hacer las damas negras
+
+				/*if (fp->type() == Peon::REINA_NEGRA) //preguntar por los movimientos que pueden hacer 
 				{
 					aux.ori = fp->square();
 					//preguntar por el movimiento hacia la izquierda abajo
@@ -118,8 +118,9 @@ move_t BotLegal::negraMueve(Master t)
 					//pregunta por el movimiento a la derecha arriba si el de la izquierda arriba no es valido
 					else { aux.dest.y = aux.ori.y + 1; }
 					if (Movimientos::is_legal(aux, t) == 2) { aux.tipo = 2; return aux; }
-				}
-				*/
+				}*/
+				
+
 				/*
 				if (fp->type() == Peon::REY_NEGRO) //preguntar por los movimientos que pueden hacer las damas negras
 				{

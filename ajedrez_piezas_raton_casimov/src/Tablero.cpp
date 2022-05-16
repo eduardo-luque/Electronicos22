@@ -70,7 +70,7 @@ void Tablero::Dibuja(Master& t) {
 //void Tablero::DibujaRepaso() {  (No es necesario)
 	/*float dist = anchocasilla;
 	glColor3ub(0, 255, 0);
-	
+
 	for (int i = 0; i <= numcasillas; i++) {
 		if (i % numcasillas == 0) glLineWidth(4);
 		else glLineWidth(1);
@@ -90,15 +90,16 @@ void Tablero::DibujaEnCelda(Master& t, int x, int y) {
 	cas_t pos = t.peones[x][y]->square();
 	int i = pos.x, j = pos.y;
 
-	switch (t.peones[x][y]->type())
-	{
+	switch (t.peones[x][y]->type()) {
 	case (Peon::PEON_BLANCO):
 		localizarcentro(i, j, glx, gly);
 		glDisable(GL_LIGHTING);
 		glColor3ub(192, 192, 192);  //color plata rgb
-		glTranslatef(glx, gly, 0.001);
-		drawFilledCircle(0.0f, 0.0f, (anchocasilla / 2.0f) * 0.9f);
-		glTranslatef(-glx, -gly, -0.001);
+		glTranslatef(glx, gly, 0.001f);
+		//drawFilledCircle(0.0f, 0.0f, anchocasilla * 0.45f);
+		p.dibuja(Peon::PEON_BLANCO);
+		drawsquare();
+		glTranslatef(-glx, -gly, -0.001f);
 		glEnable(GL_LIGHTING);
 		break;
 
@@ -106,9 +107,11 @@ void Tablero::DibujaEnCelda(Master& t, int x, int y) {
 		localizarcentro(i, j, glx, gly);
 		glDisable(GL_LIGHTING);
 		glColor3ub(234, 190, 63);   //color oro rgb
-		glTranslatef(glx, gly, 0.001);
-		drawFilledCircle(0.0f, 0.0f, (anchocasilla / 2.0f) * 0.9f);
-		glTranslatef(-glx, -gly, -0.001);
+		glTranslatef(glx, gly, 0.001f);
+		//drawFilledCircle(0.0f, 0.0f, (anchocasilla / 2.0f) * 0.9f);
+		p.dibuja(Peon::PEON_NEGRO);
+		drawsquare();
+		glTranslatef(-glx, -gly, -0.001f);
 		glEnable(GL_LIGHTING);
 		break;
 
@@ -117,7 +120,9 @@ void Tablero::DibujaEnCelda(Master& t, int x, int y) {
 		glDisable(GL_LIGHTING);
 		glColor3ub(234, 190, 250);   //color TORRE blanca
 		glTranslatef(glx, gly, 0.001);
-		drawFilledCircle(0.0f, 0.0f, (anchocasilla / 2.0f) * 0.9f);
+		//drawFilledCircle(0.0f, 0.0f, (anchocasilla / 2.0f) * 0.9f);
+		p.dibuja(Peon::TORRE_BLANCA);
+		drawsquare();
 		glTranslatef(-glx, -gly, -0.001);
 		glEnable(GL_LIGHTING);
 		break;
@@ -127,7 +132,9 @@ void Tablero::DibujaEnCelda(Master& t, int x, int y) {
 		glDisable(GL_LIGHTING);
 		glColor3ub(234, 190, 250);   //color TORRE negra
 		glTranslatef(glx, gly, 0.001);
-		drawFilledCircle(0.0f, 0.0f, (anchocasilla / 2.0f) * 0.9f);
+		//drawFilledCircle(0.0f, 0.0f, (anchocasilla / 2.0f) * 0.9f);
+		p.dibuja(Peon::TORRE_NEGRA);
+		drawsquare();
 		glTranslatef(-glx, -gly, -0.001);
 		glEnable(GL_LIGHTING);
 		break;
@@ -137,7 +144,9 @@ void Tablero::DibujaEnCelda(Master& t, int x, int y) {
 		glDisable(GL_LIGHTING);
 		glColor3ub(192, 190, 250);   //color CABALLO blanco
 		glTranslatef(glx, gly, 0.001);
-		drawFilledCircle(0.0f, 0.0f, (anchocasilla / 2.0f) * 0.9f);
+		//drawFilledCircle(0.0f, 0.0f, (anchocasilla / 2.0f) * 0.9f);
+		p.dibuja(Peon::CABALLO_BLANCO);
+		drawsquare();
 		glTranslatef(-glx, -gly, -0.001);
 		glEnable(GL_LIGHTING);
 		break;
@@ -147,7 +156,9 @@ void Tablero::DibujaEnCelda(Master& t, int x, int y) {
 		glDisable(GL_LIGHTING);
 		glColor3ub(192, 190, 250);   //color CABALLO negro
 		glTranslatef(glx, gly, 0.001);
-		drawFilledCircle(0.0f, 0.0f, (anchocasilla / 2.0f) * 0.9f);
+		//drawFilledCircle(0.0f, 0.0f, (anchocasilla / 2.0f) * 0.9f);
+		p.dibuja(Peon::CABALLO_NEGRO);
+		drawsquare();
 		glTranslatef(-glx, -gly, -0.001);
 		glEnable(GL_LIGHTING);
 		break;
@@ -157,7 +168,9 @@ void Tablero::DibujaEnCelda(Master& t, int x, int y) {
 		glDisable(GL_LIGHTING);
 		glColor3ub(0, 190, 0);   //color ALFIL blanco
 		glTranslatef(glx, gly, 0.001);
-		drawFilledCircle(0.0f, 0.0f, (anchocasilla / 2.0f) * 0.9f);
+		//drawFilledCircle(0.0f, 0.0f, (anchocasilla / 2.0f) * 0.9f);
+		p.dibuja(Peon::ALFIL_BLANCO);
+		drawsquare();
 		glTranslatef(-glx, -gly, -0.001);
 		glEnable(GL_LIGHTING);
 		break;
@@ -167,7 +180,9 @@ void Tablero::DibujaEnCelda(Master& t, int x, int y) {
 		glDisable(GL_LIGHTING);
 		glColor3ub(0, 190, 0);   //color ALFIL negro
 		glTranslatef(glx, gly, 0.001);
-		drawFilledCircle(0.0f, 0.0f, (anchocasilla / 2.0f) * 0.9f);
+		//drawFilledCircle(0.0f, 0.0f, (anchocasilla / 2.0f) * 0.9f);
+		p.dibuja(Peon::ALFIL_NEGRO);
+		drawsquare();
 		glTranslatef(-glx, -gly, -0.001);
 		glEnable(GL_LIGHTING);
 		break;
@@ -177,7 +192,9 @@ void Tablero::DibujaEnCelda(Master& t, int x, int y) {
 		glDisable(GL_LIGHTING);
 		glColor3ub(0, 0, 255);   //color REY blanco
 		glTranslatef(glx, gly, 0.001);
-		drawFilledCircle(0.0f, 0.0f, (anchocasilla / 2.0f) * 0.9f);
+		//drawFilledCircle(0.0f, 0.0f, (anchocasilla / 2.0f) * 0.9f);
+		p.dibuja(Peon::REY_BLANCO);
+		drawsquare();
 		glTranslatef(-glx, -gly, -0.001);
 		glEnable(GL_LIGHTING);
 		break;
@@ -187,7 +204,9 @@ void Tablero::DibujaEnCelda(Master& t, int x, int y) {
 		glDisable(GL_LIGHTING);
 		glColor3ub(0, 0, 255);   //color REY negro
 		glTranslatef(glx, gly, 0.001);
-		drawFilledCircle(0.0f, 0.0f, (anchocasilla / 2.0f) * 0.9f);
+		//drawFilledCircle(0.0f, 0.0f, (anchocasilla / 2.0f) * 0.9f);
+		p.dibuja(Peon::REY_NEGRO);
+		drawsquare();
 		glTranslatef(-glx, -gly, -0.001);
 		glEnable(GL_LIGHTING);
 		break;
@@ -197,7 +216,9 @@ void Tablero::DibujaEnCelda(Master& t, int x, int y) {
 		glDisable(GL_LIGHTING);
 		glColor3ub(255, 0, 0);   //color DAMA blanca
 		glTranslatef(glx, gly, 0.001);
-		drawFilledCircle(0.0f, 0.0f, (anchocasilla / 2.0f) * 0.9f);
+		//drawFilledCircle(0.0f, 0.0f, (anchocasilla / 2.0f) * 0.9f);
+		p.dibuja(Peon::REINA_BLANCA);
+		drawsquare();
 		glTranslatef(-glx, -gly, -0.001);
 		glEnable(GL_LIGHTING);
 		break;
@@ -207,10 +228,11 @@ void Tablero::DibujaEnCelda(Master& t, int x, int y) {
 		glDisable(GL_LIGHTING);
 		glColor3ub(255, 0, 0);   //color DAMA negra
 		glTranslatef(glx, gly, 0.001);
-		drawFilledCircle(0.0f, 0.0f, (anchocasilla / 2.0f) * 0.9f);
+		//drawFilledCircle(0.0f, 0.0f, (anchocasilla / 2.0f) * 0.9f);
+		p.dibuja(Peon::REINA_NEGRA);
+		drawsquare();
 		glTranslatef(-glx, -gly, -0.001);
 		glEnable(GL_LIGHTING);
-		break;
 	default:
 		break;
 	}
@@ -222,7 +244,7 @@ void Tablero::DibujaEnCelda(Master& t, int x, int y) {
 void Tablero::localizarcentro(int cell_x, int cell_y, float& glx, float& gly) {
 	glx = cell_y * anchocasilla + anchocasilla / 2.0f;
 	gly = -cell_x * anchocasilla - anchocasilla / 2.0f;
-	
+
 }
 
 void Tablero::world2cell(double x, double y, int& cell_x, int& cell_y) {
@@ -260,6 +282,22 @@ void Tablero::BotonMouse(int x, int y, int button, bool down) {  //funcion que m
 	if (down) {
 		cout << "(" << xcell_sel << "," << ycell_sel << ")" << endl;
 	}
+}
+
+void Tablero::drawsquare() {
+	float num1 = 0.0f, num2 = 0.0f;
+	num1 = +anchocasilla * 0.45f;
+	num2 = +anchocasilla * 0.45f;
+	glDisable(GL_LIGHTING);
+	glBegin(GL_POLYGON);
+	glColor3f(1, 1, 1);
+	glVertex2f(-num1, +num2); glTexCoord2d(0, 0);
+	glVertex2f(+num1, +num2); glTexCoord2d(0, 1);
+	glVertex2f(+num1, -num2); glTexCoord2d(1, 1);
+	glVertex2f(-num1, -num2); glTexCoord2d(1, 0);
+	glEnd();
+	glEnable(GL_LIGHTING);
+	glDisable(GL_TEXTURE_2D);
 }
 
 void Tablero::drawFilledCircle(GLfloat x, GLfloat y, GLfloat radius) {   //funcion sacada de internet

@@ -16,7 +16,7 @@ int Movimientos::is_legal(move_t m, const Master& t)
 	//B) el destino tiene que ser  ficha contraria
 	Peon* fd = t.peones[m.dest.x][m.dest.y];
 
-	if (fd) {
+	if (fd) {//CASILLA DESTINO LLENA
 		if (fd->type() == Peon::PEON_NEGRO || fd->type() == Peon::REINA_NEGRA || fd->type() == Peon::REY_NEGRO || fd->type() == Peon::TORRE_NEGRA) {
 			if (fo->type() == Peon::PEON_NEGRO || fo->type() == Peon::REINA_NEGRA || fd->type() == Peon::REY_NEGRO || fd->type() == Peon::TORRE_NEGRA) {
 				cout << "is_legal FALSE" << endl; return 0;
@@ -28,32 +28,70 @@ int Movimientos::is_legal(move_t m, const Master& t)
 	}
 
 	//C) Movimiento permitido simple
-	if (!fd) {
+	if (!fd) { //CASILLA DESTINO VACIA
 		switch (fo->type())
 		{
 		case(Peon::PEON_BLANCO)://está permitido que avance hacia abajo(sumarle 1 o 2 a la x)  
 			if ((m.dest.x == m.ori.x + 1) || m.dest.x == m.ori.x + 2) { cout << "is_legal TRUE " << endl; return 2; }
 			break;
-		case(Peon::PEON_NEGRO)://está permitido que avance hacia arriba(resta 1 o 2 a la x)  
-			if ((m.dest.x == m.ori.x - 1 || m.dest.x == m.ori.x - 2)) { cout << "is_legal TRUE " << endl; return 2; }
+		case(Peon::PEON_NEGRO)://está permitido que avance hacia arriba(resta 1 o 2 a la x) 
+			if ((m.dest.x == m.ori.x - 1) || (m.dest.x == m.ori.x - 2)) { cout << "is_legal TRUE " << endl; return 2; }
 			break;
 		case(Peon::REINA_NEGRA):
-			if ((m.dest.x == m.ori.x - 1 || m.dest.x == m.ori.x + 1) && (m.dest.y == m.ori.y + 1 || m.dest.y == m.ori.y - 1)) { cout << "is_legal TRUE " << endl; return 2; }
+			for (int i = 1; i < 8; i++) { //este bucle cubre todos los posibles movimientos diagonales de la REINA
+				if ((m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y + i) || (m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y - i) ||
+					(m.dest.x == m.ori.x - i) && (m.dest.y == m.ori.y + i) || (m.dest.x == m.ori.x - i) && (m.dest.y == m.ori.y - i))
+				{
+					cout << "is_legal TRUE " << endl; return 2;
+				}
+
+				if ((m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y) || (m.dest.x == m.ori.x - i) && (m.dest.y == m.ori.y) ||
+					(m.dest.x == m.ori.x) && (m.dest.y == m.ori.y + i) || (m.dest.x == m.ori.x) && (m.dest.y == m.ori.y - i))
+				{
+					cout << "is_legal TRUE " << endl; return 2;
+				}
+			}
 			break;
 		case(Peon::REINA_BLANCA):
-			if ((m.dest.x == m.ori.x - 1 || m.dest.x == m.ori.x + 1) && (m.dest.y == m.ori.y + 1 || m.dest.y == m.ori.y - 1)) { cout << "is_legal TRUE " << endl; return 2; }
+			for (int i = 1; i < 8; i++) { //este bucle cubre todos los posibles movimientos diagonales de la REINA
+				if ((m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y + i) || (m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y - i) ||
+					(m.dest.x == m.ori.x - i) && (m.dest.y == m.ori.y + i) || (m.dest.x == m.ori.x - i) && (m.dest.y == m.ori.y - i))
+				{
+					cout << "is_legal TRUE " << endl; return 2;
+				}
+
+				if ((m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y) || (m.dest.x == m.ori.x - i) && (m.dest.y == m.ori.y) ||
+					(m.dest.x == m.ori.x) && (m.dest.y == m.ori.y + i) || (m.dest.x == m.ori.x) && (m.dest.y == m.ori.y - i))
+				{
+					cout << "is_legal TRUE " << endl; return 2;
+				}
+			}
 			break;
 		case(Peon::REY_NEGRO):
-			if ((m.dest.x == m.ori.x - 1 || m.dest.x == m.ori.x + 1) && (m.dest.y == m.ori.y + 1 || m.dest.y == m.ori.y - 1)) { cout << "is_legal TRUE " << endl; return 2; }
+			if ((m.dest.x == m.ori.x - 1 || m.dest.x == m.ori.x + 1) && (m.dest.y == m.ori.y + 1 || m.dest.y == m.ori.y - 1)) { 
+				cout << "is_legal TRUE " << endl; return 2; 
+			}
 			break;
 		case(Peon::REY_BLANCO):
-			if ((m.dest.x == m.ori.x - 1 || m.dest.x == m.ori.x + 1) && (m.dest.y == m.ori.y + 1 || m.dest.y == m.ori.y - 1)) { cout << "is_legal TRUE " << endl; return 2; }
+			if ((m.dest.x == m.ori.x - 1 || m.dest.x == m.ori.x + 1) && (m.dest.y == m.ori.y + 1 || m.dest.y == m.ori.y - 1)) { 
+				cout << "is_legal TRUE " << endl; return 2; 
+			}
 			break;
 		case(Peon::TORRE_NEGRA):
-			if ((m.dest.x == m.ori.x - 1 || m.dest.x == m.ori.x + 1) && (m.dest.y == m.ori.y + 1 || m.dest.y == m.ori.y - 1)) { cout << "is_legal TRUE " << endl; return 2; }
+			for (int i = 1; i < 8; i++) {
+				if ((m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y) || (m.dest.x == m.ori.x - i) && (m.dest.y == m.ori.y) ||
+					(m.dest.x == m.ori.x) && (m.dest.y == m.ori.y + i) || (m.dest.x == m.ori.x) && (m.dest.y == m.ori.y - i)) {
+					cout << "is_legal TRUE " << endl; return 2;
+				}
+			}
 			break;
 		case(Peon::TORRE_BLANCA):
-			if ((m.dest.x == m.ori.x - 1 || m.dest.x == m.ori.x + 1) && (m.dest.y == m.ori.y + 1 || m.dest.y == m.ori.y - 1)) { cout << "is_legal TRUE " << endl; return 2; }
+			for (int i = 1; i < 8; i++) {
+				if ((m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y) || (m.dest.x == m.ori.x - i) && (m.dest.y == m.ori.y) ||
+					(m.dest.x == m.ori.x) && (m.dest.y == m.ori.y + i) || (m.dest.x == m.ori.x) && (m.dest.y == m.ori.y - i)) {
+					cout << "is_legal TRUE " << endl; return 2;
+				}
+			}
 			break;
 		default:
 			break;
@@ -61,7 +99,7 @@ int Movimientos::is_legal(move_t m, const Master& t)
 	}
 
 	//D) Movimiento de comer, tiene que haber ficha en el destino
-	if (fd) {
+	if (fd) { //CASILLA DESTINO LLENA
 		Peon* fs; //ficha salto auxiliar
 		switch (fo->type())
 		{
@@ -71,167 +109,244 @@ int Movimientos::is_legal(move_t m, const Master& t)
 
 			if ((m.dest.x == m.ori.x + 1) && (m.dest.y == m.ori.y + 1)) //diagonal derecha
 			{
-				fs = t.peones[m.dest.x + 1][m.dest.y + 1];
+	
 
 				if ((m.dest.x + 1 > 7) || (m.dest.y + 1 > 7)) { return 0; }
 
-				if (!fs)
-				{
-					delete fs;
 					cout << "el peon blanco come" << endl;
 					return 1;
-				}
+				
 			}
 			if ((m.dest.x == m.ori.x + 1) && (m.dest.y == m.ori.y - 1)) //diagonal izquierda
 			{
-				fs = t.peones[m.dest.x + 1][m.dest.y - 1];
+				
 
 				if ((m.dest.x + 1 > 7) || (m.dest.y - 1 < 0)) { return 0; }
 
-				if (!fs)
-				{
-					delete fs;
+					
 					cout << "el peon blanco come" << endl;
 					return 1;
-				}
+				
 			}
 			break;
 		case(Peon::PEON_NEGRO): //está permitido que coma hacia arriba  
 			if ((m.dest.x == m.ori.x - 1) && (m.dest.y == m.ori.y + 1)) //diagonal derecha
 			{
-				fs = t.peones[m.dest.x - 1][m.dest.y + 1];
+				
 
 				if ((m.dest.x - 1 < 0) || (m.dest.y + 1 > 7)) { return 0; }
 
-				if (!fs)
-				{
-					delete fs;
+				
 					cout << "el peon negro come" << endl;
-					return 1;
-				}
+				return 1;
+				
 			}
 			if ((m.dest.x == m.ori.x - 1) && (m.dest.y == m.ori.y - 1)) //diagonal izquierda
 			{
-				fs = t.peones[m.dest.x - 1][m.dest.y - 1];
+				
 
 				if ((m.dest.x - 1 < 0) || (m.dest.y - 1 < 0)) { return 0; }
 
-				if (!fs)
-				{
-					delete fs;
+				
+					
 					cout << "el peon negro come" << endl;
 					return 1;
-				}
+				
 			}
 			break;
-
 		case(Peon::REINA_NEGRA):
-			if ((m.dest.x == m.ori.x + 1) && (m.dest.y == m.ori.y + 1)) //diagonal derecha inferior
-			{
-				fs = t.peones[m.dest.x + 1][m.dest.y + 1];
-
-				if ((m.dest.x + 1 > 7) || (m.dest.y + 1 > 7)) { return 0; }
-
-				if (!fs)
+			for (int i = 1; i < 8; i++) { //este bucle cubre todos los posibles moVimientos diagonales de la REINA, asegurándonos siempre dentro de cada if que no nos salgamos del tablero
+				if ((m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y + i)) //diagonal derecha inferior tantas posiciones como me permita el tablero
 				{
-					delete fs;
-					cout << "LA REINA negrA come" << endl;
+				
+
+					if ((m.dest.x > 7) || (m.dest.y > 7)) { return 0; } //si me salgo del tablero no como obviamente
+
+					
+						cout << "LA REINA NEGRA COME" << endl;
+						return 1;
+					
+				}
+
+				if ((m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y - i)) //diagonal izquierda inferior
+				{
+				
+
+					if ((m.dest.x > 7) || (m.dest.y < 0)) { return 0; }//si me salgo del tablero
+
+					
+						
+						cout << "LA REINA NEGRA COME" << endl;
 					return 1;
+					
+				}
+
+				if ((m.dest.x == m.ori.x - i) && (m.dest.y == m.ori.y + i)) //diagonal derecha superior
+				{
+					
+
+					if ((m.dest.x < 0) || (m.dest.y > 7)) { return 0; }//si me salgo del tablero
+
+					
+						cout << "LA REINA NEGRA COME" << endl;
+						return 1;
+					
+				}
+
+				if ((m.dest.x == m.ori.x - i) && (m.dest.y == m.ori.y - i))//diagonal izquierda superior
+				{
+					
+
+					if ((m.dest.x < 0) || (m.dest.y < 0)) { return 0; }//si me salgo del tablero
+
+					
+						cout << "LA REINA NEGRA COME" << endl;
+						return 1;
+					
 				}
 			}
-			if ((m.dest.x == m.ori.x + 1) && (m.dest.y == m.ori.y - 1)) //diagonal izquierda inferior
-			{
-				fs = t.peones[m.dest.x + 1][m.dest.y - 1];
-
-				if ((m.dest.x + 1 > 7) || (m.dest.y - 1 < 0)) { return 0; }
-
-				if (!fs)
+			for (int i = 1; i < 8; i++) { //este bucle cubre todos los posibles movimientos verticales y horizontales de la REINA, asegurándonos siempre dentro de cada if que no nos salgamos del tablero
+				if ((m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y)) //vertical abajo, tantas posiciones como me permita el tablero
 				{
-					delete fs;
-					cout << "LA REINA NEGRA come" << endl;
-					return 1;
+					
+
+					if ((m.dest.x > 7) || (m.dest.y > 7)) { return 0; } //si me salgo del tablero no como obviamente
+
+					
+						cout << "LA REINA NEGRA COME" << endl;
+						return 1;
+					
 				}
-			}
 
-			if ((m.dest.x == m.ori.x - 1) && (m.dest.y == m.ori.y + 1)) //diagonal derecha superior
-			{
-				fs = t.peones[m.dest.x - 1][m.dest.y + 1];
-
-				if ((m.dest.x - 1 < 0) || (m.dest.y + 1 > 7)) { return 0; }
-
-				if (!fs)
+				if ((m.dest.x == m.ori.x - i) && (m.dest.y == m.ori.y)) //vertical arriba
 				{
-					delete fs;
-					cout << "LA REINA NEGRA come" << endl;
-					return 1;
+					
+
+					if ((m.dest.x > 7) || (m.dest.y < 0)) { return 0; }//si me salgo del tablero
+
+						cout << "LA REINA NEGRA COME" << endl;
+						return 1;
+					
 				}
-			}
-			if ((m.dest.x == m.ori.x - 1) && (m.dest.y == m.ori.y - 1))//diagonal izquierda superior
-			{
-				fs = t.peones[m.dest.x - 1][m.dest.y - 1];
 
-				if ((m.dest.x - 1 < 0) || (m.dest.y - 1 < 0)) { return 0; }
-
-				if (!fs)
+				if ((m.dest.x == m.ori.x) && (m.dest.y == m.ori.y + i)) //horizontal a la derecha
 				{
-					delete fs;
-					cout << "LA REINA NEGRA come" << endl;
-					return 1;
+					
+
+					if ((m.dest.x < 0) || (m.dest.y > 7)) { return 0; }//si me salgo del tablero
+
+						cout << "LA REINA NEGRA COME" << endl;
+						return 1;
+					
+				}
+
+				if ((m.dest.x == m.ori.x) && (m.dest.y == m.ori.y - i))//horizontal a la izquierda
+				{
+					
+					if ((m.dest.x < 0) || (m.dest.y < 0)) { return 0; }//si me salgo del tablero
+
+					
+						cout << "LA REINA NEGRA COME" << endl;
+						return 1;
+				
 				}
 			}
 			break;
 		case(Peon::REINA_BLANCA):
-			if ((m.dest.x == m.ori.x + 1) && (m.dest.y == m.ori.y + 1))//diagonal derecha inferior
-			{
-				fs = t.peones[m.dest.x + 1][m.dest.y + 1];
-
-				if ((m.dest.x + 1 > 7) || (m.dest.y + 1 > 7)) { return 0; }
-
-				if (!fs)
+			for (int i = 0; i < 8; i++) { //este bucle cubre todos los posibles moVimientos diagonales de la REINA, asegurándonos siempre dentro de cada if que no nos salgamos del tablero
+				if ((m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y + i)) //diagonal derecha inferior tantas posiciones como me permita el tablero
 				{
-					delete fs;
-					cout << "LA REINA BLANCA come" << endl;
-					return 1;
+					
+
+					if ((m.dest.x > 7) || (m.dest.y > 7)) { return 0; } //si me salgo del tablero no como obviamente
+
+						cout << "LA REINA BLANCA COME" << endl;
+						return 1;
+					
+				}
+
+				if ((m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y - i)) //diagonal izquierda inferior
+				{
+					
+
+					if ((m.dest.x > 7) || (m.dest.y < 0)) { return 0; }//si me salgo del tablero
+
+					
+						cout << "LA REINA BLANCA COME" << endl;
+						return 1;
+					
+				}
+
+				if ((m.dest.x == m.ori.x - i) && (m.dest.y == m.ori.y + i)) //diagonal derecha superior
+				{
+					
+
+					if ((m.dest.x < 0) || (m.dest.y> 7)) { return 0; }//si me salgo del tablero
+
+					
+						cout << "LA REINA BLANCA COME" << endl;
+						return 1;
+					
+				}
+
+				if ((m.dest.x == m.ori.x - i) && (m.dest.y == m.ori.y - i))//diagonal izquierda superior
+				{
+					
+
+					if ((m.dest.x < 0) || (m.dest.y < 0)) { return 0; }//si me salgo del tablero
+
+						cout << "LA REINA BLANCA COME" << endl;
+						return 1;
+					
 				}
 			}
-			if ((m.dest.x == m.ori.x + 1) && (m.dest.y == m.ori.y - 1))//diagonal izquierda inferior
-			{
-				fs = t.peones[m.dest.x + 1][m.dest.y - 1];
-
-				if ((m.dest.x + 1 > 7) || (m.dest.y - 1 < 0)) { return 0; }
-
-				if (!fs)
+			for (int i = 1; i < 8; i++) { //este bucle cubre todos los posibles movimientos verticales y horizontales de la REINA, asegurándonos siempre dentro de cada if que no nos salgamos del tablero
+				if ((m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y)) //vertical abajo, tantas posiciones como me permita el tablero
 				{
-					delete fs;
-					cout << "LA REINA BLANCA come" << endl;
-					return 1;
+					
+
+					if ((m.dest.x > 7) || (m.dest.y > 7)) { return 0; } //si me salgo del tablero no como obviamente
+
+					
+						cout << "LA REINA BLANCA COME" << endl;
+						return 1;
+					
 				}
-			}
 
-			if ((m.dest.x == m.ori.x - 1) && (m.dest.y == m.ori.y + 1))//diagonal derecha superior
-			{
-				fs = t.peones[m.dest.x - 1][m.dest.y + 1];
-
-				if ((m.dest.x - 1 < 0) || (m.dest.y + 1 > 7)) { return 0; }
-
-				if (!fs)
+				if ((m.dest.x == m.ori.x - i) && (m.dest.y == m.ori.y)) //vertical arriba
 				{
-					delete fs;
-					cout << "LA REINA BLANCA come" << endl;
-					return 1;
+					
+
+					if ((m.dest.x > 7) || (m.dest.y < 0)) { return 0; }//si me salgo del tablero
+
+					
+						cout << "LA REINA BLANCA COME" << endl;
+						return 1;
+					
 				}
-			}
-			if ((m.dest.x == m.ori.x - 1) && (m.dest.y == m.ori.y - 1))//diagonal izquierda superior
-			{
-				fs = t.peones[m.dest.x - 1][m.dest.y - 1];
 
-				if ((m.dest.x - 1 < 0) || (m.dest.y - 1 < 0)) { return 0; }
-
-				if (!fs)
+				if ((m.dest.x == m.ori.x) && (m.dest.y == m.ori.y + i)) //horizontal a la derecha
 				{
-					delete fs;
-					cout << "LA REINA BLANCA come" << endl;
-					return 1;
+					
+
+					if ((m.dest.x < 0) || (m.dest.y > 7)) { return 0; }//si me salgo del tablero
+
+				
+						cout << "LA REINA BLANCA COME" << endl;
+						return 1;
+					
+				}
+
+				if ((m.dest.x == m.ori.x) && (m.dest.y == m.ori.y - i))//horizontal a la izquierda
+				{
+					
+
+					if ((m.dest.x < 0) || (m.dest.y  < 0)) { return 0; }//si me salgo del tablero
+
+					
+						cout << "LA REINA BLANCA COME" << endl;
+						return 1;
+					
 				}
 			}
 			break;
@@ -239,225 +354,196 @@ int Movimientos::is_legal(move_t m, const Master& t)
 		case(Peon::REY_NEGRO):
 			if ((m.dest.x == m.ori.x + 1) && (m.dest.y == m.ori.y + 1)) //diagonal derecha inferior
 			{
-				fs = t.peones[m.dest.x + 1][m.dest.y + 1];
+				
 
 				if ((m.dest.x + 1 > 7) || (m.dest.y + 1 > 7)) { return 0; }
 
-				if (!fs)
-				{
-					delete fs;
 					cout << "el REY negro come" << endl;
 					return 1;
-				}
+				
 			}
 			if ((m.dest.x == m.ori.x + 1) && (m.dest.y == m.ori.y - 1)) //diagonal izquierda inferior
 			{
-				fs = t.peones[m.dest.x + 1][m.dest.y - 1];
+				
 
 				if ((m.dest.x + 1 > 7) || (m.dest.y - 1 < 0)) { return 0; }
 
-				if (!fs)
-				{
-					delete fs;
+				
 					cout << "el REY negro come" << endl;
 					return 1;
-				}
+				
 			}
 
 			if ((m.dest.x == m.ori.x - 1) && (m.dest.y == m.ori.y + 1)) //diagonal derecha superior
 			{
-				fs = t.peones[m.dest.x - 1][m.dest.y + 1];
+				
 
 				if ((m.dest.x - 1 < 0) || (m.dest.y + 1 > 7)) { return 0; }
 
-				if (!fs)
-				{
-					delete fs;
+				
 					cout << "el REY negro come" << endl;
 					return 1;
-				}
+				
 			}
 			if ((m.dest.x == m.ori.x - 1) && (m.dest.y == m.ori.y - 1))//diagonal izquierda superior
 			{
-				fs = t.peones[m.dest.x - 1][m.dest.y - 1];
+				
 
 				if ((m.dest.x - 1 < 0) || (m.dest.y - 1 < 0)) { return 0; }
 
-				if (!fs)
-				{
-					delete fs;
+				
 					cout << "el REY negro come" << endl;
 					return 1;
-				}
+				
 			}
 			break;
 		case(Peon::REY_BLANCO):
 			if ((m.dest.x == m.ori.x + 1) && (m.dest.y == m.ori.y + 1))//diagonal derecha inferior
 			{
-				fs = t.peones[m.dest.x + 1][m.dest.y + 1];
+				
 
 				if ((m.dest.x + 1 > 7) || (m.dest.y + 1 > 7)) { return 0; }
 
-				if (!fs)
-				{
-					delete fs;
+				
 					cout << "el REY blanco come" << endl;
 					return 1;
-				}
+				
 			}
 			if ((m.dest.x == m.ori.x + 1) && (m.dest.y == m.ori.y - 1))//diagonal izquierda inferior
 			{
-				fs = t.peones[m.dest.x + 1][m.dest.y - 1];
+				
 
 				if ((m.dest.x + 1 > 7) || (m.dest.y - 1 < 0)) { return 0; }
 
-				if (!fs)
-				{
-					delete fs;
+				
 					cout << "el REY blanco come" << endl;
 					return 1;
-				}
+				
 			}
 
 			if ((m.dest.x == m.ori.x - 1) && (m.dest.y == m.ori.y + 1))//diagonal derecha superior
 			{
-				fs = t.peones[m.dest.x - 1][m.dest.y + 1];
+				
 
 				if ((m.dest.x - 1 < 0) || (m.dest.y + 1 > 7)) { return 0; }
 
-				if (!fs)
-				{
-					delete fs;
+				
 					cout << "el REY blanco come" << endl;
 					return 1;
-				}
+				
 			}
 			if ((m.dest.x == m.ori.x - 1) && (m.dest.y == m.ori.y - 1))//diagonal izquierda superior
 			{
-				fs = t.peones[m.dest.x - 1][m.dest.y - 1];
+				
 
 				if ((m.dest.x - 1 < 0) || (m.dest.y - 1 < 0)) { return 0; }
 
-				if (!fs)
-				{
-					delete fs;
+				
 					cout << "el REY blanco come" << endl;
 					return 1;
-				}
+				
 			}
 			break;
 		case(Peon::TORRE_NEGRA):
-			if ((m.dest.x == m.ori.x + 1) && (m.dest.y == m.ori.y + 1)) //diagonal derecha inferior
-			{
-				fs = t.peones[m.dest.x + 1][m.dest.y + 1];
-
-				if ((m.dest.x + 1 > 7) || (m.dest.y + 1 > 7)) { return 0; }
-
-				if (!fs)
+			for (int i = 1; i < 8; i++) {
+				if ((m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y)) //
 				{
-					delete fs;
-					cout << "LA TORRE NEGRA come" << endl;
-					return 1;
+					
+
+					if ((m.dest.x > 7) || (m.dest.y > 7)) { return 0; }//
+
+					
+						cout << "LA TORRE NEGRA come" << endl;
+						return 1;
+					
 				}
-			}
-			if ((m.dest.x == m.ori.x + 1) && (m.dest.y == m.ori.y - 1)) //diagonal izquierda inferior
-			{
-				fs = t.peones[m.dest.x + 1][m.dest.y - 1];
-
-				if ((m.dest.x + 1 > 7) || (m.dest.y - 1 < 0)) { return 0; }
-
-				if (!fs)
+				if ((m.dest.x == m.ori.x - i) && (m.dest.y == m.ori.y)) //
 				{
-					delete fs;
-					cout << "LA TORRE NEGRA come" << endl;
-					return 1;
+					
+
+					if ((m.dest.x > 7) || (m.dest.y < 0)) { return 0; }
+
+					
+						cout << "LA TORRE NEGRA come" << endl;
+						return 1;
+					
 				}
-			}
 
-			if ((m.dest.x == m.ori.x - 1) && (m.dest.y == m.ori.y + 1)) //diagonal derecha superior
-			{
-				fs = t.peones[m.dest.x - 1][m.dest.y + 1];
-
-				if ((m.dest.x - 1 < 0) || (m.dest.y + 1 > 7)) { return 0; }
-
-				if (!fs)
+				if ((m.dest.x == m.ori.x) && (m.dest.y == m.ori.y + i)) 
 				{
-					delete fs;
-					cout << "LA TORRE NEGRA come" << endl;
-					return 1;
+					
+
+					if ((m.dest.x < 0) || (m.dest.y > 7)) { return 0; }
+
+					
+						cout << "LA TORRE NEGRA come" << endl;
+						return 1;
+					
 				}
-			}
-			if ((m.dest.x == m.ori.x - 1) && (m.dest.y == m.ori.y - 1))//diagonal izquierda superior
-			{
-				fs = t.peones[m.dest.x - 1][m.dest.y - 1];
-
-				if ((m.dest.x - 1 < 0) || (m.dest.y - 1 < 0)) { return 0; }
-
-				if (!fs)
+				if ((m.dest.x == m.ori.x ) && (m.dest.y == m.ori.y - i))
 				{
-					delete fs;
-					cout << "LA TORRE NEGRA come" << endl;
-					return 1;
+					
+
+					if ((m.dest.x < 0) || (m.dest.y < 0)) { return 0; }
+
+					
+						cout << "LA TORRE NEGRA come" << endl;
+						return 1;
+					
 				}
 			}
 			break;
 		case(Peon::TORRE_BLANCA):
-			if ((m.dest.x == m.ori.x + 1) && (m.dest.y == m.ori.y + 1)) //diagonal derecha inferior
-			{
-				fs = t.peones[m.dest.x + 1][m.dest.y + 1];
-
-				if ((m.dest.x + 1 > 7) || (m.dest.y + 1 > 7)) { return 0; }
-
-				if (!fs)
+			for (int i = 1; i < 8; i++) {
+				if ((m.dest.x == m.ori.x) && (m.dest.y == m.ori.y + i))
 				{
-					delete fs;
-					cout << "LA TORRE BLANCA come" << endl;
-					return 1;
+				
+
+					if ((m.dest.x > 7) || (m.dest.y > 7)) { return 0; }
+
+					
+						cout << "LA TORRE BLANCA come" << endl;
+						return 1;
+					
 				}
-			}
-			if ((m.dest.x == m.ori.x + 1) && (m.dest.y == m.ori.y - 1)) //diagonal izquierda inferior
-			{
-				fs = t.peones[m.dest.x + 1][m.dest.y - 1];
-
-				if ((m.dest.x + 1 > 7) || (m.dest.y - 1 < 0)) { return 0; }
-
-				if (!fs)
+				if ((m.dest.x == m.ori.x) && (m.dest.y == m.ori.y - i))
 				{
-					delete fs;
-					cout << "LA TORRE BLANCA come" << endl;
-					return 1;
+					
+
+					if ((m.dest.x > 7) || (m.dest.y < 0)) { return 0; }
+
+						cout << "LA TORRE BLANCA come" << endl;
+						return 1;
+					
 				}
-			}
 
-			if ((m.dest.x == m.ori.x - 1) && (m.dest.y == m.ori.y + 1)) //diagonal derecha superior
-			{
-				fs = t.peones[m.dest.x - 1][m.dest.y + 1];
-
-				if ((m.dest.x - 1 < 0) || (m.dest.y + 1 > 7)) { return 0; }
-
-				if (!fs)
+				if ((m.dest.x == m.ori.x - i) && (m.dest.y == m.ori.y))
 				{
-					delete fs;
-					cout << "LA TORRE BLANCA come" << endl;
-					return 1;
+					
+
+					if ((m.dest.x < 0) || (m.dest.y > 7)) { return 0; }
+
+					
+						cout << "LA TORRE BLANCA come" << endl;
+						return 1;
+					
 				}
-			}
-			if ((m.dest.x == m.ori.x - 1) && (m.dest.y == m.ori.y - 1))//diagonal izquierda superior
-			{
-				fs = t.peones[m.dest.x - 1][m.dest.y - 1];
-
-				if ((m.dest.x - 1 < 0) || (m.dest.y - 1 < 0)) { return 0; }
-
-				if (!fs)
+				if ((m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y))
 				{
-					delete fs;
-					cout << "LA TORRE BLANCA come" << endl;
-					return 1;
+					
+
+					if ((m.dest.x < 0) || (m.dest.y < 0)) { return 0; }
+
+					
+						cout << "LA TORRE BLANCA come" << endl;
+						return 1;
+					
 				}
+
 			}
 			break;
 		
-			default:
+		default:
 				break;
 		}
 	}
@@ -538,59 +624,44 @@ int Movimientos::move(move_t m, Master& t)
 					}
 				}
 				break;
-			case(Peon::REINA_BLANCA): //elegir diagonal para mover fo
+			case(Peon::REINA_NEGRA):
 				aux = { m.dest.x ,m.dest.y };
-				if ((m.dest.x == m.ori.x + 1) && (m.dest.y == m.ori.y + 1))//diagonal derecha inferior
-				{
+				for (int i = 1; i < 8; i++) { //este bucle cubre todos los posibles movimientos diagonales de la REINA
+					if ((m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y + i) || (m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y - i) ||
+						(m.dest.x == m.ori.x - i) && (m.dest.y == m.ori.y + i) || (m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y - i))
+					{
+						t += reinan({ aux });
+						t -= *fo;
+						
+					}
+
+					if ((m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y) || (m.dest.x == m.ori.x - i) && (m.dest.y == m.ori.y) ||
+						(m.dest.x == m.ori.x) && (m.dest.y == m.ori.y + i) || (m.dest.x == m.ori.x) && (m.dest.y == m.ori.y - i))
+					{
+						t += reinan({ aux });
+						t -= *fo;
 					
-					t += reinab({ aux });
-					t -= *fo;
-				}
-				if ((m.dest.x == m.ori.x + 1) && (m.dest.y == m.ori.y - 1))//diagonal izquierda inferior
-				{
-					
-					t += reinab({ aux });
-					t -= *fo;
-				}
-				if ((m.dest.x == m.ori.x - 1) && (m.dest.y == m.ori.y + 1))//diagonal derecha superior
-				{
-					
-					t += reinab({ aux });
-					t -= *fo;
-				}
-				if ((m.dest.x == m.ori.x - 1) && (m.dest.y == m.ori.y - 1))//diagonal izquierda superior
-				{
-					
-					t += reinab({ aux });
-					t -= *fo;
+					}
 				}
 				break;
-			case(Peon::REINA_NEGRA): //elegir diagonal para mover fo
-
+			case(Peon::REINA_BLANCA):
 				aux = { m.dest.x ,m.dest.y };
-				if ((m.dest.x == m.ori.x ) && (m.dest.y == m.ori.y ))//diagonal derecha inferior
-				{
-				
-					t += reinan({ aux });
-					t -= *fo;
-				}
-				if ((m.dest.x == m.ori.x + 1) && (m.dest.y == m.ori.y - 1))//diagonal izquierda inferior
-				{
+				for (int i = 1; i < 8; i++) { //este bucle cubre todos los posibles movimientos diagonales de la REINA
+					if ((m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y + i) || (m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y - i) ||
+						(m.dest.x == m.ori.x - i) && (m.dest.y == m.ori.y + i) || (m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y - i))
+					{
+						t += reinab({ aux });
+						t -= *fo;
+						
+					}
+
+					if ((m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y) || (m.dest.x == m.ori.x - i) && (m.dest.y == m.ori.y) ||
+						(m.dest.x == m.ori.x) && (m.dest.y == m.ori.y + i) || (m.dest.x == m.ori.x) && (m.dest.y == m.ori.y - i))
+					{
+						t += reinab({ aux });
+						t -= *fo;
 					
-					t += reinan({ aux });
-					t -= *fo;
-				}
-				if ((m.dest.x == m.ori.x - 1) && (m.dest.y == m.ori.y + 1))//diagonal derecha superior
-				{
-				
-					t += reinan({ aux });
-					t -= *fo;
-				}
-				if ((m.dest.x == m.ori.x - 1) && (m.dest.y == m.ori.y - 1))//diagonal izquierda superior
-				{
-					
-					t += reinan({ aux });
-					t -= *fo;
+					}
 				}
 				break;
 
@@ -650,62 +721,30 @@ int Movimientos::move(move_t m, Master& t)
 					t -= *fo;
 				}
 				break;
-			case(Peon::TORRE_NEGRA): //elegir diagonal para mover fo
 
+			case(Peon::TORRE_NEGRA):
 				aux = { m.dest.x ,m.dest.y };
-				if ((m.dest.x == m.ori.x) && (m.dest.y == m.ori.y))//diagonal derecha inferior
-				{
-
-					t += tn({ aux });
-					t -= *fo;
-				}
-				if ((m.dest.x == m.ori.x + 1) && (m.dest.y == m.ori.y - 1))//diagonal izquierda inferior
-				{
-
-					t += tn({ aux });
-					t -= *fo;
-				}
-				if ((m.dest.x == m.ori.x - 1) && (m.dest.y == m.ori.y + 1))//diagonal derecha superior
-				{
-
-					t += tn({ aux });
-					t -= *fo;
-				}
-				if ((m.dest.x == m.ori.x - 1) && (m.dest.y == m.ori.y - 1))//diagonal izquierda superior
-				{
-
-					t += tn({ aux });
-					t -= *fo;
+				for (int i = 1; i < 8; i++) {
+					if ((m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y) || (m.dest.x == m.ori.x - i) && (m.dest.y == m.ori.y) ||
+						(m.dest.x == m.ori.x) && (m.dest.y == m.ori.y + i) || (m.dest.x == m.ori.x) && (m.dest.y == m.ori.y - i)) 
+					{
+						t += tn({ aux });
+						t -= *fo;
+					}
 				}
 				break;
-			case(Peon::TORRE_BLANCA): //elegir diagonal para mover fo
-
+			case(Peon::TORRE_BLANCA):
 				aux = { m.dest.x ,m.dest.y };
-				if ((m.dest.x == m.ori.x) && (m.dest.y == m.ori.y))//diagonal derecha inferior
-				{
-
-					t += tb({ aux });
-					t -= *fo;
-				}
-				if ((m.dest.x == m.ori.x + 1) && (m.dest.y == m.ori.y - 1))//diagonal izquierda inferior
-				{
-
-					t += tb({ aux });
-					t -= *fo;
-				}
-				if ((m.dest.x == m.ori.x - 1) && (m.dest.y == m.ori.y + 1))//diagonal derecha superior
-				{
-
-					t += tb({ aux });
-					t -= *fo;
-				}
-				if ((m.dest.x == m.ori.x - 1) && (m.dest.y == m.ori.y - 1))//diagonal izquierda superior
-				{
-
-					t += tb({ aux });
-					t -= *fo;
+				for (int i = 1; i < 8; i++) {
+					if ((m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y) || (m.dest.x == m.ori.x - i) && (m.dest.y == m.ori.y) ||
+						(m.dest.x == m.ori.x) && (m.dest.y == m.ori.y + i) || (m.dest.x == m.ori.x) && (m.dest.y == m.ori.y - i)) 
+					{
+						t += tb({ aux });
+						t -= *fo;
+					}
 				}
 				break;
+		
 			default:
 				break;
 			}

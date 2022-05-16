@@ -24,7 +24,7 @@ protected:
 	enum { MOUSE_LEFT_BUTTON, MOUSE_MIDDLE_BUTTON, MOUSE_RIGHT_BUTTON };
 
 public:
-
+	Peon p;
 	void Dibuja(Master &);  //le meto la clase master
 	//void DibujaRepaso();
 	void DibujaEnCelda(Master&, int, int);
@@ -33,4 +33,5 @@ public:
 	void localizarcentro(int, int, float&, float&);
 	void world2cell(double, double, int&, int&);
 	void BotonMouse(int, int, int, bool);
+	void drawsquare();
 };

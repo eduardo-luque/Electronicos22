@@ -86,3 +86,20 @@ Peon* fabrica::create(const Peon& f)
 
 }
 
+void Peon::dibuja(obj_t t) {
+	pb pb; pn pn; cabn cabn; cabb cabb; alfn alfn; alfb alfb; tn tn; tb tb; reinan reinan; reinab reinab; reyn reyn; reyb reyb;
+	switch (t) {
+	case Peon::PEON_NEGRO: pn.dibuja(); break;
+	case Peon::PEON_BLANCO: pb.dibuja(); break;
+	case Peon::CABALLO_NEGRO: cabn.dibuja(); break;
+	case Peon::CABALLO_BLANCO: cabb.dibuja(); break;
+	case Peon::ALFIL_NEGRO: alfn.dibuja(); break;
+	case Peon::ALFIL_BLANCO: alfb.dibuja(); break;
+	case Peon::TORRE_NEGRA: tn.dibuja(); break;
+	case Peon::TORRE_BLANCA: tb.dibuja(); break;
+	case Peon::REINA_NEGRA: reinan.dibuja(); break;
+	case Peon::REINA_BLANCA: reinab.dibuja(); break;
+	case Peon::REY_NEGRO: reyn.dibuja(); break;
+	case Peon::REY_BLANCO: reyb.dibuja(); break;
+	}
+}

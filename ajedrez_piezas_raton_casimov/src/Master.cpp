@@ -1,5 +1,6 @@
 #include "Master.h"
 
+
 void Master::nulify()
 {
 	for (int i = 0; i < n; i++) {
@@ -54,7 +55,7 @@ Master::Master() :nFichas(0)
 
 void Master::Inicializa() {  //creamos los peones blancos y negros. tambien torres
 
-	nulify();
+	//nulify();
 
 	//creamos fichas blancas
 	for (int j = 0; j < n; j += 1) { //vamos creando los peones blancos casilla a casilla

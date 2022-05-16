@@ -226,5 +226,42 @@ int Mundo::MovimientoHumano(char t)
 
 
 		}
+
+	//SI QUEREMOS QUITAR EL FICHERO BotLegal.h y .cpp TENDRIAMOS QUE CAMBIAR TODO EL CONTENIDO DE ESTA FUNCIÓN MOVIMIENTOHUMANO
+//POR EL SIGUIENTE :
+/*
+if (t == 'N')
+{
+	if (mo.is_legal({ origen_n, destino_n }, mast) == 2)//movimiento simple sin comer
+	{
+		mo.move({ origen_n, destino_n }, mast);
+		return 1;	//pasamos al turno del otro
+	}
+
+	if (mo.is_legal({ origen_n, destino_n }, mast) == 1)
+	{
+		mo.move({ origen_n, destino_n }, mast);
+		return 1;						//vuelvo a mi turno porque el movimiento es de tipo comer
+	}
+
+	else return 4;//movimiento no valido con lo cual continuo con mi turno
+}
+if (t == 'B')
+{
+	if (mo.is_legal({ origen_b, destino_b }, mast) == 2)//movimiento simple sin comer
+	{
+		mo.move({ origen_b, destino_b }, mast);
+		return 1;	//pasamos al turno del otro
+	}
+
+	if (mo.is_legal({ origen_b, destino_b }, mast) == 1)
+	{
+		mo.move({ origen_b, destino_b }, mast);
+		return 1;
+	}
+
+	else return 4;//movimiento no valido con lo cual continuo con mi turno
+*/
+
 	
 }

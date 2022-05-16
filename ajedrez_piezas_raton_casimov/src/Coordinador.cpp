@@ -117,7 +117,7 @@ void Coordinador::TurnoMultiplayer()
 					}
 
 					turno = JUGADOR_B;
-					mundo.setMovimiento({ 0,0 }, { 0,0 });
+					mundo.setMovimiento({ -1,-1 }, { -1,-1 });
 					break;
 				case 2: //si me mete en 2 es porque viene de comer
 					turno = JUGADOR_N;
@@ -133,7 +133,7 @@ void Coordinador::TurnoMultiplayer()
 					else
 					{
 						turno = JUGADOR_B;
-						mundo.setMovimiento({ 0,0 }, { 0,0 });
+						mundo.setMovimiento({ -1,-1}, { -1,-1 });
 					}
 				case 4://movimiento no valido
 					turno = JUGADOR_N;
@@ -162,7 +162,7 @@ void Coordinador::TurnoMultiplayer()
 					}
 
 					turno = JUGADOR_N;
-					mundo.setMovimiento({ 0,0 }, { 0,0 });
+					mundo.setMovimiento({ -1,-1 }, { -1,-1});
 					break;
 				case 2: //si me mete en 2 es porque viene de comer
 					turno = JUGADOR_B;
@@ -178,7 +178,7 @@ void Coordinador::TurnoMultiplayer()
 					else
 					{
 						turno = JUGADOR_N;
-						mundo.setMovimiento({ 0,0 }, { 0,0 });
+						mundo.setMovimiento({ -1,-1 }, { -1,-1 });
 					}
 				case 4://si me mete en 4 es porque viene de que el movimiento no ha sido valido
 					turno = JUGADOR_B;
