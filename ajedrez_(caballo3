@@ -1,0 +1,50 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(499,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: El directorio intermedio (x64\Debug\) contiene archivos compartidos de otro proyecto (Ajedrez2.vcxproj). Esto puede dar lugar a un comportamiento incorrecto de limpieza y recompilación.
+  Ajedrez.cpp
+  Coordinador.cpp
+C:\Users\Propietario\Documents\GitHub\Electronicos22\ajedrez_(caballo3;4_alfil_ok)\src\Coordinador.cpp(32,37): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+  Master.cpp
+  Movimientos.cpp
+  Mundo.cpp
+C:\Users\Propietario\Documents\GitHub\Electronicos22\ajedrez_(caballo3;4_alfil_ok)\src\Mundo.cpp(151,47): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\Propietario\Documents\GitHub\Electronicos22\ajedrez_(caballo3;4_alfil_ok)\src\Mundo.cpp(151,34): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\Propietario\Documents\GitHub\Electronicos22\ajedrez_(caballo3;4_alfil_ok)\src\Mundo.cpp(151,21): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\Propietario\Documents\GitHub\Electronicos22\ajedrez_(caballo3;4_alfil_ok)\src\Mundo.cpp(154,21): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\Propietario\Documents\GitHub\Electronicos22\ajedrez_(caballo3;4_alfil_ok)\src\Mundo.cpp(155,25): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\Propietario\Documents\GitHub\Electronicos22\ajedrez_(caballo3;4_alfil_ok)\src\Mundo.cpp(156,22): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\Propietario\Documents\GitHub\Electronicos22\ajedrez_(caballo3;4_alfil_ok)\src\Mundo.cpp(158,48): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\Propietario\Documents\GitHub\Electronicos22\ajedrez_(caballo3;4_alfil_ok)\src\Mundo.cpp(158,34): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\Propietario\Documents\GitHub\Electronicos22\ajedrez_(caballo3;4_alfil_ok)\src\Mundo.cpp(158,22): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+  Peon.cpp
+  Tablero.cpp
+C:\Users\Propietario\Documents\GitHub\Electronicos22\ajedrez_(caballo3;4_alfil_ok)\src\Tablero.cpp(10,49): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\Propietario\Documents\GitHub\Electronicos22\ajedrez_(caballo3;4_alfil_ok)\src\Tablero.cpp(11,50): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\Propietario\Documents\GitHub\Electronicos22\ajedrez_(caballo3;4_alfil_ok)\src\Tablero.cpp(14,28): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\Propietario\Documents\GitHub\Electronicos22\ajedrez_(caballo3;4_alfil_ok)\src\Tablero.cpp(17,29): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
+C:\Users\Propietario\Documents\GitHub\Electronicos22\ajedrez_(caballo3;4_alfil_ok)\src\Tablero.cpp(122,31): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\Propietario\Documents\GitHub\Electronicos22\ajedrez_(caballo3;4_alfil_ok)\src\Tablero.cpp(126,34): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\Propietario\Documents\GitHub\Electronicos22\ajedrez_(caballo3;4_alfil_ok)\src\Tablero.cpp(134,31): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\Propietario\Documents\GitHub\Electronicos22\ajedrez_(caballo3;4_alfil_ok)\src\Tablero.cpp(138,34): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\Propietario\Documents\GitHub\Electronicos22\ajedrez_(caballo3;4_alfil_ok)\src\Tablero.cpp(146,31): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\Propietario\Documents\GitHub\Electronicos22\ajedrez_(caballo3;4_alfil_ok)\src\Tablero.cpp(150,34): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\Propietario\Documents\GitHub\Electronicos22\ajedrez_(caballo3;4_alfil_ok)\src\Tablero.cpp(158,31): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\Propietario\Documents\GitHub\Electronicos22\ajedrez_(caballo3;4_alfil_ok)\src\Tablero.cpp(162,34): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\Propietario\Documents\GitHub\Electronicos22\ajedrez_(caballo3;4_alfil_ok)\src\Tablero.cpp(170,31): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\Propietario\Documents\GitHub\Electronicos22\ajedrez_(caballo3;4_alfil_ok)\src\Tablero.cpp(174,34): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\Propietario\Documents\GitHub\Electronicos22\ajedrez_(caballo3;4_alfil_ok)\src\Tablero.cpp(182,31): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\Propietario\Documents\GitHub\Electronicos22\ajedrez_(caballo3;4_alfil_ok)\src\Tablero.cpp(186,34): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\Propietario\Documents\GitHub\Electronicos22\ajedrez_(caballo3;4_alfil_ok)\src\Tablero.cpp(194,31): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\Propietario\Documents\GitHub\Electronicos22\ajedrez_(caballo3;4_alfil_ok)\src\Tablero.cpp(198,34): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\Propietario\Documents\GitHub\Electronicos22\ajedrez_(caballo3;4_alfil_ok)\src\Tablero.cpp(206,31): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\Propietario\Documents\GitHub\Electronicos22\ajedrez_(caballo3;4_alfil_ok)\src\Tablero.cpp(210,34): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\Propietario\Documents\GitHub\Electronicos22\ajedrez_(caballo3;4_alfil_ok)\src\Tablero.cpp(218,31): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\Propietario\Documents\GitHub\Electronicos22\ajedrez_(caballo3;4_alfil_ok)\src\Tablero.cpp(222,34): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\Propietario\Documents\GitHub\Electronicos22\ajedrez_(caballo3;4_alfil_ok)\src\Tablero.cpp(230,31): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\Propietario\Documents\GitHub\Electronicos22\ajedrez_(caballo3;4_alfil_ok)\src\Tablero.cpp(234,34): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\Propietario\Documents\GitHub\Electronicos22\ajedrez_(caballo3;4_alfil_ok)\src\Tablero.cpp(246,30): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Propietario\Documents\GitHub\Electronicos22\ajedrez_(caballo3;4_alfil_ok)\src\Tablero.cpp(247,31): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Propietario\Documents\GitHub\Electronicos22\ajedrez_(caballo3;4_alfil_ok)\src\Tablero.cpp(290,30): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\Propietario\Documents\GitHub\Electronicos22\ajedrez_(caballo3;4_alfil_ok)\src\Tablero.cpp(291,30): warning C4305: '=': truncamiento de 'double' a 'float'
+  Generando código...
+C:\Users\Propietario\Documents\GitHub\Electronicos22\ajedrez_(caballo3;4_alfil_ok)\src\Mundo.cpp(281): warning C4715: 'Mundo::MovimientoPlayer': no todas las rutas de acceso de control devuelven un valor
+  Pang.vcxproj -> C:\Users\Propietario\Documents\GitHub\Electronicos22\ajedrez_(caballo3;4_alfil_ok)\bin\AjedrezOroPlata.exe
