@@ -19,4 +19,5 @@ protected:
 	enum Turno { JUGADOR_B, JUGADOR_N };
 	Estado estado;
 	Turno turno;
+
 };

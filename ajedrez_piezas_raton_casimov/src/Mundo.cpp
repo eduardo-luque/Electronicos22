@@ -17,6 +17,7 @@ void Mundo::Dibuja() {
 	tabl.Dibuja(mast); //La funcion es de tablero pero incluyo el master para poder utilizarlo?
 	DibujaCasilla(origen_n);
 	DibujaCasilla(origen_b);
+
 }
 
 void Mundo::Raton(int x, int y, int b, bool state, char t) {
@@ -35,73 +36,73 @@ void Mundo::Raton(int x, int y, int b, bool state, char t) {
 
 		if ((tabl.xcell_sel <= 8) && (tabl.xcell_sel >= 0) && (tabl.ycell_sel <= 8) && (tabl.ycell_sel >= 0))
 		{
-			if (mast.piezas[tabl.xcell_sel][tabl.ycell_sel] && clic == 2)
+			if (mast.peones[tabl.xcell_sel][tabl.ycell_sel] && clic == 2)
 			{
 
 				cout << "ORIGEN!!" << endl;
-				switch (mast.piezas[tabl.xcell_sel][tabl.ycell_sel]->type())
+				switch (mast.peones[tabl.xcell_sel][tabl.ycell_sel]->type())
 				{
 
-				case(Pieza::PEON_NEGRO):
+				case(Peon::PEON_NEGRO):
 					cout << "peon negro!!" << endl;
 					origen_n.x = tabl.xcell_sel;
 					origen_n.y = tabl.ycell_sel;
 					break;
 
-				case(Pieza::PEON_BLANCO):
+				case(Peon::PEON_BLANCO):
 					cout << "peon blanco!!" << endl;
 					origen_b.x = tabl.xcell_sel;
 					origen_b.y = tabl.ycell_sel;
 					break;
 
-				case(Pieza::REINA_NEGRA):
+				case(Peon::REINA_NEGRA):
 					cout << "reina negra!!" << endl;
 					origen_n.x = tabl.xcell_sel;
 					origen_n.y = tabl.ycell_sel;
 					break;
-				case(Pieza::REINA_BLANCA):
+				case(Peon::REINA_BLANCA):
 					cout << "reina blanca!!" << endl;
 					origen_b.x = tabl.xcell_sel;
 					origen_b.y = tabl.ycell_sel;
 					break;
 
-				case(Pieza::REY_NEGRO):
+				case(Peon::REY_NEGRO):
 					cout << "rey negro!!" << endl;
 					origen_n.x = tabl.xcell_sel;
 					origen_n.y = tabl.ycell_sel;
 					break;
-				case(Pieza::REY_BLANCO):
+				case(Peon::REY_BLANCO):
 					cout << "rey blanco!!" << endl;
 					origen_b.x = tabl.xcell_sel;
 					origen_b.y = tabl.ycell_sel;
 					break;
 
-				case(Pieza::TORRE_NEGRA):
+				case(Peon::TORRE_NEGRA):
 					cout << "torre negra!!" << endl;
 					origen_n.x = tabl.xcell_sel;
 					origen_n.y = tabl.ycell_sel;
 					break;
-				case(Pieza::TORRE_BLANCA):
+				case(Peon::TORRE_BLANCA):
 					cout << "torre blanca!!" << endl;
 					origen_b.x = tabl.xcell_sel;
 					origen_b.y = tabl.ycell_sel;
 					break;
-				case(Pieza::ALFIL_BLANCO):
+				case(Peon::ALFIL_BLANCO):
 					cout << "alfil blanco!!" << endl;
 					origen_b.x = tabl.xcell_sel;
 					origen_b.y = tabl.ycell_sel;
 					break;
-				case(Pieza::ALFIL_NEGRO):
+				case(Peon::ALFIL_NEGRO):
 					cout << "alfil negro!!" << endl;
 					origen_n.x = tabl.xcell_sel;
 					origen_n.y = tabl.ycell_sel;
 					break;
-				case(Pieza::CABALLO_BLANCO):
+				case(Peon::CABALLO_BLANCO):
 					cout << "caballo blanco!!" << endl;
 					origen_b.x = tabl.xcell_sel;
 					origen_b.y = tabl.ycell_sel;
 					break;
-				case(Pieza::CABALLO_NEGRO):
+				case(Peon::CABALLO_NEGRO):
 					cout << "caballo negro!!" << endl;
 					origen_n.x = tabl.xcell_sel;
 					origen_n.y = tabl.ycell_sel;
@@ -112,14 +113,14 @@ void Mundo::Raton(int x, int y, int b, bool state, char t) {
 
 			if (clic == 4)
 			{
-				if (mast.piezas[origen_n.x][origen_n.y]) //se deja por si se setea un destino sin haber puesto antes un origen //como cada vez que se pasa de turno el origen y el destino de las fichas se pone a 0,0
+				if (mast.peones[origen_n.x][origen_n.y]) //se deja por si se setea un destino sin haber puesto antes un origen //como cada vez que se pasa de turno el origen y el destino de las fichas se pone a 0,0
 				{
 					destino_n.x = tabl.xcell_sel;
 					destino_n.y = tabl.ycell_sel;
 					clic = 0;
 				}
 
-				if (mast.piezas[origen_b.x][origen_b.y]) //es muy importante que ponga a 0,0 de en cada turno para que funcione bien
+				if (mast.peones[origen_b.x][origen_b.y]) //es muy importante que ponga a 0,0 de en cada turno para que funcione bien
 				{
 					destino_b.x = tabl.xcell_sel;
 					destino_b.y = tabl.ycell_sel;
@@ -159,6 +160,7 @@ void Mundo::DibujaCasilla(cas_t& c) { //dibujamos la casilla del que tocamos
 	}
 }
 
+
 void Mundo::setMovimiento(cas_t ori, cas_t dest)
 {
 	origen_n = ori;
@@ -166,6 +168,8 @@ void Mundo::setMovimiento(cas_t ori, cas_t dest)
 	destino_n = dest;
 	destino_b = dest;
 }
+
+
 
 //funcion prueba para ver si se mueve
 int Mundo::MovimientoPlayer(char t)
@@ -247,11 +251,11 @@ int Mundo::MovimientoPlayer(char t)
 			return 2;
 		}
 
-		else return 4; //movimiento no valido con lo cual continuo con mi turno
+		else return 4;//movimiento no valido con lo cual continuo con mi turno
 	}
 	if (t == 'B')
 	{
-		if (mo.is_legal({ origen_b, destino_b }, mast) == 2) //movimiento simple sin comer
+		if (mo.is_legal({ origen_b, destino_b }, mast) == 2)//movimiento simple sin comer
 		{
 			mo.move({ origen_b, destino_b }, mast);
 			return 1;	//pasamos al turno del otro

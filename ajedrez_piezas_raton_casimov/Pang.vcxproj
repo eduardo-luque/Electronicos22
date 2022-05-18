@@ -24,7 +24,7 @@
     <ClCompile Include="src\Master.cpp" />
     <ClCompile Include="src\Movimientos.cpp" />
     <ClCompile Include="src\Mundo.cpp" />
-    <ClCompile Include="src\Pieza.cpp" />
+    <ClCompile Include="src\Peon.cpp" />
     <ClCompile Include="src\Tablero.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -32,7 +32,7 @@
     <ClInclude Include="src\Master.h" />
     <ClInclude Include="src\Movimientos.h" />
     <ClInclude Include="src\Mundo.h" />
-    <ClInclude Include="src\Pieza.h" />
+    <ClInclude Include="src\Peon.h" />
     <ClInclude Include="src\Tablero.h" />
     <ClInclude Include="src\vector2D.h" />
   </ItemGroup>
@@ -62,7 +62,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>

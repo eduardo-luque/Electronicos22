@@ -5,7 +5,7 @@
 Coordinador::Coordinador() {  //empezamos en la pantalla de inicio
 
 	estado = INICIO;
-
+	ETSIDI::playMusica("sonidos/summer_nights.mp3");
 }
 
 Coordinador::~Coordinador() {
@@ -38,6 +38,7 @@ void Coordinador::Dibuja() {
 	}
 	else if (estado == MULTIPLAYER) { // dibujamos el tablero
 		mundo.Dibuja();
+		
 		
 		if (turno == JUGADOR_B) {  //la pantalla de fondo cambia
 			glDisable(GL_LIGHTING);
@@ -93,9 +94,11 @@ void Coordinador::Dibuja() {
 void Coordinador::Tecla(unsigned char key) {
 
 	if (estado == INICIO) {
-		
+
 		if (key == '1') {
+			ETSIDI::stopMusica();
 			ETSIDI::play("sonidos/impacto.wav");
+			ETSIDI::playMusica("sonidos/partida.mp3");
 			mundo.Inicializa(); estado = MULTIPLAYER;  turno = JUGADOR_B;  //Inicializamos coordinador, y le damos el turno al jugador B
 		}
 		else if (key == 'S' || key == 's') { exit(0); }
@@ -112,25 +115,27 @@ void Coordinador::Tecla(unsigned char key) {
 
 void Coordinador::Raton(int b, int state, int x, int y) {
 
-	if (estado == INICIO) 
+	if (estado == INICIO)
 	{
 
-		cout << b << ", " << state << ", " << x << ", " << y << endl;
+		printf("%d %d %d %d\n", b, state, x, y);
 		if (b == 0 && state == 1 && x >= 126 && x <= 470 && y >= 340 && y <= 367)
 		{
+			ETSIDI::stopMusica();
 			ETSIDI::play("sonidos/impacto.wav");
+			ETSIDI::playMusica("sonidos/partida.mp3");
 			mundo.Inicializa();
 			turno = JUGADOR_B;
 			estado = MULTIPLAYER;
-			cout << "raton pulsado en multiplayer" << endl;
+			printf("raton pulsado en multiplayer\n");
 		}
 		if (b == 0 && state == 1 && x >= 126 && x <= 470 && y >= 397 && y <= 421)
 		{
-			cout << "raton pulsado en salir" << endl;
+			printf("raton pulsado en salir\n");
 			exit(0);
 		}
 	}
-	
+
 	//seleccion de turnos
 	if (turno == JUGADOR_B)
 	{
@@ -155,19 +160,18 @@ void Coordinador::TurnoMultiplayer()
 
 			switch (aux)
 			{
-			case 1:// paso al turno del jugador con blancas
-					
-                                ETSIDI::play("sonidos/disparo.wav");
+			case 1:
+				ETSIDI::play("sonidos/disparo.wav");
 				turno = JUGADOR_B;
 				mundo.setMovimiento({ 0,0 }, { 0,0 });
 				break;
-			case 2:// se consigue la victoria
-				
-				estado = GANA_N;
+			case 2:
+
+				estado=GANA_N;
 				mundo.setMovimiento({ 0,0 }, { 0,0 });
 				break;
 
-			case 4: //movimiento no valido
+			case 4://movimiento no valido
 				turno = JUGADOR_N;
 				break;
 			}
@@ -180,12 +184,12 @@ void Coordinador::TurnoMultiplayer()
 
 			switch (aux)
 			{
-			case 1: // se pasa de turno
-                                ETSIDI::play("sonidos/disparo.wav");
+			case 1:
+				ETSIDI::play("sonidos/disparo.wav");
 				turno = JUGADOR_N;
 				mundo.setMovimiento({ 0,0 }, { 0,0 });
 				break;
-			case 2:// el jugador blanco consigue la victoria
+			case 2:
 
 				estado = GANA_B;
 				mundo.setMovimiento({ 0,0 }, { 0,0 });

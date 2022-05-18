@@ -2,7 +2,7 @@
 #include "Tablero.h"
 #include "freeglut.h"
 #include "Vector2D.h"
-#include "Pieza.h"
+#include "Peon.h"
 
 //Funcion principal para dibujar el tablero
 
@@ -28,7 +28,7 @@ void Tablero::Dibuja(Master& t) {
 	{
 		for (int j = 1; j < numcasillas; j++)
 
-			if (t.piezas[i][j] != NULL)
+			if (t.peones[i][j] != NULL)
 				DibujaEnCelda(t, i, j);
 	}
 
@@ -87,149 +87,149 @@ void Tablero::Dibuja(Master& t) {
 void Tablero::DibujaEnCelda(Master& t, int x, int y) {
 	float glx, gly;
 
-	cas_t pos = t.piezas[x][y]->square();
+	cas_t pos = t.peones[x][y]->square();
 	int i = pos.x, j = pos.y;
 
-	switch (t.piezas[x][y]->type()) {
-	case (Pieza::PEON_BLANCO):
+	switch (t.peones[x][y]->type()) {
+	case (Peon::PEON_BLANCO):
 		localizarcentro(i, j, glx, gly);
 		glDisable(GL_LIGHTING);
 		glColor3ub(192, 192, 192);  //color plata rgb
 		glTranslatef(glx, gly, 0.001f);
 		//drawFilledCircle(0.0f, 0.0f, anchocasilla * 0.45f);
-		p.dibuja(Pieza::PEON_BLANCO);
+		p.dibuja(Peon::PEON_BLANCO);
 		drawsquare();
 		glTranslatef(-glx, -gly, -0.001f);
 		glEnable(GL_LIGHTING);
 		break;
 
-	case (Pieza::PEON_NEGRO):
+	case (Peon::PEON_NEGRO):
 		localizarcentro(i, j, glx, gly);
 		glDisable(GL_LIGHTING);
 		glColor3ub(234, 190, 63);   //color oro rgb
 		glTranslatef(glx, gly, 0.001f);
 		//drawFilledCircle(0.0f, 0.0f, (anchocasilla / 2.0f) * 0.9f);
-		p.dibuja(Pieza::PEON_NEGRO);
+		p.dibuja(Peon::PEON_NEGRO);
 		drawsquare();
 		glTranslatef(-glx, -gly, -0.001f);
 		glEnable(GL_LIGHTING);
 		break;
 
-	case (Pieza::TORRE_BLANCA):
+	case (Peon::TORRE_BLANCA):
 		localizarcentro(i, j, glx, gly);
 		glDisable(GL_LIGHTING);
 		glColor3ub(234, 190, 250);   //color TORRE blanca
 		glTranslatef(glx, gly, 0.001);
 		//drawFilledCircle(0.0f, 0.0f, (anchocasilla / 2.0f) * 0.9f);
-		p.dibuja(Pieza::TORRE_BLANCA);
+		p.dibuja(Peon::TORRE_BLANCA);
 		drawsquare();
 		glTranslatef(-glx, -gly, -0.001);
 		glEnable(GL_LIGHTING);
 		break;
 
-	case (Pieza::TORRE_NEGRA):
+	case (Peon::TORRE_NEGRA):
 		localizarcentro(i, j, glx, gly);
 		glDisable(GL_LIGHTING);
 		glColor3ub(234, 190, 250);   //color TORRE negra
 		glTranslatef(glx, gly, 0.001);
 		//drawFilledCircle(0.0f, 0.0f, (anchocasilla / 2.0f) * 0.9f);
-		p.dibuja(Pieza::TORRE_NEGRA);
+		p.dibuja(Peon::TORRE_NEGRA);
 		drawsquare();
 		glTranslatef(-glx, -gly, -0.001);
 		glEnable(GL_LIGHTING);
 		break;
 
-	case (Pieza::CABALLO_BLANCO):
+	case (Peon::CABALLO_BLANCO):
 		localizarcentro(i, j, glx, gly);
 		glDisable(GL_LIGHTING);
 		glColor3ub(192, 190, 250);   //color CABALLO blanco
 		glTranslatef(glx, gly, 0.001);
 		//drawFilledCircle(0.0f, 0.0f, (anchocasilla / 2.0f) * 0.9f);
-		p.dibuja(Pieza::CABALLO_BLANCO);
+		p.dibuja(Peon::CABALLO_BLANCO);
 		drawsquare();
 		glTranslatef(-glx, -gly, -0.001);
 		glEnable(GL_LIGHTING);
 		break;
 
-	case (Pieza::CABALLO_NEGRO):
+	case (Peon::CABALLO_NEGRO):
 		localizarcentro(i, j, glx, gly);
 		glDisable(GL_LIGHTING);
 		glColor3ub(192, 190, 250);   //color CABALLO negro
 		glTranslatef(glx, gly, 0.001);
 		//drawFilledCircle(0.0f, 0.0f, (anchocasilla / 2.0f) * 0.9f);
-		p.dibuja(Pieza::CABALLO_NEGRO);
+		p.dibuja(Peon::CABALLO_NEGRO);
 		drawsquare();
 		glTranslatef(-glx, -gly, -0.001);
 		glEnable(GL_LIGHTING);
 		break;
 
-	case (Pieza::ALFIL_BLANCO):
+	case (Peon::ALFIL_BLANCO):
 		localizarcentro(i, j, glx, gly);
 		glDisable(GL_LIGHTING);
 		glColor3ub(0, 190, 0);   //color ALFIL blanco
 		glTranslatef(glx, gly, 0.001);
 		//drawFilledCircle(0.0f, 0.0f, (anchocasilla / 2.0f) * 0.9f);
-		p.dibuja(Pieza::ALFIL_BLANCO);
+		p.dibuja(Peon::ALFIL_BLANCO);
 		drawsquare();
 		glTranslatef(-glx, -gly, -0.001);
 		glEnable(GL_LIGHTING);
 		break;
 
-	case (Pieza::ALFIL_NEGRO):
+	case (Peon::ALFIL_NEGRO):
 		localizarcentro(i, j, glx, gly);
 		glDisable(GL_LIGHTING);
 		glColor3ub(0, 190, 0);   //color ALFIL negro
 		glTranslatef(glx, gly, 0.001);
 		//drawFilledCircle(0.0f, 0.0f, (anchocasilla / 2.0f) * 0.9f);
-		p.dibuja(Pieza::ALFIL_NEGRO);
+		p.dibuja(Peon::ALFIL_NEGRO);
 		drawsquare();
 		glTranslatef(-glx, -gly, -0.001);
 		glEnable(GL_LIGHTING);
 		break;
 
-	case (Pieza::REY_BLANCO):
+	case (Peon::REY_BLANCO):
 		localizarcentro(i, j, glx, gly);
 		glDisable(GL_LIGHTING);
 		glColor3ub(0, 0, 255);   //color REY blanco
 		glTranslatef(glx, gly, 0.001);
 		//drawFilledCircle(0.0f, 0.0f, (anchocasilla / 2.0f) * 0.9f);
-		p.dibuja(Pieza::REY_BLANCO);
+		p.dibuja(Peon::REY_BLANCO);
 		drawsquare();
 		glTranslatef(-glx, -gly, -0.001);
 		glEnable(GL_LIGHTING);
 		break;
 
-	case (Pieza::REY_NEGRO):
+	case (Peon::REY_NEGRO):
 		localizarcentro(i, j, glx, gly);
 		glDisable(GL_LIGHTING);
 		glColor3ub(0, 0, 255);   //color REY negro
 		glTranslatef(glx, gly, 0.001);
 		//drawFilledCircle(0.0f, 0.0f, (anchocasilla / 2.0f) * 0.9f);
-		p.dibuja(Pieza::REY_NEGRO);
+		p.dibuja(Peon::REY_NEGRO);
 		drawsquare();
 		glTranslatef(-glx, -gly, -0.001);
 		glEnable(GL_LIGHTING);
 		break;
 
-	case (Pieza::REINA_BLANCA):
+	case (Peon::REINA_BLANCA):
 		localizarcentro(i, j, glx, gly);
 		glDisable(GL_LIGHTING);
 		glColor3ub(255, 0, 0);   //color DAMA blanca
 		glTranslatef(glx, gly, 0.001);
 		//drawFilledCircle(0.0f, 0.0f, (anchocasilla / 2.0f) * 0.9f);
-		p.dibuja(Pieza::REINA_BLANCA);
+		p.dibuja(Peon::REINA_BLANCA);
 		drawsquare();
 		glTranslatef(-glx, -gly, -0.001);
 		glEnable(GL_LIGHTING);
 		break;
 
-	case (Pieza::REINA_NEGRA):
+	case (Peon::REINA_NEGRA):
 		localizarcentro(i, j, glx, gly);
 		glDisable(GL_LIGHTING);
 		glColor3ub(255, 0, 0);   //color DAMA negra
 		glTranslatef(glx, gly, 0.001);
 		//drawFilledCircle(0.0f, 0.0f, (anchocasilla / 2.0f) * 0.9f);
-		p.dibuja(Pieza::REINA_NEGRA);
+		p.dibuja(Peon::REINA_NEGRA);
 		drawsquare();
 		glTranslatef(-glx, -gly, -0.001);
 		glEnable(GL_LIGHTING);

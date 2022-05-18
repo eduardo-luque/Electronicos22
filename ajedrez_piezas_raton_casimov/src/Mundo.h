@@ -2,15 +2,15 @@
 #include "Tablero.h"
 #include "Master.h"
 #include "Movimientos.h"
-#include "Pieza.h"
-//#include "../BotLegal.h"
+#include "Peon.h"
+#include "../BotLegal.h"
 
 class Mundo
 {
 private:
 	Master mast;
 	Tablero tabl;
-	Pieza pieza;
+	Peon Peon;
 	Movimientos mo;
 //	BotLegal bot;
 

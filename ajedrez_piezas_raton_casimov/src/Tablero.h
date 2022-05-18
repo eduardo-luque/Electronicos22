@@ -1,4 +1,3 @@
-#pragma once
 #define _USE_MATH_DEFINES
 #define DEG2RAD M_PI/180.0
 #define numcasillas 9 //numero de casillas
@@ -9,7 +8,7 @@
 #include <fstream>
 #include "Master.h"
 #include "freeglut.h"
-
+#pragma once
 
 class Tablero {
 private:
@@ -25,7 +24,7 @@ protected:
 	enum { MOUSE_LEFT_BUTTON, MOUSE_MIDDLE_BUTTON, MOUSE_RIGHT_BUTTON };
 
 public:
-	Pieza p;
+	Peon p;
 	void Dibuja(Master &);  //le meto la clase master
 	//void DibujaRepaso();
 	void DibujaEnCelda(Master&, int, int);
