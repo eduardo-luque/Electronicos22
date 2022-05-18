@@ -74,112 +74,7 @@ int Movimientos::is_legal(move_t m, const Master& t)
 			}
 			break;
 		case(Peon::REINA_NEGRA):
-		{
-			if (m.ori.x == m.dest.x) {//es porque el movimiento es horizontal
-				if (m.dest.y > m.ori.y) {//es porque el movimiento es hacia la derecha
-					int diferencia = m.dest.y - m.ori.y;
-					for (int i = 1; i < diferencia; i++) {//hasta que diferencia-1 para solo recorrer las casillas intermedias entre origen y destino
-						Peon* f_intermedio = t.peones[m.ori.x][m.ori.y + i];//voy aumentando las posiciones de y
-						if (f_intermedio != NULL)//si hay pieza ente el destino y el origen regreso 0 que significa movimiento no válido en mundo.cpp-> Movimiento humano
-						{
-							return 0;
-							cout << "NO TE MUEVAS" << endl;
-							break;
-						}
-					}
-				}
-				if (m.dest.y < m.ori.y) {//es porque el movimiento es hacia la izquierda
-					int diferencia = m.ori.y - m.dest.y;
-					for (int i = 1; i < diferencia - 1; i++) {//hasta que diferencia-1 para solo recorrer las casillas intermedias entre origen y destino
-						Peon* f_intermedio = t.peones[m.ori.x][m.ori.y - i];//voy disminuyendo las posiciones de y
-						if (f_intermedio != NULL)//si hay pieza ente el destino y el origen regreso 0 que significa movimiento no válido en mundo.cpp-> Movimiento humano
-						{
-							return 0;
-							cout << "NO TE MUEVAS" << endl;
-							break;
-						}
-					}
-				}
-			}
-			if (m.ori.y == m.dest.y) {//es porque el movimiento es vertical
-				if (m.dest.x > m.ori.x) {//es porque el movimiento es hacia abajo
-					int diferencia = m.dest.x - m.ori.x;
-					for (int i = 1; i < diferencia; i++) {//hasta que diferencia-1 para solo recorrer las casillas intermedias entre origen y destino
-						Peon* f_intermedio = t.peones[m.ori.x + i][m.ori.y];//voy aumentando las posiciones de x
-						if (f_intermedio != NULL)//si hay pieza ente el destino y el origen regreso 0 que significa movimiento no válido en mundo.cpp-> Movimiento humano
-						{
-							return 0;
-							cout << "NO TE MUEVAS" << endl;
-							break;
-						}
-					}
-				}
-				if (m.dest.x < m.ori.x) {//es porque el movimiento es hacia arriba
-					int diferencia = m.ori.x - m.dest.x;
-					for (int i = 1; i < diferencia; i++) {//hasta que diferencia-1 para solo recorrer las casillas intermedias entre origen y destino
-						Peon* f_intermedio = t.peones[m.ori.x - i][m.ori.y];//voy disminuyendo las posiciones de y
-						if (f_intermedio != NULL)//si hay pieza ente el destino y el origen regreso 0 que significa movimiento no válido en mundo.cpp-> Movimiento humano
-						{
-							return 0;
-							cout << "NO TE MUEVAS" << endl;
-							break;
-						}
-					}
-				}
-			}
-			if ((m.ori.x < m.dest.x) && (m.ori.y < m.dest.y)) {//diagonal \ hacia abajo
-				int diferencia = m.dest.x - m.ori.x;
-				for (int i = 1; i < diferencia; i++) {//sumo la mismas distancias en el eje x e y porque asi sumo una diagonal, a partir de mi punto de origen, que es como mi origen relativo
-					Peon* f_intermedio = t.peones[m.ori.x + i][m.ori.y + i];//voy aumentando las posiciones de x
-					if (f_intermedio != NULL)//si hay pieza ente el destino y el origen regreso 0 que significa movimiento no válido en mundo.cpp-> Movimiento humano
-					{
-						return 0;
-						cout << "NO TE MUEVAS" << endl;
-						break;
-					}
-				}
-			}
-			if ((m.ori.x > m.dest.x) && (m.ori.y > m.dest.y)) {//diagonal \ hacia arriba
-				int diferencia = m.ori.x - m.dest.x;
-				for (int i = 1; i < diferencia; i++) {//resto la mismas distancias en el eje x e y porque asi sumo una diagonal, a partir de mi punto de origen, que es como mi origen relativo
-					Peon* f_intermedio = t.peones[m.ori.x - i][m.ori.y - i];//voy aumentando las posiciones de x
-					if (f_intermedio != NULL)//si hay pieza ente el destino y el origen regreso 0 que significa movimiento no válido en mundo.cpp-> Movimiento humano
-					{
-						//cout << "NO TE MUEVAS" << endl;
-						return 0;
-						cout << "NO TE MUEVAS" << endl;
-						break;
-					}
-				}
-			}
-			if ((m.ori.x < m.dest.x) && (m.ori.y > m.dest.y)) {//diagonal / hacia abajo
-				int diferencia = m.dest.x - m.ori.x;
-				for (int i = 1; i < diferencia; i++) {//resto la mismas distancias en el eje x e y porque asi sumo una diagonal, a partir de mi punto de origen, que es como mi origen relativo
-					Peon* f_intermedio = t.peones[m.ori.x + i][m.ori.y - i];//voy aumentando las posiciones de x
-					if (f_intermedio != NULL)//si hay pieza ente el destino y el origen regreso 0 que significa movimiento no válido en mundo.cpp-> Movimiento humano
-					{
-						//cout << "NO TE MUEVAS" << endl;
-						return 0;
-						cout << "NO TE MUEVAS" << endl;
-						break;
-					}
-				}
-			}
-			if ((m.ori.x > m.dest.x) && (m.ori.y < m.dest.y)) {//diagonal / hacia arriba
-				int diferencia = m.ori.x - m.dest.x;
-				for (int i = 1; i < diferencia; i++) {//resto la mismas distancias en el eje x e y porque asi sumo una diagonal, a partir de mi punto de origen, que es como mi origen relativo
-					Peon* f_intermedio = t.peones[m.ori.x - i][m.ori.y + i];//voy aumentando las posiciones de x
-					if (f_intermedio != NULL)//si hay pieza ente el destino y el origen regreso 0 que significa movimiento no válido en mundo.cpp-> Movimiento humano
-					{
-						//cout << "NO TE MUEVAS" << endl;
-						return 0;
-						cout << "NO TE MUEVAS" << endl;
-						break;
-					}
-				}
-			}
-		}
-			/*for (int i = 1; i < 9; i++) { //este bucle cubre todos los posibles movimientos diagonales de la REINA
+			for (int i = 1; i < 9; i++) { //este bucle cubre todos los posibles movimientos diagonales de la REINA
 				if ((m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y + i) || (m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y - i) ||
 					(m.dest.x == m.ori.x - i) && (m.dest.y == m.ori.y + i) || (m.dest.x == m.ori.x - i) && (m.dest.y == m.ori.y - i))
 				{
@@ -192,7 +87,7 @@ int Movimientos::is_legal(move_t m, const Master& t)
 					cout << "is_legal TRUE " << endl; return 2;
 				}
 			}
-			break;*/
+			break;
 		case(Peon::REINA_BLANCA):
 			for (int i = 1; i < 9; i++) { //este bucle cubre todos los posibles movimientos diagonales de la REINA
 				if ((m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y + i) || (m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y - i) ||
@@ -271,9 +166,11 @@ int Movimientos::is_legal(move_t m, const Master& t)
 			{
 				cout << "is_legal TRUE " << endl; return 2;
 			}*/
-			if (abs(m.ori.x - m.dest.x) == 2 && abs(m.ori.y - m.dest.y) == 1 || abs(m.ori.x - m.dest.x) == 1 && abs(m.ori.y - m.dest.y) == 2)
-			{
-				cout << "is_legal TRUE " << endl; return 2;
+			if ((m.dest.x < 9) && (m.dest.x > 0) && (m.dest.y < 9) && (m.dest.y > 0)) {
+				if (abs(m.ori.x - m.dest.x) == 2 && abs(m.ori.y - m.dest.y) == 1 || abs(m.ori.x - m.dest.x) == 1 && abs(m.ori.y - m.dest.y) == 2)
+				{
+					cout << "is_legal TRUE " << endl; return 2;
+				}
 			}
 			break;
 		case(Peon::CABALLO_BLANCO):
@@ -284,9 +181,11 @@ int Movimientos::is_legal(move_t m, const Master& t)
 			{
 				cout << "is_legal TRUE " << endl; return 2;
 			}*/
-			if (abs(m.ori.x - m.dest.x) == 2 && abs(m.ori.y - m.dest.y) == 1 || abs(m.ori.x - m.dest.x) == 1 && abs(m.ori.y - m.dest.y) == 2)
-			{
-				cout << "is_legal TRUE " << endl; return 2;
+			if ((m.dest.x < 9) && (m.dest.x > 0) && (m.dest.y < 9) && (m.dest.y > 0)) {
+				if (abs(m.ori.x - m.dest.x) == 2 && abs(m.ori.y - m.dest.y) == 1 || abs(m.ori.x - m.dest.x) == 1 && abs(m.ori.y - m.dest.y) == 2)
+				{
+					cout << "is_legal TRUE " << endl; return 2;
+				}
 			}
 			break;
 
@@ -355,150 +254,7 @@ int Movimientos::is_legal(move_t m, const Master& t)
 			}
 			break;
 		case(Peon::REINA_NEGRA):
-		{
-
-			if (m.ori.x == m.dest.x) {//es porque el movimiento es horizontal
-				if (m.dest.y > m.ori.y) {//es porque el movimiento es hacia la derecha
-					int diferencia = m.dest.y - m.ori.y;
-					for (int i = 1; i < diferencia; i++) {//hasta que diferencia-1 para solo recorrer las casillas intermedias entre origen y destino
-						Peon* f_intermedio = t.peones[m.ori.x][m.ori.y + i];//voy aumentando las posiciones de y
-						if (f_intermedio != NULL)//si hay pieza ente el destino y el origen regreso 0 que significa movimiento no válido en mundo.cpp-> Movimiento humano
-						{
-							return 0;
-							cout << "NO TE MUEVAS" << endl;
-							break;
-						}
-					}
-					if ((m.dest.x < 0) || (m.dest.y > 9)) { return 0; }//si me salgo del tablero
-					else {
-						cout << "LA REINA NEGRA COME" << endl;
-						return 1;
-					}
-				}
-				if (m.dest.y < m.ori.y) {//es porque el movimiento es hacia la izquierda
-					int diferencia = m.ori.y - m.dest.y;
-					for (int i = 1; i < diferencia; i++) {//hasta que diferencia-1 para solo recorrer las casillas intermedias entre origen y destino
-						Peon* f_intermedio = t.peones[m.ori.x][m.ori.y - i];//voy disminuyendo las posiciones de y
-						if (f_intermedio != NULL)//si hay pieza ente el destino y el origen regreso 0 que significa movimiento no válido en mundo.cpp-> Movimiento humano
-						{
-							return 0;
-							cout << "NO TE MUEVAS" << endl;
-							break;
-						}
-					}
-					if ((m.dest.x < 0) || (m.dest.y < 0)) { return 0; }//si me salgo del tablero
-					else {
-						cout << "LA REINA NEGRA COME" << endl;
-						return 1;
-					}
-				}
-			}
-			if (m.ori.y == m.dest.y) {//es porque el movimiento es vertical
-				if (m.dest.x > m.ori.x) {//es porque el movimiento es hacia abajo
-					int diferencia = m.dest.x - m.ori.x;
-					for (int i = 1; i < diferencia; i++) {//hasta que diferencia-1 para solo recorrer las casillas intermedias entre origen y destino
-						Peon* f_intermedio = t.peones[m.ori.x + i][m.ori.y];//voy aumentando las posiciones de x
-						if (f_intermedio != NULL)//si hay pieza ente el destino y el origen regreso 0 que significa movimiento no válido en mundo.cpp-> Movimiento humano
-						{
-							return 0;
-							cout << "NO TE MUEVAS" << endl;
-							break;
-						}
-					}
-					if ((m.dest.x > 9) || (m.dest.y > 9)) { return 0; } //si me salgo del tablero no como obviamente
-					else {
-						cout << "LA REINA NEGRA COME" << endl;
-						return 1;
-					}
-				}
-				if (m.dest.x < m.ori.x) {//es porque el movimiento es hacia arriba
-					int diferencia = m.ori.x - m.dest.x;
-					for (int i = 1; i < diferencia; i++) {//hasta que diferencia-1 para solo recorrer las casillas intermedias entre origen y destino
-						Peon* f_intermedio = t.peones[m.ori.x - i][m.ori.y];//voy disminuyendo las posiciones de y
-						if (f_intermedio != NULL)//si hay pieza ente el destino y el origen regreso 0 que significa movimiento no válido en mundo.cpp-> Movimiento humano
-						{
-							return 0;
-							cout << "NO TE MUEVAS" << endl;
-							break;
-						}
-					}
-					if ((m.dest.x > 9) || (m.dest.y < 0)) { return 0; }//si me salgo del tablero
-					else {
-						cout << "LA REINA NEGRA COME" << endl;
-						return 1;
-					}
-				}
-			}
-			if ((m.ori.x < m.dest.x) && (m.ori.y < m.dest.y)) {//diagonal \ hacia abajo 
-				int diferencia = m.dest.x - m.ori.x;
-				for (int i = 1; i < diferencia; i++) {//sumo la mismas distancias en el eje x e y porque asi sumo una diagonal, a partir de mi punto de origen, que es como mi origen relativo
-					Peon* f_intermedio = t.peones[m.ori.x + i][m.ori.y + i];//voy aumentando las posiciones de x
-					if (f_intermedio != NULL)//si hay pieza ente el destino y el origen regreso 0 que significa movimiento no válido en mundo.cpp-> Movimiento humano
-					{
-						return 0;
-						cout << "NO TE MUEVAS" << endl;
-						break;
-					}
-				}
-				if ((m.dest.x > 9) || (m.dest.y > 9)) { return 0; } //si me salgo del tablero no como obviamente
-				else {
-					cout << "LA REINA NEGRA COME" << endl;
-					return 1;
-				}
-			}
-			if ((m.ori.x > m.dest.x) && (m.ori.y > m.dest.y)) {//diagonal \ hacia arriba 
-				int diferencia = m.ori.x - m.dest.x;
-				for (int i = 1; i < diferencia; i++) {//resto la mismas distancias en el eje x e y porque asi sumo una diagonal, a partir de mi punto de origen, que es como mi origen relativo
-					Peon* f_intermedio = t.peones[m.ori.x - i][m.ori.y - i];//voy aumentando las posiciones de x
-					if (f_intermedio != NULL)//si hay pieza ente el destino y el origen regreso 0 que significa movimiento no válido en mundo.cpp-> Movimiento humano
-					{
-						return 0;
-						cout << "NO TE MUEVAS" << endl;
-						break;
-					}
-				}
-				if ((m.dest.x < 0) || (m.dest.y < 0)) { return 0; }//si me salgo del tablero
-				else {
-					cout << "LA REINA NEGRA COME" << endl;
-					return 1;
-				}
-			}
-			if ((m.ori.x < m.dest.x) && (m.ori.y > m.dest.y)) {//diagonal / hacia abajo 
-				int diferencia = m.dest.x - m.ori.x;
-				for (int i = 1; i < diferencia; i++) {//resto la mismas distancias en el eje x e y porque asi sumo una diagonal, a partir de mi punto de origen, que es como mi origen relativo
-					Peon* f_intermedio = t.peones[m.ori.x + i][m.ori.y - i];//voy aumentando las posiciones de x
-					if (f_intermedio != NULL)//si hay pieza ente el destino y el origen regreso 0 que significa movimiento no válido en mundo.cpp-> Movimiento humano
-					{
-						return 0;
-						cout << "NO TE MUEVAS" << endl;
-						break;
-					}
-				}
-				if ((m.dest.x > 9) || (m.dest.y < 0)) { return 0; }//si me salgo del tablero
-				else {
-					cout << "LA REINA NEGRA COME" << endl;
-					return 1;
-				}
-			}
-			if ((m.ori.x > m.dest.x) && (m.ori.y < m.dest.y)) {//diagonal / hacia arriba 
-				int diferencia = m.ori.x - m.dest.x;
-				for (int i = 1; i < diferencia; i++) {//resto la mismas distancias en el eje x e y porque asi sumo una diagonal, a partir de mi punto de origen, que es como mi origen relativo
-					Peon* f_intermedio = t.peones[m.ori.x - i][m.ori.y + i];//voy aumentando las posiciones de x
-					if (f_intermedio != NULL)//si hay pieza ente el destino y el origen regreso 0 que significa movimiento no válido en mundo.cpp-> Movimiento humano
-					{
-						return 0;
-						cout << "NO TE MUEVAS" << endl;
-						break;
-					}
-				}
-				if ((m.dest.x < 0) || (m.dest.y > 9)) { return 0; }//si me salgo del tablero
-				else {
-					cout << "LA REINA NEGRA COME" << endl;
-					return 1;
-				}
-			}
-		}
-			/*for (int i = 1; i < 9; i++) { //este bucle cubre todos los posibles moVimientos diagonales de la REINA, asegurándonos siempre dentro de cada if que no nos salgamos del tablero
+			for (int i = 1; i < 9; i++) { //este bucle cubre todos los posibles movimientos diagonales de la REINA, asegurándonos siempre dentro de cada if que no nos salgamos del tablero
 				if ((m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y + i)) //diagonal derecha inferior tantas posiciones como me permita el tablero
 				{
 					
@@ -595,7 +351,7 @@ int Movimientos::is_legal(move_t m, const Master& t)
 					
 				}
 			}
-			break;*/
+			break;
 		case(Peon::REINA_BLANCA):
 			for (int i = 0; i < 8; i++) { //este bucle cubre todos los posibles moVimientos diagonales de la REINA, asegurándonos siempre dentro de cada if que no nos salgamos del tablero
 				if ((m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y + i)) //diagonal derecha inferior tantas posiciones como me permita el tablero

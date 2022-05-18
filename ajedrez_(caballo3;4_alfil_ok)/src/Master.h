@@ -3,7 +3,6 @@
 #include "Vector2D.h"
 #include "freeglut.h"
 #include "Peon.h"
-#pragma once
 
 using namespace std;
 
