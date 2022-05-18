@@ -37,7 +37,7 @@ int Movimientos::is_legal(move_t m, const Master& t)
 		case(Peon::PEON_NEGRO)://está permitido que avance hacia arriba(resta 1 o 2 a la x) 
 			if ((m.dest.x == m.ori.x - 1) || (m.dest.x == m.ori.x - 2)) { cout << "is_legal TRUE " << endl; return 2; }
 			break;
-		case(Peon::REINA_NEGRA):
+		case(Peon::REINA_NEGRA)://hay que evitar que salte!!!
 			for (int i = 1; i < 8; i++) { //este bucle cubre todos los posibles movimientos diagonales de la REINA
 				if ((m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y + i) || (m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y - i) ||
 					(m.dest.x == m.ori.x - i) && (m.dest.y == m.ori.y + i) || (m.dest.x == m.ori.x - i) && (m.dest.y == m.ori.y - i))
