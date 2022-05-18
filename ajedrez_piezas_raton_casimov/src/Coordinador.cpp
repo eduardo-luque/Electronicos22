@@ -95,6 +95,7 @@ void Coordinador::Tecla(unsigned char key) {
 	if (estado == INICIO) {
 		
 		if (key == '1') {
+			ETSIDI::play("sonidos/impacto.wav");
 			mundo.Inicializa(); estado = MULTIPLAYER;  turno = JUGADOR_B;  //Inicializamos coordinador, y le damos el turno al jugador B
 		}
 		else if (key == 'S' || key == 's') { exit(0); }
@@ -117,7 +118,7 @@ void Coordinador::Raton(int b, int state, int x, int y) {
 		cout << b << ", " << state << ", " << x << ", " << y << endl;
 		if (b == 0 && state == 1 && x >= 126 && x <= 470 && y >= 340 && y <= 367)
 		{
-			
+			ETSIDI::play("sonidos/impacto.wav");
 			mundo.Inicializa();
 			turno = JUGADOR_B;
 			estado = MULTIPLAYER;
@@ -154,13 +155,14 @@ void Coordinador::TurnoMultiplayer()
 
 			switch (aux)
 			{
-			case 1:
-
+			case 1:// paso al turno del jugador con blancas
+					
+                                ETSIDI::play("sonidos/disparo.wav");
 				turno = JUGADOR_B;
 				mundo.setMovimiento({ 0,0 }, { 0,0 });
 				break;
-			case 2:
-
+			case 2:// se consigue la victoria
+				
 				estado = GANA_N;
 				mundo.setMovimiento({ 0,0 }, { 0,0 });
 				break;
@@ -178,12 +180,12 @@ void Coordinador::TurnoMultiplayer()
 
 			switch (aux)
 			{
-			case 1:
-
+			case 1: // se pasa de turno
+                                ETSIDI::play("sonidos/disparo.wav");
 				turno = JUGADOR_N;
 				mundo.setMovimiento({ 0,0 }, { 0,0 });
 				break;
-			case 2:
+			case 2:// el jugador blanco consigue la victoria
 
 				estado = GANA_B;
 				mundo.setMovimiento({ 0,0 }, { 0,0 });
