@@ -10,7 +10,6 @@ Mundo::~Mundo() {}
 
 void Mundo::Inicializa() {
 	mast.Inicializa();
-
 }
 
 void Mundo::Dibuja() {
@@ -18,7 +17,6 @@ void Mundo::Dibuja() {
 	tabl.Dibuja(mast); //La funcion es de tablero pero incluyo el master para poder utilizarlo?
 	DibujaCasilla(origen_n);
 	DibujaCasilla(origen_b);
-
 }
 
 void Mundo::Raton(int x, int y, int b, bool state, char t) {
@@ -35,72 +33,93 @@ void Mundo::Raton(int x, int y, int b, bool state, char t) {
 		clic++;
 
 
-		if ((tabl.xcell_sel <= 7) && (tabl.xcell_sel >= 0) && (tabl.ycell_sel <= 7) && (tabl.ycell_sel >= 0))
+		if ((tabl.xcell_sel <= 8) && (tabl.xcell_sel >= 0) && (tabl.ycell_sel <= 8) && (tabl.ycell_sel >= 0))
 		{
-			if (mast.peones[tabl.xcell_sel][tabl.ycell_sel] && clic == 2)
+			if (mast.piezas[tabl.xcell_sel][tabl.ycell_sel] && clic == 2)
 			{
 
 				cout << "ORIGEN!!" << endl;
-				switch (mast.peones[tabl.xcell_sel][tabl.ycell_sel]->type())
+				switch (mast.piezas[tabl.xcell_sel][tabl.ycell_sel]->type())
 				{
 
-				case(Peon::PEON_NEGRO):
+				case(Pieza::PEON_NEGRO):
 					cout << "peon negro!!" << endl;
 					origen_n.x = tabl.xcell_sel;
 					origen_n.y = tabl.ycell_sel;
 					break;
 
-				case(Peon::PEON_BLANCO):
+				case(Pieza::PEON_BLANCO):
 					cout << "peon blanco!!" << endl;
 					origen_b.x = tabl.xcell_sel;
 					origen_b.y = tabl.ycell_sel;
 					break;
 
-				case(Peon::REINA_NEGRA):
+				case(Pieza::REINA_NEGRA):
 					cout << "reina negra!!" << endl;
 					origen_n.x = tabl.xcell_sel;
 					origen_n.y = tabl.ycell_sel;
 					break;
-				case(Peon::REINA_BLANCA):
+				case(Pieza::REINA_BLANCA):
 					cout << "reina blanca!!" << endl;
 					origen_b.x = tabl.xcell_sel;
 					origen_b.y = tabl.ycell_sel;
 					break;
 
-				case(Peon::REY_NEGRO):
+				case(Pieza::REY_NEGRO):
 					cout << "rey negro!!" << endl;
 					origen_n.x = tabl.xcell_sel;
 					origen_n.y = tabl.ycell_sel;
 					break;
-				case(Peon::REY_BLANCO):
+				case(Pieza::REY_BLANCO):
 					cout << "rey blanco!!" << endl;
 					origen_b.x = tabl.xcell_sel;
 					origen_b.y = tabl.ycell_sel;
 					break;
 
-				case(Peon::TORRE_NEGRA):
+				case(Pieza::TORRE_NEGRA):
 					cout << "torre negra!!" << endl;
 					origen_n.x = tabl.xcell_sel;
 					origen_n.y = tabl.ycell_sel;
 					break;
-				case(Peon::TORRE_BLANCA):
+				case(Pieza::TORRE_BLANCA):
 					cout << "torre blanca!!" << endl;
 					origen_b.x = tabl.xcell_sel;
 					origen_b.y = tabl.ycell_sel;
 					break;
+				case(Pieza::ALFIL_BLANCO):
+					cout << "alfil blanco!!" << endl;
+					origen_b.x = tabl.xcell_sel;
+					origen_b.y = tabl.ycell_sel;
+					break;
+				case(Pieza::ALFIL_NEGRO):
+					cout << "alfil negro!!" << endl;
+					origen_n.x = tabl.xcell_sel;
+					origen_n.y = tabl.ycell_sel;
+					break;
+				case(Pieza::CABALLO_BLANCO):
+					cout << "caballo blanco!!" << endl;
+					origen_b.x = tabl.xcell_sel;
+					origen_b.y = tabl.ycell_sel;
+					break;
+				case(Pieza::CABALLO_NEGRO):
+					cout << "caballo negro!!" << endl;
+					origen_n.x = tabl.xcell_sel;
+					origen_n.y = tabl.ycell_sel;
+					break;
+
 				}
 			}
 
 			if (clic == 4)
 			{
-				if (mast.peones[origen_n.x][origen_n.y]) //se deja por si se setea un destino sin haber puesto antes un origen //como cada vez que se pasa de turno el origen y el destino de las fichas se pone a 0,0
+				if (mast.piezas[origen_n.x][origen_n.y]) //se deja por si se setea un destino sin haber puesto antes un origen //como cada vez que se pasa de turno el origen y el destino de las fichas se pone a 0,0
 				{
 					destino_n.x = tabl.xcell_sel;
 					destino_n.y = tabl.ycell_sel;
 					clic = 0;
 				}
 
-				if (mast.peones[origen_b.x][origen_b.y]) //es muy importante que ponga a 0,0 de en cada turno para que funcione bien
+				if (mast.piezas[origen_b.x][origen_b.y]) //es muy importante que ponga a 0,0 de en cada turno para que funcione bien
 				{
 					destino_b.x = tabl.xcell_sel;
 					destino_b.y = tabl.ycell_sel;
@@ -124,10 +143,8 @@ void Mundo::Raton(int x, int y, int b, bool state, char t) {
 
 }
 
-void Mundo::DibujaCasilla(cas_t& c)  //dibujamos la casilla del que tocamos
-{
-	if (c.x != 0 || c.y != 0)
-	{
+void Mundo::DibujaCasilla(cas_t& c) { //dibujamos la casilla del que tocamos 
+	if (c.x != 0 || c.y != 0) {
 		glDisable(GL_LIGHTING);
 		glColor3ub(130, 0, 0);
 		glTranslatef(0.15 * c.y, -0.15 * c.x, 0.0001);
@@ -140,10 +157,7 @@ void Mundo::DibujaCasilla(cas_t& c)  //dibujamos la casilla del que tocamos
 		glTranslatef(-0.15 * c.y, 0.15 * c.x, -0.0001);
 		glEnable(GL_LIGHTING);
 	}
-
-
 }
-
 
 void Mundo::setMovimiento(cas_t ori, cas_t dest)
 {
@@ -153,49 +167,39 @@ void Mundo::setMovimiento(cas_t ori, cas_t dest)
 	destino_b = dest;
 }
 
-
-
 //funcion prueba para ver si se mueve
-int Mundo::MovimientoHumano(char t)
+int Mundo::MovimientoPlayer(char t)
 {
+	/*
 	int aux;
 
 	if (t == 'N')
 	{
-		
+		move_t mov = bot.negraMueve(mast);
 
-			move_t mov = bot.negraMueve(mast);
+		switch (mov.tipo)
+		{
+		case(2):								 //si el movimiento es de tipo simple no tengo obligacion de comer porque no puedo comer
+			aux = mo.move({ origen_n, destino_n }, mast);
+			if (aux == -1)return 4;				//vuelvo a mi turno porque el movimiento no es valido
+			else return 1;
+			cout << "no puedes comer" << endl;
+			break;
 
-			switch (mov.tipo)
-			{
-			case(2):								 //si el movimiento es de tipo simple no tengo obligacion de comer porque no puedo comer
-				aux = mo.move({ origen_n, destino_n }, mast);
-				if (aux == -1)return 4;				//vuelvo a mi turno porque el movimiento no es valido
-				else return 1;
-				cout << "no puedes comer" << endl;
-				break;
-			case(1):								//si el movimiento es de tipo comer tengo obligación de comer
-				if (mo.is_legal({ origen_n, destino_n }, mast) == 1)
-				{
-					mo.move({ origen_n, destino_n }, mast);
-					return 2;						//vuelvo a mi turno porque el movimiento es de tipo comer
-				}
-				else return 4;
-				break;
-			default:
-				break;
-			}
+			break;
+		default:
+			break;
+		}
 
-			if (mov.ori.x == -1) {
-				cout << "Movimiento no Válido BLOQUEO" << endl;
-				return 3;
-			}
-		
+		if (mov.ori.x == -1) {
+			cout << "Movimiento no Válido BLOQUEO" << endl;
+			return 3;
+		}
 	}
 
 	if (t == 'B')
 	{
-		
+
 
 			move_t mov = bot.blancaMueve(mast);
 
@@ -206,14 +210,6 @@ int Mundo::MovimientoHumano(char t)
 				if (aux == -1)return 4;			//vuelvo a mi turno porque el movimiento no es valido
 				else return 1;
 				cout << "no puedes comer" << endl;
-				break;
-			case(1):							//si el movimiento es de tipo comer tengo obligación de comer
-				if (mo.is_legal({ origen_b, destino_b }, mast) == 1)
-				{
-					mo.move({ origen_b, destino_b }, mast);
-					return 2;					//vuelvo a mi turno porque el movimiento es de tipo comer
-				}
-				else return 4;
 				break;
 			default:
 				break;
@@ -226,42 +222,56 @@ int Mundo::MovimientoHumano(char t)
 
 
 		}
-
-	//SI QUEREMOS QUITAR EL FICHERO BotLegal.h y .cpp TENDRIAMOS QUE CAMBIAR TODO EL CONTENIDO DE ESTA FUNCIÓN MOVIMIENTOHUMANO
-//POR EL SIGUIENTE :
-/*
-if (t == 'N')
-{
-	if (mo.is_legal({ origen_n, destino_n }, mast) == 2)//movimiento simple sin comer
-	{
-		mo.move({ origen_n, destino_n }, mast);
-		return 1;	//pasamos al turno del otro
-	}
-
-	if (mo.is_legal({ origen_n, destino_n }, mast) == 1)
-	{
-		mo.move({ origen_n, destino_n }, mast);
-		return 1;						//vuelvo a mi turno porque el movimiento es de tipo comer
-	}
-
-	else return 4;//movimiento no valido con lo cual continuo con mi turno
-}
-if (t == 'B')
-{
-	if (mo.is_legal({ origen_b, destino_b }, mast) == 2)//movimiento simple sin comer
-	{
-		mo.move({ origen_b, destino_b }, mast);
-		return 1;	//pasamos al turno del otro
-	}
-
-	if (mo.is_legal({ origen_b, destino_b }, mast) == 1)
-	{
-		mo.move({ origen_b, destino_b }, mast);
-		return 1;
-	}
-
-	else return 4;//movimiento no valido con lo cual continuo con mi turno
 */
+//SI QUEREMOS QUITAR EL FICHERO BotLegal.h y .cpp TENDRIAMOS QUE CAMBIAR TODO EL CONTENIDO DE ESTA FUNCIÓN MOVIMIENTOHUMANO
+//POR EL SIGUIENTE :
 
-	
+	if (t == 'N')
+	{
+		if (mo.is_legal({ origen_n, destino_n }, mast) == 2)//movimiento simple sin comer
+		{
+			mo.move({ origen_n, destino_n }, mast);
+			return 1;	//pasamos al turno del otro
+		}
+
+		if (mo.is_legal({ origen_n, destino_n }, mast) == 1)  //movimiento comer
+		{
+			mo.move({ origen_n, destino_n }, mast);
+			return 1;						
+		}
+
+		//si matamos al rey blanco
+		if (mo.is_legal({ origen_n, destino_n }, mast) == 3)  
+		{
+			
+			return 2;
+		}
+
+		else return 4; //movimiento no valido con lo cual continuo con mi turno
+	}
+	if (t == 'B')
+	{
+		if (mo.is_legal({ origen_b, destino_b }, mast) == 2) //movimiento simple sin comer
+		{
+			mo.move({ origen_b, destino_b }, mast);
+			return 1;	//pasamos al turno del otro
+		}
+
+		if (mo.is_legal({ origen_b, destino_b }, mast) == 1)  //movimiento comer
+		{
+			mo.move({ origen_b, destino_b }, mast);
+			return 1;
+		}
+		
+		//si matamos al rey negro
+		if (mo.is_legal({ origen_b, destino_b }, mast) == 3)  
+		{
+			
+			return 2;
+		}
+
+
+
+		else return 4;//movimiento no valido con lo cual continuo con mi turno
+	}
 }

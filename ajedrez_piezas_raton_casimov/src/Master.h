@@ -2,8 +2,7 @@
 #include <iostream>
 #include "Vector2D.h"
 #include "freeglut.h"
-#include "Peon.h"
-#pragma once
+#include "Pieza.h"
 
 using namespace std;
 
@@ -14,13 +13,13 @@ private:
 	void nulify();
 
 public:
-	static const int n = 8;
+	static const int n = 9;
 	static const int dist = 2;
 	int nFichas;
-	Peon* peones[n][n];//vector de fichas del tablero
+	Pieza* piezas[n][n]; //vector de fichas del tablero
 	////////////
 
-	Master(){}
+	Master(): nFichas(0){}
 	virtual ~Master();
 	Master(const Master&);
 	void Inicializa();
@@ -29,8 +28,7 @@ public:
 	/////////////
     
 //LOS 2 METODOS SIGUIENTES SE USAN EN Movimientos.h
-	Master& operator +=(const Peon&);
-	Master& operator -=(const Peon&);
-
+	Master& operator +=(const Pieza&);
+	Master& operator -=(const Pieza&);
 
 };

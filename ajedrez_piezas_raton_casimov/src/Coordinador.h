@@ -15,13 +15,8 @@ public:
 	
 protected:
 	Mundo mundo;
-	enum Estado { INICIO, GANA_B, GANA_N, TABLAS, SINGLEPLAYER, MULTIPLAYER };
+	enum Estado { INICIO, GANA_B, GANA_N, SINGLEPLAYER, MULTIPLAYER,PAUSA };
 	enum Turno { JUGADOR_B, JUGADOR_N };
 	Estado estado;
 	Turno turno;
-
-	bool bloqueo_n = false;
-	bool bloqueo_b = false;
-
-
 };

@@ -1,4 +1,4 @@
-#pragma once
+/*#pragma once
 #pragma once
 #include <iostream>
 #include "src/Master.h"
@@ -16,3 +16,4 @@ public:
 	move_t negraMueve(Master t);
 };
 
+*/

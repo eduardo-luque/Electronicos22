@@ -19,22 +19,20 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BotLegal.cpp" />
     <ClCompile Include="src\Ajedrez.cpp" />
     <ClCompile Include="src\Coordinador.cpp" />
     <ClCompile Include="src\Master.cpp" />
     <ClCompile Include="src\Movimientos.cpp" />
     <ClCompile Include="src\Mundo.cpp" />
-    <ClCompile Include="src\Peon.cpp" />
+    <ClCompile Include="src\Pieza.cpp" />
     <ClCompile Include="src\Tablero.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BotLegal.h" />
     <ClInclude Include="src\Coordinador.h" />
     <ClInclude Include="src\Master.h" />
     <ClInclude Include="src\Movimientos.h" />
     <ClInclude Include="src\Mundo.h" />
-    <ClInclude Include="src\Peon.h" />
+    <ClInclude Include="src\Pieza.h" />
     <ClInclude Include="src\Tablero.h" />
     <ClInclude Include="src\vector2D.h" />
   </ItemGroup>

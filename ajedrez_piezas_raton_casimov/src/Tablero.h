@@ -1,6 +1,7 @@
+#pragma once
 #define _USE_MATH_DEFINES
 #define DEG2RAD M_PI/180.0
-#define numcasillas 8 //numero de casillas
+#define numcasillas 9 //numero de casillas
 #define anchocasilla 0.15  //ancho de cada casilla
 #include <math.h>
 #include <iostream>
@@ -8,7 +9,7 @@
 #include <fstream>
 #include "Master.h"
 #include "freeglut.h"
-#pragma once
+
 
 class Tablero {
 private:
@@ -24,12 +25,11 @@ protected:
 	enum { MOUSE_LEFT_BUTTON, MOUSE_MIDDLE_BUTTON, MOUSE_RIGHT_BUTTON };
 
 public:
-	Peon p;
+	Pieza p;
 	void Dibuja(Master &);  //le meto la clase master
 	//void DibujaRepaso();
 	void DibujaEnCelda(Master&, int, int);
-	//void DibujaMalla();
-	void drawFilledCircle(GLfloat, GLfloat, GLfloat);
+	//void drawFilledCircle(GLfloat, GLfloat, GLfloat);
 	void localizarcentro(int, int, float&, float&);
 	void world2cell(double, double, int&, int&);
 	void BotonMouse(int, int, int, bool);

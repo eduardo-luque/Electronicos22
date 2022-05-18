@@ -1,3 +1,5 @@
+/*
+
 #include "BotLegal.h"
 #include "src/Movimientos.h"
 
@@ -67,6 +69,7 @@ move_t BotLegal::blancaMueve(Master t)
 					}
 					*/
 					//HAY QUE HACER LO MISMO CON LAS DEMÁS. NO SE SI SON NECESARIAS O NO, PERO DE MOMENTO FUNCIONA SIN ELLAS
+/*
 				}
 			}
 		}
@@ -139,10 +142,12 @@ move_t BotLegal::negraMueve(Master t)
 					else { aux.dest.y = aux.ori.y + 1; }
 					if (Movimientos::is_legal(aux, t) == 2) { aux.tipo = 2; return aux; }
 				}
-				*/
+				
 				//HAY QUE HACER LO MISMO CON LAS DEMÁS. NO SE SI SON NECESARIAS O NO, PERO DE MOMENTO FUNCIONA SIN ELLAS
 			}
 		}
 	}
 	return bloqueado;
 }
+
+/*/

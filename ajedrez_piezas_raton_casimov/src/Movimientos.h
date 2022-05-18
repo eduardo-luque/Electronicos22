@@ -2,9 +2,7 @@
 #include <iostream>
 #include "Vector2D.h"
 #include "Master.h"
-#include "Peon.h"
-
-
+#include "Pieza.h"
 
 class Movimientos {
 public:

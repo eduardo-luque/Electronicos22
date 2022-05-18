@@ -2,17 +2,17 @@
 #include "Tablero.h"
 #include "Master.h"
 #include "Movimientos.h"
-#include "Peon.h"
-#include "../BotLegal.h"
+#include "Pieza.h"
+//#include "../BotLegal.h"
 
 class Mundo
 {
 private:
 	Master mast;
 	Tablero tabl;
-	Peon Peon;
+	Pieza pieza;
 	Movimientos mo;
-	BotLegal bot;
+//	BotLegal bot;
 
 	int clic = 0;
 	bool turno;
@@ -29,7 +29,7 @@ public:
 	void Dibuja();
 	void setMovimiento(cas_t ori, cas_t dest);
 	void DibujaCasilla(cas_t& c);
-	int MovimientoHumano(char t);
+	int MovimientoPlayer(char t);
 
 	void Raton(int, int, int, bool, char t);
 };
