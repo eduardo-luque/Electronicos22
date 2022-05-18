@@ -3,7 +3,7 @@
 #include "freeglut.h"
 
 
-Coordinador::Coordinador() {  //empezamos en la pantalla de inicio
+Coordinador::Coordinador() {  //empezamos en la pantalla de inicio, con este constructor activamos el estado inicial de inicio y activamos la música para el menú
 
 	estado = INICIO;
 	ETSIDI::playMusica("sonidos/summer_nights.mp3");
@@ -97,9 +97,10 @@ void Coordinador::Tecla(unsigned char key) {
 	if (estado == INICIO) {
 
 		if (key == '1') {
+			// en caso de que pulsemos la tecla de inicio, se detendrá la música del menú y con un sonido de click pasaremos a activar la musica del juego, que se repetirá en bucle
 			ETSIDI::stopMusica();
 			ETSIDI::play("sonidos/impacto.wav");
-			ETSIDI::playMusica("sonidos/partida.mp3", true);
+			ETSIDI::playMusica("sonidos/partida.mp3", true);// al activar el true se repetirá la cancion en bucle
 			mundo.Inicializa(); estado = MULTIPLAYER;  turno = JUGADOR_B;  //Inicializamos coordinador, y le damos el turno al jugador B
 		}
 		else if (key == 'S' || key == 's') { exit(0); }
@@ -122,9 +123,10 @@ void Coordinador::Raton(int b, int state, int x, int y) {
 		printf("%d %d %d %d\n", b, state, x, y);
 		if (b == 0 && state == 1 && x >= 126 && x <= 470 && y >= 340 && y <= 367)
 		{
+			// en caso de que pulsemos la tecla de inicio, se detendrá la música del menú y con un sonido de click pasaremos a activar la musica del juego, que se repetirá en bucle
 			ETSIDI::stopMusica();
 			ETSIDI::play("sonidos/impacto.wav");
-			ETSIDI::playMusica("sonidos/partida.mp3");
+			ETSIDI::playMusica("sonidos/partida.mp3",true);// al activar el true se repetirá la cancion en bucle
 			mundo.Inicializa();
 			turno = JUGADOR_B;
 			estado = MULTIPLAYER;
@@ -162,6 +164,7 @@ void Coordinador::TurnoMultiplayer()
 			switch (aux)
 			{
 			case 1:
+					// al cambiar de turno, se habrá movido una pieza, por ello activamos el sonido de disparo
 				ETSIDI::play("sonidos/disparo.wav");
 				turno = JUGADOR_B;
 				mundo.setMovimiento({ 0,0 }, { 0,0 });
@@ -186,6 +189,7 @@ void Coordinador::TurnoMultiplayer()
 			switch (aux)
 			{
 			case 1:
+					// al cambiar de turno, se habrá movido una pieza, por ello activamos el sonido de disparo
 				ETSIDI::play("sonidos/disparo.wav");
 				turno = JUGADOR_N;
 				mundo.setMovimiento({ 0,0 }, { 0,0 });
