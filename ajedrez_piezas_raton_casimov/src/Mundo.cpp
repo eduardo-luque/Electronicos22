@@ -229,52 +229,51 @@ int Mundo::MovimientoPlayer(char t)
 */
 //SI QUEREMOS QUITAR EL FICHERO BotLegal.h y .cpp TENDRIAMOS QUE CAMBIAR TODO EL CONTENIDO DE ESTA FUNCIÓN MOVIMIENTOHUMANO
 //POR EL SIGUIENTE :
-
-	if (t == 'N')
-	{
-		if (mo.is_legal({ origen_n, destino_n }, mast) == 2)//movimiento simple sin comer
+	if (t == 'N')   //si son negras
+	{   //para evitar llamar tres veces a la función solo la llamamos una única vez y evaluamos su resultado:
+		int resultadoNegras = mo.is_legal({ origen_n, destino_n }, mast);
+		if (resultadoNegras == 2)//movimiento simple sin comer
 		{
 			mo.move({ origen_n, destino_n }, mast);
 			return 1;	//pasamos al turno del otro
 		}
 
-		if (mo.is_legal({ origen_n, destino_n }, mast) == 1)  //movimiento comer
+		else if (resultadoNegras == 1)  //movimiento comer
 		{
 			mo.move({ origen_n, destino_n }, mast);
-			return 1;						
+			return 1;
 		}
 
 		//si matamos al rey blanco
-		if (mo.is_legal({ origen_n, destino_n }, mast) == 3)  
+		else if (resultadoNegras == 3)
 		{
-			
+
 			return 2;
 		}
 
 		else return 4;//movimiento no valido con lo cual continuo con mi turno
 	}
-	if (t == 'B')
-	{
-		if (mo.is_legal({ origen_b, destino_b }, mast) == 2)//movimiento simple sin comer
+	if (t == 'B') //si son blancas
+	{    //para evitar llamar tres veces a la función solo la llamamos una única vez y evaluamos su resultado:
+		int resultadoBlancas = mo.is_legal({ origen_b, destino_b }, mast);
+		if (resultadoBlancas == 2)//movimiento simple sin comer
 		{
 			mo.move({ origen_b, destino_b }, mast);
 			return 1;	//pasamos al turno del otro
 		}
 
-		if (mo.is_legal({ origen_b, destino_b }, mast) == 1)  //movimiento comer
+		else if (resultadoBlancas == 1)  //movimiento comer
 		{
 			mo.move({ origen_b, destino_b }, mast);
 			return 1;
 		}
-		
+
 		//si matamos al rey negro
-		if (mo.is_legal({ origen_b, destino_b }, mast) == 3)  
+		else if (resultadoBlancas == 3)
 		{
-			
+
 			return 2;
 		}
-
-
 
 		else return 4;//movimiento no valido con lo cual continuo con mi turno
 	}
