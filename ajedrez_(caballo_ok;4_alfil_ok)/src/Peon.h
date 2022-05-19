@@ -29,7 +29,10 @@ public:
 	pn(cas_t c) :Peon(PEON_NEGRO, c) { }
 	void dibuja() {
 		glEnable(GL_TEXTURE_2D);
-		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/engranaje.png").id);
+		glEnable(GL_ALPHA_TEST);
+		glAlphaFunc(GL_GREATER, 0);
+		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/engranaje2.png").id);
+
 	}
 	//ostream& print(ostream& o = cout) const { o << "peon negro en "; cas.print(o); return o; }
 };
@@ -40,7 +43,7 @@ public:
 	pb(cas_t c) :Peon(PEON_BLANCO, c) {}
 	void dibuja() {
 		glEnable(GL_TEXTURE_2D);
-		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/atomo.png").id);
+		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/atomo2.png").id);
 	}
 	//ostream& print(ostream& o = cout) const { o << "peon blanco en "; cas.print(o); return o; }
 };
@@ -51,7 +54,7 @@ public:
 	tb(cas_t c) :Peon(TORRE_BLANCA, c) {}
 	void dibuja() {
 		glEnable(GL_TEXTURE_2D);
-		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/sheldon.png").id);
+		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/sheldon2.png").id);
 
 	}
 	//ostream& print(ostream& o = cout) const { o << "torre blanca en "; cas.print(o); return o; }
@@ -96,7 +99,7 @@ public:
 	cabb(cas_t c) :Peon(CABALLO_BLANCO, c) {}
 	void dibuja() {
 		glEnable(GL_TEXTURE_2D);
-		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/uamito.png").id);
+		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/uamito2.png").id);
 	}
 	//ostream& print(ostream& o = cout) const { o << "caballo blanco en "; cas.print(o); return o; }
 };

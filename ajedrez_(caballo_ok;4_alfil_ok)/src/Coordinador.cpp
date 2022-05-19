@@ -6,7 +6,7 @@
 Coordinador::Coordinador() {  //empezamos en la pantalla de inicio
 
 	estado = INICIO;
-	ETSIDI::playMusica("sonidos/summer_nights.mp3");
+	ETSIDI::playMusica("sonidos/summer_nights.mp3",true);
 }
 
 Coordinador::~Coordinador() {
