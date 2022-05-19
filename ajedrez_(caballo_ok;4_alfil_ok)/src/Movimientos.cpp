@@ -53,7 +53,7 @@ int Movimientos::is_legal(move_t m, const Master& t)
 	if (!fd) { //CASILLA DESTINO VACIA
 		switch (fo->type())
 		{
-		case(Peon::PEON_BLANCO)://est· permitido que avance hacia abajo(sumarle 1 o 2 a la x)  
+		case(Peon::PEON_BLANCO)://est√° permitido que avance hacia abajo(sumarle 1 o 2 a la x)  
 			if (m.ori.x == 2) {
 				if ((m.dest.x == m.ori.x + 1) && (m.dest.y == m.ori.y) || (m.dest.x == m.ori.x + 2) && (m.dest.y == m.ori.y)) { cout << "is_legal TRUE " << endl; return 2; }
 				else { return 0; }
@@ -63,7 +63,7 @@ int Movimientos::is_legal(move_t m, const Master& t)
 				else { return 0; }
 			}
 			break;
-		case(Peon::PEON_NEGRO)://est· permitido que avance hacia arriba(resta 1 o 2 a la x) 
+		case(Peon::PEON_NEGRO)://est√° permitido que avance hacia arriba(resta 1 o 2 a la x) 
 			if (m.ori.x == 7) {
 				if ((m.dest.x == m.ori.x - 1) && (m.dest.y == m.ori.y) || (m.dest.x == m.ori.x - 2) && (m.dest.y == m.ori.y)) { cout << "is_legal TRUE " << endl; return 2; }
 				else { return 0; }
@@ -78,22 +78,14 @@ int Movimientos::is_legal(move_t m, const Master& t)
 				if ((m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y + i) || (m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y - i) ||
 					(m.dest.x == m.ori.x - i) && (m.dest.y == m.ori.y + i) || (m.dest.x == m.ori.x - i) && (m.dest.y == m.ori.y - i))
 				{
-					if (t.peones)
-					{
-						cout << "is_legal FALSE ";
-						return 0;
-					}
+					
 					cout << "is_legal TRUE " << endl; return 2;
 				}
 				//este bucle cubre todos los posibles movimientos horizontales de la REINA
 				if ((m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y) || (m.dest.x == m.ori.x - i) && (m.dest.y == m.ori.y) ||
 					(m.dest.x == m.ori.x) && (m.dest.y == m.ori.y + i) || (m.dest.x == m.ori.x) && (m.dest.y == m.ori.y - i))
 				{
-					if (t.peones)
-					{
-						cout << "is_legal FALSE ";
-						return 0;
-					}
+					
 					cout << "is_legal TRUE " << endl; return 2;
 				}
 			}
@@ -191,7 +183,7 @@ int Movimientos::is_legal(move_t m, const Master& t)
 				
 			}
 			break;
-		case(Peon::PEON_NEGRO): //est· permitido que coma hacia arriba  
+		case(Peon::PEON_NEGRO): //est√° permitido que coma hacia arriba  
 			if ((m.dest.x == m.ori.x - 1) && (m.dest.y == m.ori.y + 1)) //diagonal derecha
 			{
 				
@@ -216,7 +208,7 @@ int Movimientos::is_legal(move_t m, const Master& t)
 			}
 			break;
 		case(Peon::REINA_NEGRA):case(Peon::REINA_BLANCA):
-			for (int i = 1; i < 9; i++) { //este bucle cubre todos los posibles moVimientos diagonales de la REINA, asegur·ndonos siempre dentro de cada if que no nos salgamos del tablero
+			for (int i = 1; i < 9; i++) { //este bucle cubre todos los posibles moVimientos diagonales de la REINA, asegur√°ndonos siempre dentro de cada if que no nos salgamos del tablero
 				if ((m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y + i)) //diagonal derecha inferior tantas posiciones como me permita el tablero
 				{
 					
@@ -265,7 +257,7 @@ int Movimientos::is_legal(move_t m, const Master& t)
 					
 				}
 			}
-			for (int i = 1; i < 9; i++) { //este bucle cubre todos los posibles movimientos verticales y horizontales de la REINA, asegur·ndonos siempre dentro de cada if que no nos salgamos del tablero
+			for (int i = 1; i < 9; i++) { //este bucle cubre todos los posibles movimientos verticales y horizontales de la REINA, asegur√°ndonos siempre dentro de cada if que no nos salgamos del tablero
 				if ((m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y)) //vertical abajo, tantas posiciones como me permita el tablero
 				{
 					
@@ -457,7 +449,7 @@ int Movimientos::is_legal(move_t m, const Master& t)
 			break;
 		
 		case(Peon::ALFIL_BLANCO):case(Peon::ALFIL_NEGRO):
-			for (int i = 0; i < 9; i++) { //este bucle cubre todos los posibles moVimientos diagonales del alfil, asegur·ndonos siempre dentro de cada if que no nos salgamos del tablero
+			for (int i = 0; i < 9; i++) { //este bucle cubre todos los posibles moVimientos diagonales del alfil, asegur√°ndonos siempre dentro de cada if que no nos salgamos del tablero
 				if ((m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y + i)) //diagonal derecha inferior tantas posiciones como me permita el tablero
 				{
 
