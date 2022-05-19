@@ -41,11 +41,11 @@ void Coordinador::Dibuja() {
 		ETSIDI::setFont("fuentes/Bitwise.ttf", 15);
 		
 	}
-	else if (estado == MULTIPLAYER) { // dibujamos el tablero
+	else if (estado == MULTIPLAYER) { // dibujamos el tablero en modo multijugador
 		mundo.Dibuja();
 		
 		
-		if (turno == JUGADOR_B) {  //la pantalla de fondo cambia
+		if (turno == JUGADOR_B) {  //turno de los fisicos
 			glDisable(GL_LIGHTING);
 			glColor3ub(150, 150, 150);
 			glutSolidSphere(10, 10, 10);
@@ -55,7 +55,7 @@ void Coordinador::Dibuja() {
 			ETSIDI::printxy("TURNO FISICOS", 0, 0);
 
 		}
-		if (turno == JUGADOR_N) {   //la pantalla de fondo cambia
+		if (turno == JUGADOR_N) {   //turno de los ingenieros
 			glDisable(GL_LIGHTING);
 			glColor3ub(50, 50, 50);
 			glutSolidSphere(10, 10, 10);
@@ -67,7 +67,7 @@ void Coordinador::Dibuja() {
 		}
 
 	}
-	else if (estado == GANA_B) {
+	else if (estado == GANA_B) {  //han ganado los fisicos
 
 		glDisable(GL_LIGHTING);
 		glColor3ub(192, 192, 192);  //plata
@@ -80,7 +80,7 @@ void Coordinador::Dibuja() {
 		ETSIDI::printxy("Pulsa C para continuar", -5, 9);
 		glEnable(GL_LIGHTING);
 	}
-	else if (estado == GANA_N) {
+	else if (estado == GANA_N) {   //han ganado los ingenieros
 		glDisable(GL_LIGHTING);
 		glColor3ub(234, 190, 63);  //oro
 		glutSolidSphere(10, 10, 10);
@@ -94,7 +94,7 @@ void Coordinador::Dibuja() {
 		
 
 	}
-	else if (estado == PAUSA) {
+	else if (estado == PAUSA) {  //estamos en pausa
 		glDisable(GL_LIGHTING);
 		glColor3ub(234, 190, 63);   //oro
 		glutSolidSphere(10, 10, 10);
@@ -113,13 +113,13 @@ void Coordinador::Tecla(unsigned char key) {
 
 	if (estado == INICIO) {
 
-		if (key == '1') {
+		if (key == '1') {   
 			ETSIDI::stopMusica();
 			ETSIDI::play("sonidos/impacto.wav");
 			ETSIDI::playMusica("sonidos/partida.mp3", true);
 			mundo.Inicializa(); estado = MULTIPLAYER;  turno = JUGADOR_B;  //Inicializamos coordinador, y le damos el turno al jugador B
 		}
-		else if (key == 'S' || key == 's') { exit(0); }
+		else if (key == 'S' || key == 's') { exit(0); }  
 	}
 	else if (estado == MULTIPLAYER) {
 		if (key == 'P' || key == 'p') { estado = PAUSA; }
@@ -175,20 +175,21 @@ void Coordinador::TurnoMultiplayer()
 	{
 		if (turno == JUGADOR_N)
 		{
-
-			int aux;
-			aux = mundo.MovimientoPlayer('N'); //turno simple (sin cadena)
+			char n = 'N';
+			int aux;  //creamos variable auxiliar
+			aux = mundo.MovimientoPlayer('N'); //turno simple (sin cadena). Esta funcion nos devolvera un numero según lo ocurrido
+			                                   //La N la forzamos nosotros en esta funcion, ya que nos encontramos en el turno de las negras
 
 			switch (aux)
 			{
-			case 1:
+			case 1:    //se mueve
 				ETSIDI::play("sonidos/disparo.wav");
 				turno = JUGADOR_B;
-				mundo.setMovimiento({ 0,0 }, { 0,0 });
+				mundo.setMovimiento({ 0,0 }, { 0,0 });  //para evitar error 
 				break;
 			case 2:
 
-				estado=GANA_N;
+				estado=GANA_N;  //han ganado
 				mundo.setMovimiento({ 0,0 }, { 0,0 });
 				break;
 
@@ -201,16 +202,16 @@ void Coordinador::TurnoMultiplayer()
 		if (turno == JUGADOR_B)
 		{
 			int aux;
-			aux = mundo.MovimientoPlayer('B'); //turno simple (sin cadena)
-
+			aux = mundo.MovimientoPlayer('B'); //turno simple (sin cadena). Esta funcion nos devolvera un numero según lo ocurrido
+												//La B la forzamos nosotros en esta funcion, ya que nos encontramos en el turno de las blancas
 			switch (aux)
 			{
-			case 1:
+			case 1:   //se mueven
 				ETSIDI::play("sonidos/disparo.wav");
 				turno = JUGADOR_N;
 				mundo.setMovimiento({ 0,0 }, { 0,0 });
 				break;
-			case 2:
+			case 2:   //han ganado
 
 				estado = GANA_B;
 				mundo.setMovimiento({ 0,0 }, { 0,0 });

@@ -78,21 +78,33 @@ int Movimientos::is_legal(move_t m, const Master& t)
 				if ((m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y + i) || (m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y - i) ||
 					(m.dest.x == m.ori.x - i) && (m.dest.y == m.ori.y + i) || (m.dest.x == m.ori.x - i) && (m.dest.y == m.ori.y - i))
 				{
+					if (t.peones)
+					{
+						cout << "is_legal FALSE ";
+						return 0;
+					}
 					cout << "is_legal TRUE " << endl; return 2;
 				}
-
+				//este bucle cubre todos los posibles movimientos horizontales de la REINA
 				if ((m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y) || (m.dest.x == m.ori.x - i) && (m.dest.y == m.ori.y) ||
 					(m.dest.x == m.ori.x) && (m.dest.y == m.ori.y + i) || (m.dest.x == m.ori.x) && (m.dest.y == m.ori.y - i))
 				{
+					if (t.peones)
+					{
+						cout << "is_legal FALSE ";
+						return 0;
+					}
 					cout << "is_legal TRUE " << endl; return 2;
 				}
 			}
 			break;
 		
 		case(Peon::REY_NEGRO):case(Peon::REY_BLANCO):
+			//movimientos diagonales
 			if ((m.dest.x == m.ori.x - 1 || m.dest.x == m.ori.x + 1) && (m.dest.y == m.ori.y + 1 || m.dest.y == m.ori.y - 1)) {
 				cout << "is_legal TRUE " << endl; return 2;
 			}
+			//movimientos horizontales
 			if ((m.dest.x == m.ori.x + 1) && (m.dest.y == m.ori.y) || (m.dest.x == m.ori.x - 1) && (m.dest.y == m.ori.y) ||
 				(m.dest.x == m.ori.x) && (m.dest.y == m.ori.y + 1) || (m.dest.x == m.ori.x) && (m.dest.y == m.ori.y - 1))
 			{
@@ -100,7 +112,7 @@ int Movimientos::is_legal(move_t m, const Master& t)
 			}
 
 			break;
-		
+		//movimientos horizontales
 		case(Peon::TORRE_NEGRA):case(Peon::TORRE_BLANCA):
 			for (int i = 1; i < 9; i++) {
 				if ((m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y) || (m.dest.x == m.ori.x - i) && (m.dest.y == m.ori.y) ||
@@ -109,7 +121,7 @@ int Movimientos::is_legal(move_t m, const Master& t)
 				}
 			}
 			break;
-		
+		//movimientos diagonales
 		case(Peon::ALFIL_BLANCO):case(Peon::ALFIL_NEGRO):
 			for (int i = 1; i < 9; i++) { //este bucle cubre todos los posibles movimientos diagonales de la REINA
 				if (((m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y + i)) || ((m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y - i)) ||
@@ -121,7 +133,7 @@ int Movimientos::is_legal(move_t m, const Master& t)
 			break;
 		
 		case(Peon::CABALLO_NEGRO):
-			
+			//movs caballo
 			if (abs(m.ori.x - m.dest.x) == 2 && abs(m.ori.y - m.dest.y) == 1 || abs(m.ori.x - m.dest.x) == 1 && abs(m.ori.y - m.dest.y) == 2)
 			{
 				cout << "is_legal TRUE " << endl; return 2;
@@ -129,7 +141,7 @@ int Movimientos::is_legal(move_t m, const Master& t)
 			else { return 0; }
 			break;
 		case(Peon::CABALLO_BLANCO):
-			
+			//movs caballo
 			if ((m.dest.x < 9) && (m.dest.x > 0) && (m.dest.y < 9) && (m.dest.y > 0)) {
 				if (abs(m.ori.x - m.dest.x) == 2 && abs(m.ori.y - m.dest.y) == 1 || abs(m.ori.x - m.dest.x) == 1 && abs(m.ori.y - m.dest.y) == 2)
 				{
@@ -398,17 +410,17 @@ int Movimientos::is_legal(move_t m, const Master& t)
 		
 		case(Peon::TORRE_NEGRA):case(Peon::TORRE_BLANCA):
 			for (int i = 1; i < 9; i++) {
-				if ((m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y)) //
+				if ((m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y)) 
 				{
 					
-					if ((m.dest.x > 9) || (m.dest.y > 9)) { return 0; }//
+					if ((m.dest.x > 9) || (m.dest.y > 9)) { return 0; }
 
 					
 						cout << "LA TORRE come" << endl;
 						return 1;
 					
 				}
-				if ((m.dest.x == m.ori.x - i) && (m.dest.y == m.ori.y)) //
+				if ((m.dest.x == m.ori.x - i) && (m.dest.y == m.ori.y)) 
 				{
 					
 
@@ -662,14 +674,14 @@ int Movimientos::is_legal(move_t m, const Master& t)
 	return 0;
 }
 
-int Movimientos::move(move_t m, Master& t)
+int Movimientos::move(move_t m, Master& t) //en esta funcion, crearemos la pieza en la casilla de destino. Si hemos comido, tendremos que eliminar la pieza comida.
 {
 
 	if (Movimientos::is_legal(m, t) != 0) {
-		Peon* fo = t.peones[m.ori.x][m.ori.y];
-		Peon* fd = t.peones[m.dest.x][m.dest.y];
+		Peon* fo = t.peones[m.ori.x][m.ori.y];  //ficha origen
+		Peon* fd = t.peones[m.dest.x][m.dest.y];  //ficha destino
 		cas_t aux;
-		if (fd) {  //si hay pieza en el destino!!
+		if (fd) {  //si hay pieza en el destino!! es decir, comemos
 			switch (fo->type())
 			{
 			case(Peon::PEON_BLANCO): //elegir diagonal para mover fo
@@ -678,7 +690,7 @@ int Movimientos::move(move_t m, Master& t)
 					aux = { m.dest.x ,m.dest.y  };
 					if (aux.x == 8)
 					{
-						t += reinab({ aux });
+						t += reinab({ aux });  //creamos reina al haber llegado al final
 						t -= *fo;
 						cout << "dama blanca se convierte" << endl;
 					}
@@ -899,10 +911,7 @@ int Movimientos::move(move_t m, Master& t)
 				break;
 			case(Peon::CABALLO_BLANCO):
 				aux = { m.dest.x ,m.dest.y };
-				/*if (((m.dest.x == m.ori.x - 2) && (m.dest.y == m.ori.y - 1)) || ((m.dest.x == m.ori.x - 2) && (m.dest.y == m.dest.y + 1)) ||
-					((m.dest.x == m.ori.x + 2) && (m.dest.y == m.ori.y + 1)) || ((m.dest.x == m.ori.x + 2) && (m.dest.y == m.dest.y - 1)) ||
-					((m.dest.x == m.ori.x - 1) && (m.dest.y == m.ori.y - 2)) || ((m.dest.x == m.ori.x - 1) && (m.dest.y == m.dest.y + 2)) ||
-					((m.dest.x == m.ori.x + 1) && (m.dest.y == m.ori.y + 2)) || ((m.dest.x == m.ori.x + 1) && (m.dest.y == m.dest.y - 2)))*/
+		
 				if (abs(m.ori.x - m.dest.x) == 2 && abs(m.ori.y - m.dest.y) == 1 || abs(m.ori.x - m.dest.x) == 1 && abs(m.ori.y - m.dest.y) == 2)
 				{
 					t += cabb({ aux });
@@ -912,10 +921,7 @@ int Movimientos::move(move_t m, Master& t)
 
 			case(Peon::CABALLO_NEGRO):
 				aux = { m.dest.x, m.dest.y };
-				/*if (((m.dest.x == m.ori.x - 2) && (m.dest.y == m.ori.y - 1)) || ((m.dest.x == m.ori.x - 2) && (m.dest.y == m.dest.y + 1)) ||
-					((m.dest.x == m.ori.x + 2) && (m.dest.y == m.ori.y + 1)) || ((m.dest.x == m.ori.x + 2) && (m.dest.y == m.dest.y - 1)) ||
-					((m.dest.x == m.ori.x - 1) && (m.dest.y == m.ori.y - 2)) || ((m.dest.x == m.ori.x - 1) && (m.dest.y == m.dest.y + 2)) ||
-					((m.dest.x == m.ori.x + 1) && (m.dest.y == m.ori.y + 2)) || ((m.dest.x == m.ori.x + 1) && (m.dest.y == m.dest.y - 2)))*/
+				
 				if (abs(m.ori.x - m.dest.x) == 2 && abs(m.ori.y - m.dest.y) == 1 || abs(m.ori.x - m.dest.x) == 1 && abs(m.ori.y - m.dest.y) == 2)
 				{
 					t += cabn({ aux });
@@ -929,7 +935,7 @@ int Movimientos::move(move_t m, Master& t)
 			}
 			//t.operator-=(*fd); //borramos la ficha comida   he comentado esto para que me funcione
 		}
-		else
+		else  //no comemos, destruimos pieza en origen y creamos en destino
 		{
 			//move piece in original square
 			fd = fo;

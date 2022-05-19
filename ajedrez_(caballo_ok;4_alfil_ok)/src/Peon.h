@@ -28,7 +28,6 @@ public:
 	pn() { }
 	pn(cas_t c) :Peon(PEON_NEGRO, c) { }
 	void dibuja() {
-		// con las líneas de alpha test y alphaFunc conseguimos poder añadir imágenes sin fondo
 		glEnable(GL_TEXTURE_2D);
 		glEnable(GL_ALPHA_TEST);
 		glAlphaFunc(GL_GREATER, 0);

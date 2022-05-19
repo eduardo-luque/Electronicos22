@@ -3,10 +3,10 @@
 
 Coordinador coordinador;
 
-void OnDraw(void);											//Esta funcion sera llamada para dibujar
-void OnKeyboardDown(unsigned char key, int x, int y);		//Esta funcion sera llamada cuando se pulse una tecla	
-void OnMouseClick(int button, int state, int x, int y);		//Esta funcion sera llamada cuando se pulse el a,raton
-void OnTimer(int value);									//Esta funcion sera llamada cuando transcurra una temporizacion
+void OnDraw(void);											//para dibujar
+void OnKeyboardDown(unsigned char key, int x, int y);		//cuando se pulse una tecla	
+void OnMouseClick(int button, int state, int x, int y);		//cuando se pulse el raton
+void OnTimer(int value);									//transcurre una temporizacion
 
 int main(int argc, char* argv[]) {
 	//GL Initialization stuff
@@ -73,7 +73,6 @@ void OnMouseClick(int b, int state, int x, int y) {
 
 void OnTimer(int value) {
 
-	//coordinador.TurnoSolo();
 	//No borrar estas lineas
 	glutTimerFunc(100, OnTimer, 0); //ser configura 100ms para poder apreciar el movimiento de la maquina
 	glutPostRedisplay();

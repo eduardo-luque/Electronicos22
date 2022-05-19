@@ -1,6 +1,6 @@
 #include "Master.h"
 
-void Master::nulify()
+void Master::nulify()  //hacemos nulo toda la matriz tablero
 {
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < n; j++) {
@@ -10,12 +10,12 @@ void Master::nulify()
 }
 
 
-Master::Master(const Master& rhs) :nFichas(rhs.nFichas) {
+Master::Master(const Master& rhs) :nFichas(rhs.nFichas) {  //creamos las fichas necesarias
 	nulify();
 
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < n; j++) {
-			Peon* f = rhs.peones[i][j];
+			Peon* f = rhs.peones[i][j];   //aunque ponga peones, es enrealidad el tablero
 			if (f != NULL) {
 				peones[i][j] = fabrica::create(*f);
 			}
@@ -23,32 +23,6 @@ Master::Master(const Master& rhs) :nFichas(rhs.nFichas) {
 	}
 }
 
-/*
-Master::Master() :nFichas(0)
-{
-	nulify();
-
-	/////////////////////////
-	//configuración inicial//
-
-		//fichas blancas
-
-	for (int j = 0; j < n; j += 2) {
-		peones[1][j] = fabrica::create(Peon::PEON_BLANCO, cas_t{ 1,j });
-		nFichas++;
-	}
-	peones[0][3] = fabrica::create(Peon::REINA_BLANCA, cas_t{ 0,3 });
-	nFichas++;
-	//fichas negras
-
-	for (int j = 1; j < n; j += 2) {
-		peones[6][j] = fabrica::create(Peon::PEON_NEGRO, cas_t{ 6,j });
-		nFichas++;
-	}
-	peones[7][4] = fabrica::create(Peon::REY_NEGRO, cas_t{ 7,4 });
-	nFichas++;
-}
-*/
 
 
 void Master::Inicializa() {  //creamos los peones blancos y negros. tambien torres
@@ -107,7 +81,7 @@ void Master::Inicializa() {  //creamos los peones blancos y negros. tambien torr
 }
 
 
-int Master::number_of_pieces()
+int Master::number_of_pieces()   //contamos las piezas que hay
 {
 	nFichas = 0;
 	for (int i = 0; i < n; i++) {
@@ -130,28 +104,6 @@ Master::~Master() {
 	}
 }
 
-//QUE YO SEPA EL OPERADOR IGUAL UNCA SE DEBE SOBREECARGAR
-/*
-Master& Master::operator=(const Master& rhs)
-{
-	if (this != &rhs) {
-
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < n; j++) {
-				Peon* f = rhs.peones[i][j];
-				if (f != NULL) {
-					peones[i][j] = fabrica::create(*f);
-				}
-				else {
-					peones[i][j] = NULL;
-				}
-			}
-		}
-	}
-	return *this;
-   
-}
-*/
 
 Master& Master::operator-=(const Peon& f)
 {

@@ -66,24 +66,6 @@ void Tablero::Dibuja(Master& t) {
 
 }
 
-//Dibuja las lineas que recuadran el tablero para adornarlo
-//void Tablero::DibujaRepaso() {  (No es necesario)
-	/*float dist = anchocasilla;
-	glColor3ub(0, 255, 0);
-
-	for (int i = 0; i <= numcasillas; i++) {
-		if (i % numcasillas == 0) glLineWidth(4);
-		else glLineWidth(1);
-		glBegin(GL_LINES);
-		glVertex3f(i * anchocasilla, 0, 0);
-		glVertex3f(i * anchocasilla, -marco, 0);
-		glVertex3f(0, -i * anchocasilla, 0);
-		glVertex3f(marco, -i * anchocasilla, 0);
-		glEnd();
-	}
-	}
-	*/
-
 void Tablero::DibujaEnCelda(Master& t, int x, int y) {
 	float glx, gly;
 
@@ -239,7 +221,6 @@ void Tablero::DibujaEnCelda(Master& t, int x, int y) {
 
 }
 
-
 //Centro de la celda
 //Importante para dibujar el circulo desde el centro de la celda
 void Tablero::localizarcentro(int cell_x, int cell_y, float& glx, float& gly) {
@@ -300,42 +281,3 @@ void Tablero::drawsquare() {
 	glEnable(GL_LIGHTING);
 	glDisable(GL_TEXTURE_2D);
 }
-
-/*
-void Tablero::drawFilledCircle(GLfloat x, GLfloat y, GLfloat radius) {   //funcion sacada de internet
-	int i;
-	int triangleAmount = 100; //Numero de triangulos usados para dibujar un circulo
-
-	GLfloat twicePi = 2.0f * M_PI;
-
-	glBegin(GL_TRIANGLE_FAN);
-	glVertex2f(x, y); // Centro del circulo
-	for (i = 0; i <= triangleAmount; i++) {
-		glVertex2f(
-			x + (radius * cos(i * twicePi / triangleAmount)),
-			y + (radius * sin(i * twicePi / triangleAmount))
-		);
-	}
-	glEnd();
-}
-*/
-//Dibuja la malla donde va el tablero
-/*
-void Tablero::DibujaRepaso() {
-	float dist = anchocasilla;
-	glColor3ub(250, 0, 0);
-	float marco = (numcasillas-1) * anchocasilla;
-	for (int i = 0; i <= (numcasillas-1); i++) {
-		if (i % (numcasillas-1) == 0) glLineWidth(4);
-		else glLineWidth(1);
-		glBegin(GL_LINES);
-		glVertex3f(i * anchocasilla, 0, 0);
-		glVertex3f(i * anchocasilla, -marco, 0);
-		glVertex3f(0, -i * anchocasilla, 0);
-		glVertex3f(marco, -i * anchocasilla, 0);
-		glEnd();
-	}
-
-}
-
-*/

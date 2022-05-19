@@ -12,7 +12,7 @@ void Mundo::Inicializa() {
 	mast.Inicializa();
 }
 
-void Mundo::Dibuja() {
+void Mundo::Dibuja() {   //llamamos al tablero para dibujarlo. 
 
 	tabl.Dibuja(mast); //La funcion es de tablero pero incluyo el master para poder utilizarlo?
 	DibujaCasilla(origen_n);
@@ -171,66 +171,11 @@ void Mundo::setMovimiento(cas_t ori, cas_t dest)
 
 
 
-//funcion prueba para ver si se mueve
+
 int Mundo::MovimientoPlayer(char t)
 {
-	/*
-	int aux;
-
-	if (t == 'N')
-	{
-		move_t mov = bot.negraMueve(mast);
-
-		switch (mov.tipo)
-		{
-		case(2):								 //si el movimiento es de tipo simple no tengo obligacion de comer porque no puedo comer
-			aux = mo.move({ origen_n, destino_n }, mast);
-			if (aux == -1)return 4;				//vuelvo a mi turno porque el movimiento no es valido
-			else return 1;
-			cout << "no puedes comer" << endl;
-			break;
-
-			break;
-		default:
-			break;
-		}
-
-		if (mov.ori.x == -1) {
-			cout << "Movimiento no Válido BLOQUEO" << endl;
-			return 3;
-		}
-	}
-
-	if (t == 'B')
-	{
-
-
-			move_t mov = bot.blancaMueve(mast);
-
-			switch (mov.tipo)
-			{
-			case(2):							 //si el movimiento es de tipo simple no tengo obligacion de comer porque no puedo comer
-				aux = mo.move({ origen_b, destino_b }, mast);
-				if (aux == -1)return 4;			//vuelvo a mi turno porque el movimiento no es valido
-				else return 1;
-				cout << "no puedes comer" << endl;
-				break;
-			default:
-				break;
-			}
-
-			if (mov.ori.x == -1) {
-				cout << "Movimiento no Válido BLOQUEO" << endl;
-				return 3;
-			}
-
-
-		}
-*/
-//SI QUEREMOS QUITAR EL FICHERO BotLegal.h y .cpp TENDRIAMOS QUE CAMBIAR TODO EL CONTENIDO DE ESTA FUNCIÓN MOVIMIENTOHUMANO
-//POR EL SIGUIENTE :
-
-	if (t == 'N')
+	
+	if (t == 'N')   //si son negras
 	{
 		if (mo.is_legal({ origen_n, destino_n }, mast) == 2)//movimiento simple sin comer
 		{
@@ -253,7 +198,7 @@ int Mundo::MovimientoPlayer(char t)
 
 		else return 4;//movimiento no valido con lo cual continuo con mi turno
 	}
-	if (t == 'B')
+	if (t == 'B') //si son blancas
 	{
 		if (mo.is_legal({ origen_b, destino_b }, mast) == 2)//movimiento simple sin comer
 		{

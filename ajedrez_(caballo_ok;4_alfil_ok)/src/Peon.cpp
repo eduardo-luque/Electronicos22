@@ -1,8 +1,8 @@
 #include "Peon.h"
 
-//Crear peones con asignacion de memoria como pb y pn
 
-Peon* fabrica::create(Peon::obj_t t, cas_t c) {
+
+Peon* fabrica::create(Peon::obj_t t, cas_t c) {   //creamos las piezas con asignacion de memoria. Los argumentos vienen de t->tipo c->casilla del tablero
 	switch (t) {
 	case Peon::PEON_NEGRO:
 		return new pn(c);
@@ -35,8 +35,8 @@ Peon* fabrica::create(Peon::obj_t t, cas_t c) {
 	return NULL;
 }
 
-//NSTRUCTOR COPIA (Alo mejor no es necesario) dice victor
-Peon* fabrica::create(const Peon& f)
+
+Peon* fabrica::create(const Peon& f)    //creamos las piezas con asignacion de memoria 
 {
 	switch (f.type()) {
 
@@ -86,7 +86,7 @@ Peon* fabrica::create(const Peon& f)
 
 }
 
-void Peon::dibuja(obj_t t) {
+void Peon::dibuja(obj_t t) {   //dibujamos las piezas
 	pb pb; pn pn; cabn cabn; cabb cabb; alfn alfn; alfb alfb; tn tn; tb tb; reinan reinan; reinab reinab; reyn reyn; reyb reyb;
 	switch (t) {
 	case Peon::PEON_NEGRO: pn.dibuja(); break;
