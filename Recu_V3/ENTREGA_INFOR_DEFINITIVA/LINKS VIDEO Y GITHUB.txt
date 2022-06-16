@@ -1,0 +1,8 @@
+
+VIDEO DEMOSTRACIÓN: (se escucha un poco mal en el segundo 38 debido a la grabadora del ordenador, no ocurre esto en el ejecutable)
+
+https://youtu.be/1B0ftT1oj6E
+
+ENLACE AL REPOSITORIO DE GITHUB DEL GRUPO:
+
+https://github.com/eduardo-luque/Electronicos22/tree/main/ajedrez_DEFINITIVO
