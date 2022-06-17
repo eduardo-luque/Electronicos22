@@ -1,0 +1,3 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(499,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
+  Pieza.cpp
+  Pang.vcxproj -> C:\Users\victor\Desktop\recu_trabajo\Recu_V3\ENTREGA_INFOR_DEFINITIVA\ajedrez5.0\ajedrez_V3\bin\AjedrezOroPlata.exe
