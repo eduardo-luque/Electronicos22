@@ -1,4 +1,0 @@
-﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(500,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
-  Coordinador.cpp
-C:\Users\victor\Desktop\ajedrez2\tema2inicial_VS19x64\Coordinador.cpp(31,37): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-  Pang.vcxproj -> C:\Users\victor\Desktop\ajedrez2\tema2inicial_VS19x64\bin\Ajedrez2.exe
