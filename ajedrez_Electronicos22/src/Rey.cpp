@@ -1,6 +1,10 @@
 #include "Rey.h"
 
 void Rey::dibuja(obj_t t) {
+	float num1 = 0.0f, num2 = 0.0f;
+	num1 = +anchocasilla * 0.45f;
+	num2 = +anchocasilla * 0.45f;
+
 	switch (t) {
 	case (Pieza::REY_NEGRO):
 		glEnable(GL_TEXTURE_2D);
@@ -13,6 +17,17 @@ void Rey::dibuja(obj_t t) {
 	default:
 		break;
 	}
+
+	glDisable(GL_LIGHTING);
+	glBegin(GL_POLYGON);
+	glColor3f(1, 1, 1);
+	glVertex2f(-num1, +num2); glTexCoord2d(0, 0);
+	glVertex2f(+num1, +num2); glTexCoord2d(0, 1);
+	glVertex2f(+num1, -num2); glTexCoord2d(1, 1);
+	glVertex2f(-num1, -num2); glTexCoord2d(1, 0);
+	glEnd();
+	glEnable(GL_LIGHTING);
+	glDisable(GL_TEXTURE_2D);
 }
 
 bool Rey::movimiento(obj_t t, move_t m) {

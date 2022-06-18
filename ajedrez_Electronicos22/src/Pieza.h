@@ -1,6 +1,7 @@
 #pragma once
 #include "EstructurasMov.h"
 #include <ETSIDI.h>
+#define anchocasilla 0.15
 
 class Pieza {
 public:
@@ -12,7 +13,6 @@ public:
 	cas_t cas;
 	obj_t rtt;
 	Pieza(obj_t t = FICHA, cas_t c = { -1, -1 }) :rtt(t), cas(c) { }
-	virtual void dibuja(){}
 	virtual void dibuja(obj_t t) {}
 	virtual bool movimiento(obj_t t, move_t m);
 	virtual bool mov_comer(obj_t t, move_t m);
