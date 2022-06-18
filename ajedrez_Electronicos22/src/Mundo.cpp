@@ -17,7 +17,6 @@ void Mundo::Dibuja() {   //llamamos al tablero para dibujarlo.
 	tabl.Dibuja(mast); 
 	DibujaCasilla(origen_n);
 	DibujaCasilla(origen_b);
-
 }
 
 void Mundo::Raton(int x, int y, int b, bool state, char t) {

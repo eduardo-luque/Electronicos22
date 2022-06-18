@@ -6,6 +6,98 @@
 #include "Reina.h"
 #include "Alfil.h"
 
+bool Pieza::movimiento(obj_t t, move_t m) {
+	Peon peon; Reina reina; Rey rey; Torre torre; Caballo caballo; Alfil alfil;
+	switch (t) {
+	case Pieza::FICHA:
+		break;
+	case Pieza::PEON_NEGRO:
+		return peon.movimiento(Pieza::PEON_NEGRO, m);
+		break;
+	case Pieza::PEON_BLANCO:
+		return peon.movimiento(Pieza::PEON_BLANCO, m);
+		break;
+	case Pieza::TORRE_BLANCA:
+		return torre.movimiento(Pieza::TORRE_BLANCA, m);
+		break;
+	case Pieza::TORRE_NEGRA:
+		return torre.movimiento(Pieza::TORRE_NEGRA, m);
+		break;
+	case Pieza::REY_BLANCO:
+		return rey.movimiento(Pieza::REY_BLANCO, m);
+		break;
+	case Pieza::REY_NEGRO:
+		return rey.movimiento(Pieza::REY_NEGRO, m);
+		break;
+	case Pieza::CABALLO_BLANCO:
+		return caballo.movimiento(Pieza::CABALLO_BLANCO, m);
+		break;
+	case Pieza::CABALLO_NEGRO:
+		return caballo.movimiento(Pieza::CABALLO_NEGRO, m);
+		break;
+	case Pieza::ALFIL_BLANCO:
+		return alfil.movimiento(Pieza::ALFIL_BLANCO, m);
+		break;
+	case Pieza::ALFIL_NEGRO:
+		return alfil.movimiento(Pieza::ALFIL_NEGRO, m);
+		break;
+	case Pieza::REINA_BLANCA:
+		return reina.movimiento(Pieza::REINA_BLANCA, m);
+		break;
+	case Pieza::REINA_NEGRA:
+		return reina.movimiento(Pieza::REINA_NEGRA, m);
+		break;
+	default:
+		break;
+	}
+}
+
+bool Pieza::mov_comer(obj_t t, move_t m) {
+	Peon peon; Reina reina; Rey rey; Torre torre; Caballo caballo; Alfil alfil;
+	switch (t) {
+	case Pieza::FICHA:
+		break;
+	case Pieza::PEON_NEGRO:
+		return peon.mov_comer(Pieza::PEON_NEGRO, m);
+		break;
+	case Pieza::PEON_BLANCO:
+		return peon.mov_comer(Pieza::PEON_BLANCO, m);
+		break;
+	case Pieza::TORRE_BLANCA:
+		return torre.mov_comer(Pieza::TORRE_BLANCA, m);
+		break;
+	case Pieza::TORRE_NEGRA:
+		return torre.mov_comer(Pieza::TORRE_NEGRA, m);
+		break;
+	case Pieza::REY_BLANCO:
+		return rey.mov_comer(Pieza::REY_BLANCO, m);
+		break;
+	case Pieza::REY_NEGRO:
+		return rey.mov_comer(Pieza::REY_NEGRO, m);
+		break;
+	case Pieza::CABALLO_BLANCO:
+		return caballo.mov_comer(Pieza::CABALLO_BLANCO, m);
+		break;
+	case Pieza::CABALLO_NEGRO:
+		return caballo.mov_comer(Pieza::CABALLO_NEGRO, m);
+		break;
+	case Pieza::ALFIL_BLANCO:
+		return alfil.mov_comer(Pieza::ALFIL_BLANCO, m);
+		break;
+	case Pieza::ALFIL_NEGRO:
+		return alfil.movimiento(Pieza::ALFIL_NEGRO, m);
+		break;
+	case Pieza::REINA_BLANCA:
+		return reina.mov_comer(Pieza::REINA_BLANCA, m);
+		break;
+	case Pieza::REINA_NEGRA:
+		return reina.mov_comer(Pieza::REINA_NEGRA, m);
+		break;
+	default:
+		break;
+	}
+}
+
 Pieza* Pieza::create(Pieza::obj_t t, cas_t c) {   //creamos las piezas con asignacion de memoria. Los argumentos vienen de t->tipo c->casilla del tablero
 	switch (t) {
 	case Pieza::PEON_NEGRO:

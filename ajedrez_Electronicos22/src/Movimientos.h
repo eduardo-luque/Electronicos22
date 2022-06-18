@@ -4,8 +4,6 @@
 #include "Master.h"
 #include "Pieza.h"
 
-
-
 class Movimientos {
 public:
 	static int is_legal(move_t m, const Master& t); //SE ASEGURA DE QUE LOS MOVIMIENTOS SEAN VALIDOS, TAMBIEN LOS DE COMER
