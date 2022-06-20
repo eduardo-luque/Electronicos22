@@ -29,4 +29,5 @@ public:
 	void localizarcentro(int, int, float&, float&);
 	void world2cell(double, double, int&, int&);
 	void BotonMouse(int, int, int, bool);
+	void drawsquare();
 };

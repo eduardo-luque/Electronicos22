@@ -84,6 +84,7 @@ void Tablero::DibujaEnCelda(Master& t, int x, int y) {
 		glColor3ub(192, 192, 192);  //color plata rgb
 		glTranslatef(glx, gly, 0.001f);
 		peon.dibuja(Pieza::PEON_BLANCO);
+		drawsquare();
 		glTranslatef(-glx, -gly, -0.001f);
 		glEnable(GL_LIGHTING);
 		break;
@@ -94,6 +95,7 @@ void Tablero::DibujaEnCelda(Master& t, int x, int y) {
 		glColor3ub(234, 190, 63);   //color oro rgb
 		glTranslatef(glx, gly, 0.001f);
 		peon.dibuja(Pieza::PEON_NEGRO);
+		drawsquare();
 		glTranslatef(-glx, -gly, -0.001f);
 		glEnable(GL_LIGHTING);
 		break;
@@ -104,6 +106,7 @@ void Tablero::DibujaEnCelda(Master& t, int x, int y) {
 		glColor3ub(234, 190, 250);   //color TORRE blanca
 		glTranslatef(glx, gly, 0.001);
 		torre.dibuja(Pieza::TORRE_BLANCA);
+		drawsquare();
 		glTranslatef(-glx, -gly, -0.001);
 		glEnable(GL_LIGHTING);
 		break;
@@ -114,6 +117,7 @@ void Tablero::DibujaEnCelda(Master& t, int x, int y) {
 		glColor3ub(234, 190, 250);   //color TORRE negra
 		glTranslatef(glx, gly, 0.001);
 		torre.dibuja(Pieza::TORRE_NEGRA);
+		drawsquare();
 		glTranslatef(-glx, -gly, -0.001);
 		glEnable(GL_LIGHTING);
 		break;
@@ -124,6 +128,7 @@ void Tablero::DibujaEnCelda(Master& t, int x, int y) {
 		glColor3ub(192, 190, 250);   //color CABALLO blanco
 		glTranslatef(glx, gly, 0.001);
 		caballo.dibuja(Pieza::CABALLO_BLANCO);
+		drawsquare();
 		glTranslatef(-glx, -gly, -0.001);
 		glEnable(GL_LIGHTING);
 		break;
@@ -134,6 +139,7 @@ void Tablero::DibujaEnCelda(Master& t, int x, int y) {
 		glColor3ub(192, 190, 250);   //color CABALLO negro
 		glTranslatef(glx, gly, 0.001);
 		caballo.dibuja(Pieza::CABALLO_NEGRO);
+		drawsquare();
 		glTranslatef(-glx, -gly, -0.001);
 		glEnable(GL_LIGHTING);
 		break;
@@ -144,6 +150,7 @@ void Tablero::DibujaEnCelda(Master& t, int x, int y) {
 		glColor3ub(0, 190, 0);   //color ALFIL blanco
 		glTranslatef(glx, gly, 0.001);
 		alfil.dibuja(Pieza::ALFIL_BLANCO);
+		drawsquare();
 		glTranslatef(-glx, -gly, -0.001);
 		glEnable(GL_LIGHTING);
 		break;
@@ -154,6 +161,7 @@ void Tablero::DibujaEnCelda(Master& t, int x, int y) {
 		glColor3ub(0, 190, 0);   //color ALFIL negro
 		glTranslatef(glx, gly, 0.001);
 		alfil.dibuja(Pieza::ALFIL_NEGRO);
+		drawsquare();
 		glTranslatef(-glx, -gly, -0.001);
 		glEnable(GL_LIGHTING);
 		break;
@@ -164,6 +172,7 @@ void Tablero::DibujaEnCelda(Master& t, int x, int y) {
 		glColor3ub(0, 0, 255);   //color REY blanco
 		glTranslatef(glx, gly, 0.001);
 		rey.dibuja(Pieza::REY_BLANCO);
+		drawsquare();
 		glTranslatef(-glx, -gly, -0.001);
 		glEnable(GL_LIGHTING);
 		break;
@@ -174,6 +183,7 @@ void Tablero::DibujaEnCelda(Master& t, int x, int y) {
 		glColor3ub(0, 0, 255);   //color REY negro
 		glTranslatef(glx, gly, 0.001);
 		rey.dibuja(Pieza::REY_NEGRO);
+		drawsquare();
 		glTranslatef(-glx, -gly, -0.001);
 		glEnable(GL_LIGHTING);
 		break;
@@ -184,6 +194,7 @@ void Tablero::DibujaEnCelda(Master& t, int x, int y) {
 		glColor3ub(255, 0, 0);   //color DAMA blanca
 		glTranslatef(glx, gly, 0.001);
 		reina.dibuja(Pieza::REINA_BLANCA);
+		drawsquare();
 		glTranslatef(-glx, -gly, -0.001);
 		glEnable(GL_LIGHTING);
 		break;
@@ -194,6 +205,7 @@ void Tablero::DibujaEnCelda(Master& t, int x, int y) {
 		glColor3ub(255, 0, 0);   //color DAMA negra
 		glTranslatef(glx, gly, 0.001);
 		reina.dibuja(Pieza::REINA_NEGRA);
+		drawsquare();
 		glTranslatef(-glx, -gly, -0.001);
 		glEnable(GL_LIGHTING);
 	default:
@@ -245,4 +257,20 @@ void Tablero::BotonMouse(int x, int y, int button, bool down) {  //funcion que m
 	if (down) {
 		cout << "(" << xcell_sel << "," << ycell_sel << ")" << endl;
 	}
+}
+
+void Tablero::drawsquare() {
+	float num1 = 0.0f, num2 = 0.0f;
+	num1 = +anchocasilla * 0.45f;
+	num2 = +anchocasilla * 0.45f;
+	glDisable(GL_LIGHTING);
+	glBegin(GL_POLYGON);
+	glColor3f(1, 1, 1);
+	glVertex2f(-num1, +num2); glTexCoord2d(0, 0);
+	glVertex2f(+num1, +num2); glTexCoord2d(0, 1);
+	glVertex2f(+num1, -num2); glTexCoord2d(1, 1);
+	glVertex2f(-num1, -num2); glTexCoord2d(1, 0);
+	glEnd();
+	glEnable(GL_LIGHTING);
+	glDisable(GL_TEXTURE_2D);
 }

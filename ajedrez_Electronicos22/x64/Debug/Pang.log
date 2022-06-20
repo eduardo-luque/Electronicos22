@@ -1,79 +1,72 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(499,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(499,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
   Ajedrez.cpp
   Alfil.cpp
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Alfil.cpp(5,30): warning C4305: '=': truncamiento de 'double' a 'float'
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Alfil.cpp(6,30): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Alfil.cpp(10,51): warning C4305: 'return': truncamiento de 'int' a 'bool'
   Caballo.cpp
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Caballo.cpp(5,30): warning C4305: '=': truncamiento de 'double' a 'float'
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Caballo.cpp(6,30): warning C4305: '=': truncamiento de 'double' a 'float'
   Coordinador.cpp
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Coordinador.cpp(29,40): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Coordinador.cpp(29,40): warning C4305: 'argumento': truncamiento de 'double' a 'float'
   Master.cpp
   Movimientos.cpp
   Mundo.cpp
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Mundo.cpp(148,47): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Mundo.cpp(148,34): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Mundo.cpp(148,21): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Mundo.cpp(151,21): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Mundo.cpp(152,25): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Mundo.cpp(153,22): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Mundo.cpp(155,48): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Mundo.cpp(155,34): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Mundo.cpp(155,22): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Mundo.cpp(148,47): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Mundo.cpp(148,34): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Mundo.cpp(148,21): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Mundo.cpp(151,21): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Mundo.cpp(152,25): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Mundo.cpp(153,22): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Mundo.cpp(155,48): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Mundo.cpp(155,34): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Mundo.cpp(155,22): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
   Peon.cpp
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Peon.cpp(5,30): warning C4305: '=': truncamiento de 'double' a 'float'
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Peon.cpp(6,30): warning C4305: '=': truncamiento de 'double' a 'float'
   Pieza.cpp
   Reina.cpp
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Reina.cpp(5,30): warning C4305: '=': truncamiento de 'double' a 'float'
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Reina.cpp(6,30): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Reina.cpp(9,51): warning C4305: 'return': truncamiento de 'int' a 'bool'
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Reina.cpp(14,51): warning C4305: 'return': truncamiento de 'int' a 'bool'
   Rey.cpp
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Rey.cpp(5,30): warning C4305: '=': truncamiento de 'double' a 'float'
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Rey.cpp(6,30): warning C4305: '=': truncamiento de 'double' a 'float'
   Tablero.cpp
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Tablero.cpp(15,49): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Tablero.cpp(16,50): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Tablero.cpp(19,28): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Tablero.cpp(22,29): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Tablero.cpp(105,31): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Tablero.cpp(107,34): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Tablero.cpp(115,31): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Tablero.cpp(117,34): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Tablero.cpp(125,31): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Tablero.cpp(127,34): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Tablero.cpp(135,31): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Tablero.cpp(137,34): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Tablero.cpp(145,31): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Tablero.cpp(147,34): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Tablero.cpp(155,31): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Tablero.cpp(157,34): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Tablero.cpp(165,31): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Tablero.cpp(167,34): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Tablero.cpp(175,31): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Tablero.cpp(177,34): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Tablero.cpp(185,31): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Tablero.cpp(187,34): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Tablero.cpp(195,31): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Tablero.cpp(197,34): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Tablero.cpp(208,30): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Tablero.cpp(209,31): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Tablero.cpp(15,49): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Tablero.cpp(16,50): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Tablero.cpp(19,28): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Tablero.cpp(22,29): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Tablero.cpp(107,31): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Tablero.cpp(110,34): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Tablero.cpp(118,31): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Tablero.cpp(121,34): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Tablero.cpp(129,31): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Tablero.cpp(132,34): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Tablero.cpp(140,31): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Tablero.cpp(143,34): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Tablero.cpp(151,31): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Tablero.cpp(154,34): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Tablero.cpp(162,31): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Tablero.cpp(165,34): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Tablero.cpp(173,31): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Tablero.cpp(176,34): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Tablero.cpp(184,31): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Tablero.cpp(187,34): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Tablero.cpp(195,31): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Tablero.cpp(198,34): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Tablero.cpp(206,31): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Tablero.cpp(209,34): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Tablero.cpp(220,30): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Tablero.cpp(221,31): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Tablero.cpp(264,30): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Tablero.cpp(265,30): warning C4305: '=': truncamiento de 'double' a 'float'
   Torre.cpp
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Torre.cpp(5,30): warning C4305: '=': truncamiento de 'double' a 'float'
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Torre.cpp(6,30): warning C4305: '=': truncamiento de 'double' a 'float'
   Generando código...
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Torre.cpp(74): warning C4715: 'Torre::mov_comer': no todas las rutas de acceso de control devuelven un valor
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Torre.cpp(47): warning C4715: 'Torre::movimiento': no todas las rutas de acceso de control devuelven un valor
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Rey.cpp(51): warning C4715: 'Rey::movimiento': no todas las rutas de acceso de control devuelven un valor
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Rey.cpp(92): warning C4715: 'Rey::mov_comer': no todas las rutas de acceso de control devuelven un valor
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Reina.cpp(52): warning C4715: 'Reina::movimiento': no todas las rutas de acceso de control devuelven un valor
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Reina.cpp(96): warning C4715: 'Reina::mov_comer': no todas las rutas de acceso de control devuelven un valor
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Pieza.cpp(99): warning C4715: 'Pieza::mov_comer': no todas las rutas de acceso de control devuelven un valor
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Pieza.cpp(53): warning C4715: 'Pieza::movimiento': no todas las rutas de acceso de control devuelven un valor
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Peon.cpp(96): warning C4715: 'Peon::mov_comer': no todas las rutas de acceso de control devuelven un valor
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Peon.cpp(68): warning C4715: 'Peon::movimiento': no todas las rutas de acceso de control devuelven un valor
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Mundo.cpp(223): warning C4715: 'Mundo::MovimientoPlayer': no todas las rutas de acceso de control devuelven un valor
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Caballo.cpp(54): warning C4715: 'Caballo::movimiento': no todas las rutas de acceso de control devuelven un valor
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Caballo.cpp(129): warning C4715: 'Caballo::mov_comer': no todas las rutas de acceso de control devuelven un valor
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Alfil.cpp(74): warning C4715: 'Alfil::mov_comer': no todas las rutas de acceso de control devuelven un valor
-C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\src\Alfil.cpp(47): warning C4715: 'Alfil::movimiento': no todas las rutas de acceso de control devuelven un valor
-  Pang.vcxproj -> C:\Users\franc\source\repos 1\trabajo hecho\ajedrez_V3\bin\AjedrezOroPlata.exe
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Torre.cpp(17): warning C4715: 'Torre::movimiento': no todas las rutas de acceso de control devuelven un valor
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Torre.cpp(44): warning C4715: 'Torre::mov_comer': no todas las rutas de acceso de control devuelven un valor
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Rey.cpp(22): warning C4715: 'Rey::movimiento': no todas las rutas de acceso de control devuelven un valor
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Rey.cpp(63): warning C4715: 'Rey::mov_comer': no todas las rutas de acceso de control devuelven un valor
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Reina.cpp(20): warning C4715: 'Reina::movimiento': no todas las rutas de acceso de control devuelven un valor
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Reina.cpp(64): warning C4715: 'Reina::mov_comer': no todas las rutas de acceso de control devuelven un valor
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Pieza.cpp(53): warning C4715: 'Pieza::movimiento': no todas las rutas de acceso de control devuelven un valor
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Pieza.cpp(99): warning C4715: 'Pieza::mov_comer': no todas las rutas de acceso de control devuelven un valor
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Peon.cpp(63): warning C4715: 'Peon::mov_comer': no todas las rutas de acceso de control devuelven un valor
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Peon.cpp(36): warning C4715: 'Peon::movimiento': no todas las rutas de acceso de control devuelven un valor
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Mundo.cpp(223): warning C4715: 'Mundo::MovimientoPlayer': no todas las rutas de acceso de control devuelven un valor
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Caballo.cpp(25): warning C4715: 'Caballo::movimiento': no todas las rutas de acceso de control devuelven un valor
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Caballo.cpp(101): warning C4715: 'Caballo::mov_comer': no todas las rutas de acceso de control devuelven un valor
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Alfil.cpp(42): warning C4715: 'Alfil::mov_comer': no todas las rutas de acceso de control devuelven un valor
+C:\Users\victor\Desktop\recu actual\ajedrez_V3\src\Alfil.cpp(15): warning C4715: 'Alfil::movimiento': no todas las rutas de acceso de control devuelven un valor
+  Pang.vcxproj -> C:\Users\victor\Desktop\recu actual\ajedrez_V3\bin\AjedrezOroPlata.exe

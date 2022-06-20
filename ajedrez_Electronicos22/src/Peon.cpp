@@ -1,37 +1,5 @@
 #include "Peon.h"
 
-void Peon::dibuja(obj_t t) {
-	float num1 = 0.0f, num2 = 0.0f;
-	num1 = +anchocasilla * 0.45f;
-	num2 = +anchocasilla * 0.45f;
-
-	switch (t) {
-	case (Pieza::PEON_NEGRO):
-		glEnable(GL_TEXTURE_2D);
-		glEnable(GL_ALPHA_TEST);
-		glAlphaFunc(GL_GREATER, 0);
-		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/engranaje2.png").id);
-		break;
-	case (Pieza::PEON_BLANCO):
-		glEnable(GL_TEXTURE_2D);
-		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/atomo2.png").id);
-		break;
-	default:
-		break;
-	}
-
-	glDisable(GL_LIGHTING);
-	glBegin(GL_POLYGON);
-	glColor3f(1, 1, 1);
-	glVertex2f(-num1, +num2); glTexCoord2d(0, 0);
-	glVertex2f(+num1, +num2); glTexCoord2d(0, 1);
-	glVertex2f(+num1, -num2); glTexCoord2d(1, 1);
-	glVertex2f(-num1, -num2); glTexCoord2d(1, 0);
-	glEnd();
-	glEnable(GL_LIGHTING);
-	glDisable(GL_TEXTURE_2D);
-}
-
 bool Peon::movimiento(obj_t t, move_t m) {
 	switch (t) {
 	case(Pieza::PEON_BLANCO)://está permitido que avance hacia abajo(sumarle 1 o 2 a la x)  
@@ -62,9 +30,9 @@ bool Peon::movimiento(obj_t t, move_t m) {
 			else { return false; }
 		}
 		break;
-	default:
-		break;
+	default: break;
 	}
+	
 }
 
 bool Peon::mov_comer(obj_t t, move_t m) {
@@ -90,7 +58,24 @@ bool Peon::mov_comer(obj_t t, move_t m) {
 			cout << "el peon negro come" << endl; return true;
 		}
 		break;
-	default: 
+	default: break;
+	}
+}
+
+
+void Peon::dibuja(obj_t t) {
+	switch (t) {
+	case (Pieza::PEON_NEGRO):
+		glEnable(GL_TEXTURE_2D);
+		glEnable(GL_ALPHA_TEST);
+		glAlphaFunc(GL_GREATER, 0);
+		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/engranaje2.png").id);
+		break;
+	case (Pieza::PEON_BLANCO):
+		glEnable(GL_TEXTURE_2D);
+		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/atomo2.png").id);
+		break;
+	default:
 		break;
 	}
 }

@@ -1,7 +1,6 @@
 #pragma once
 #include "EstructurasMov.h"
 #include <ETSIDI.h>
-#define anchocasilla 0.15
 
 class Pieza {
 public:

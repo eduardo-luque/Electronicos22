@@ -17,6 +17,7 @@ public:
 	int nFichas;
 	Pieza* peones[n][n]; //vector de fichas del tablero
 	
+
 	Master(): nFichas(0){}
 	virtual ~Master();
 	Master(const Master&);

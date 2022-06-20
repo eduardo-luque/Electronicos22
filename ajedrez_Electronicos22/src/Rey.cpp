@@ -1,56 +1,28 @@
 #include "Rey.h"
 
-void Rey::dibuja(obj_t t) {
-	float num1 = 0.0f, num2 = 0.0f;
-	num1 = +anchocasilla * 0.45f;
-	num2 = +anchocasilla * 0.45f;
-
-	switch (t) {
-	case (Pieza::REY_NEGRO):
-		glEnable(GL_TEXTURE_2D);
-		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/tesla.png").id);
-		break;
-	case (Pieza::REY_BLANCO):
-		glEnable(GL_TEXTURE_2D);
-		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/einstein.png").id);
-		break;
-	default:
-		break;
-	}
-
-	glDisable(GL_LIGHTING);
-	glBegin(GL_POLYGON);
-	glColor3f(1, 1, 1);
-	glVertex2f(-num1, +num2); glTexCoord2d(0, 0);
-	glVertex2f(+num1, +num2); glTexCoord2d(0, 1);
-	glVertex2f(+num1, -num2); glTexCoord2d(1, 1);
-	glVertex2f(-num1, -num2); glTexCoord2d(1, 0);
-	glEnd();
-	glEnable(GL_LIGHTING);
-	glDisable(GL_TEXTURE_2D);
-}
-
-bool Rey::movimiento(obj_t t, move_t m) {
+bool Rey::movimiento(obj_t t, move_t m)
+{
     switch (t) {
     case Pieza::REY_BLANCO: case Pieza::REY_NEGRO:
 		//movimientos diagonales
 		if ((m.dest.x == m.ori.x - 1 || m.dest.x == m.ori.x + 1) && (m.dest.y == m.ori.y + 1 || m.dest.y == m.ori.y - 1)) {
 			cout << "movimiento valido " << endl; return true;
 		}
-		else { return false; }
+		return false;
 		//movimientos horizontales
 		if ((m.dest.x == m.ori.x + 1) && (m.dest.y == m.ori.y) || (m.dest.x == m.ori.x - 1) && (m.dest.y == m.ori.y) ||
 			(m.dest.x == m.ori.x) && (m.dest.y == m.ori.y + 1) || (m.dest.x == m.ori.x) && (m.dest.y == m.ori.y - 1)) {
 			cout << "movimiento valido " << endl; return true;
 		}
-		else { return false; }
+		return false;
 		break;
 	default:
 		break;
     }
 }
 
-bool Rey::mov_comer(obj_t t, move_t m) {
+bool Rey::mov_comer(obj_t t, move_t m)
+{
 	switch (t) {
 	case Pieza::REY_NEGRO: case Pieza::REY_BLANCO:
 		if ((m.dest.x == m.ori.x + 1) && (m.dest.y == m.ori.y + 1)) { //diagonal derecha inferior
@@ -86,7 +58,22 @@ bool Rey::mov_comer(obj_t t, move_t m) {
 			cout << "el rey COME" << endl; return true;
 		}
 		break;
-	default: 
+	default: break;
+	}
+}
+
+
+void Rey::dibuja(obj_t t) {
+	switch (t) {
+	case (Pieza::REY_NEGRO):
+		glEnable(GL_TEXTURE_2D);
+		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/tesla.png").id);
+		break;
+	case (Pieza::REY_BLANCO):
+		glEnable(GL_TEXTURE_2D);
+		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/einstein.png").id);
+		break;
+	default:
 		break;
 	}
 }

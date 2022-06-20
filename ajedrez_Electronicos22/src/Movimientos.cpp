@@ -8,7 +8,6 @@
 #include "Alfil.h"
 
 int Movimientos::is_legal(move_t m, const Master& t) {
-	Pieza p;
 	//CONDICIONES DE QUE SEA LEGAL EL MOVIMIENTO
 	//A) nuestro origen tiene que ser una ficha
 	Pieza* fo = t.peones[m.ori.x][m.ori.y];
@@ -40,6 +39,7 @@ int Movimientos::is_legal(move_t m, const Master& t) {
 		}
 	}
 	//D) Movimiento permitido simple
+	Pieza p;
 	if (!fd) { //CASILLA DESTINO VACIA
 		switch (fo->type()) {
 		case(Pieza::PEON_BLANCO)://está permitido que avance hacia abajo(sumarle 1 o 2 a la x)  
@@ -80,8 +80,7 @@ int Movimientos::is_legal(move_t m, const Master& t) {
 		case(Pieza::CABALLO_BLANCO):
 			return p.movimiento(Pieza::CABALLO_BLANCO, m);
 			break;
-		default: 
-			break;
+		default: break;
 		}
 	}
 	//E) Movimiento de comer, tiene que haber ficha en el destino
