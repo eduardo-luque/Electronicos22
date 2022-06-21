@@ -39,46 +39,46 @@ int Movimientos::is_legal(move_t m, const Master& t) {
 		}
 	}
 	//D) Movimiento permitido simple
-	Pieza p;
+	Peon peon; Reina reina; Rey rey; Torre torre; Caballo caballo; Alfil alfil;
 	if (!fd) { //CASILLA DESTINO VACIA
 		switch (fo->type()) {
 		case(Pieza::PEON_BLANCO)://está permitido que avance hacia abajo(sumarle 1 o 2 a la x)  
-			return p.movimiento(Pieza::PEON_BLANCO, m);
+			return peon.movimiento(Pieza::PEON_BLANCO, m);
 			break;
 		case(Pieza::PEON_NEGRO)://está permitido que avance hacia arriba(resta 1 o 2 a la x) 
-			return p.movimiento(Pieza::PEON_NEGRO, m);
+			return peon.movimiento(Pieza::PEON_NEGRO, m);
 			break;
 		case(Pieza::REINA_NEGRA):
-			return p.movimiento(Pieza::REINA_NEGRA, m);
+			return reina.movimiento(Pieza::REINA_NEGRA, m);
 			break; 
 		case(Pieza::REINA_BLANCA):
-			return p.movimiento(Pieza::REINA_BLANCA, m);
+			return reina.movimiento(Pieza::REINA_BLANCA, m);
 			break;
 		case(Pieza::REY_NEGRO):
-			return p.movimiento(Pieza::REY_NEGRO, m);
+			return rey.movimiento(Pieza::REY_NEGRO, m);
 			break;
 		case(Pieza::REY_BLANCO):
-			return p.movimiento(Pieza::REY_BLANCO, m);
+			return rey.movimiento(Pieza::REY_BLANCO, m);
 			break;
 		//movimientos horizontales
 		case(Pieza::TORRE_NEGRA):
-			return p.movimiento(Pieza::TORRE_NEGRA, m);
+			return torre.movimiento(Pieza::TORRE_NEGRA, m);
 			break;
 		case(Pieza::TORRE_BLANCA):
-			return p.movimiento(Pieza::TORRE_BLANCA, m);
+			return torre.movimiento(Pieza::TORRE_BLANCA, m);
 			break;
 		//movimientos diagonales
 		case(Pieza::ALFIL_BLANCO):
-			return p.movimiento(Pieza::ALFIL_BLANCO, m);
+			return alfil.movimiento(Pieza::ALFIL_BLANCO, m);
 			break;
 		case(Pieza::ALFIL_NEGRO):
-			return p.movimiento(Pieza::ALFIL_NEGRO, m);
+			return alfil.movimiento(Pieza::ALFIL_NEGRO, m);
 			break;
 		case(Pieza::CABALLO_NEGRO):
-			return p.movimiento(Pieza::CABALLO_NEGRO, m);
+			return caballo.movimiento(Pieza::CABALLO_NEGRO, m);
 			break;
 		case(Pieza::CABALLO_BLANCO):
-			return p.movimiento(Pieza::CABALLO_BLANCO, m);
+			return caballo.movimiento(Pieza::CABALLO_BLANCO, m);
 			break;
 		default: break;
 		}
@@ -88,40 +88,40 @@ int Movimientos::is_legal(move_t m, const Master& t) {
 		switch (fo->type()){
 		case(Pieza::PEON_BLANCO):
 			//distinguir si para la derecha o para la izquierda asegurando de que es para abajo
-			return p.mov_comer(Pieza::PEON_BLANCO, m);
+			return peon.mov_comer(Pieza::PEON_BLANCO, m);
 			break;
 		case(Pieza::PEON_NEGRO): //está permitido que coma hacia arriba  
-			return p.mov_comer(Pieza::PEON_NEGRO, m);
+			return peon.mov_comer(Pieza::PEON_NEGRO, m);
 			break;
 		case(Pieza::REINA_NEGRA):
-			return p.mov_comer(Pieza::REINA_NEGRA, m);
+			return reina.mov_comer(Pieza::REINA_NEGRA, m);
 			break;
 		case(Pieza::REINA_BLANCA):
-			return p.mov_comer(Pieza::REINA_BLANCA, m);
+			return reina.mov_comer(Pieza::REINA_BLANCA, m);
 			break;
 		case(Pieza::REY_NEGRO):
-			return p.mov_comer(Pieza::REY_NEGRO, m);
+			return rey.mov_comer(Pieza::REY_NEGRO, m);
 			break;
 		case(Pieza::REY_BLANCO):
-			return p.mov_comer(Pieza::REY_BLANCO, m);
+			return rey.mov_comer(Pieza::REY_BLANCO, m);
 			break;
 		case(Pieza::TORRE_NEGRA): 
-			return p.mov_comer(Pieza::TORRE_NEGRA, m);
+			return torre.mov_comer(Pieza::TORRE_NEGRA, m);
 			break;
 		case(Pieza::TORRE_BLANCA):
-			return p.mov_comer(Pieza::TORRE_BLANCA, m);
+			return torre.mov_comer(Pieza::TORRE_BLANCA, m);
 			break;
 		case(Pieza::ALFIL_BLANCO): 
-			return p.mov_comer(Pieza::ALFIL_BLANCO, m);
+			return alfil.mov_comer(Pieza::ALFIL_BLANCO, m);
 			break;
 		case(Pieza::ALFIL_NEGRO):
-			return p.mov_comer(Pieza::ALFIL_NEGRO, m);
+			return alfil.mov_comer(Pieza::ALFIL_NEGRO, m);
 			break;
 		case(Pieza::CABALLO_BLANCO):
-			return p.mov_comer(Pieza::CABALLO_BLANCO, m);
+			return caballo.mov_comer(Pieza::CABALLO_BLANCO, m);
 			break;
 		case(Pieza::CABALLO_NEGRO):
-			return p.mov_comer(Pieza::CABALLO_NEGRO, m);
+			return caballo.mov_comer(Pieza::CABALLO_NEGRO, m);
 			break;
 		default: break;
 		}

@@ -13,8 +13,8 @@ public:
 	obj_t rtt;
 	Pieza(obj_t t = FICHA, cas_t c = { -1, -1 }) :rtt(t), cas(c) { }
 	virtual void dibuja(obj_t t) {}
-	virtual bool movimiento(obj_t t, move_t m);
-	virtual bool mov_comer(obj_t t, move_t m);
+	virtual bool movimiento(obj_t t, move_t m) { return false; };
+	virtual bool mov_comer(obj_t t, move_t m) { return false; };
 	obj_t type() const { return rtt; }
 	cas_t square() const { return cas; }
 	static Pieza* create(Pieza::obj_t, cas_t);		// Funcion creadora de piezas con argumentos tipo de pieza y casilla
