@@ -1,0 +1,6 @@
+# Ignora 
+.vs/
+
+x64/
+
+*.exe
