@@ -5,14 +5,12 @@
 #include "Pieza.h"
 
 
-class Mundo
-{
+class Mundo {
 private:
-	Master mast;
+	Master mast;//vector e piezas
 	Tablero tabl;
-	Pieza Pieza;
+	Pieza Piezas;
 	Movimientos mo;
-
 
 	int clic = 0;
 	bool turno;

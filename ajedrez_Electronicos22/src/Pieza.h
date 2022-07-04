@@ -1,6 +1,7 @@
 #pragma once
 #include "EstructurasMov.h"
 #include <ETSIDI.h>
+#define anchocasilla 0.15
 
 class Pieza {
 public:
@@ -21,8 +22,5 @@ public:
 	static Pieza* create(const Pieza& p);			// Funcion creadora de piezas con argumento referencia a pieza
 };
 
-
-// gracias a que habilitamos el alpha test y la funcion correspondiente, el programa nos permite retirar el fondo de las imagenes
-// debido a que no activamos la funcion disable, no necesitamos activar el canal alpha en todas las piezas
 
 

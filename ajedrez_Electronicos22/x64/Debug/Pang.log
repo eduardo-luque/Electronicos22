@@ -1,0 +1,7 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(499,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
+  Movimientos.cpp
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_04_07\ajedrez_20_06\src\Movimientos.cpp(312,31): warning C4101: 'reyb': variable local sin referencia
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_04_07\ajedrez_20_06\src\Movimientos.cpp(420,31): warning C4101: 'reyn': variable local sin referencia
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_04_07\ajedrez_20_06\src\Movimientos.cpp(416): warning C4715: 'Movimientos::jaque_negro': no todas las rutas de acceso de control devuelven un valor
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_04_07\ajedrez_20_06\src\Movimientos.cpp(528): warning C4715: 'Movimientos::jaque_blanco': no todas las rutas de acceso de control devuelven un valor
+  Pang.vcxproj -> C:\Users\franc\source\repos 1\travajo recu\ajedrez_04_07\ajedrez_20_06\bin\AjedrezOroPlata.exe
