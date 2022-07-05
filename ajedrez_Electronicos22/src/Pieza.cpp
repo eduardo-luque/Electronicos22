@@ -132,8 +132,10 @@ Pieza* Pieza::create(Pieza::obj_t t, cas_t c) {   //creamos las piezas con asign
 }
 
 
-Pieza* Pieza::create(const Pieza& f)  {  //creamos las piezas con asignacion de memoria 
+Pieza* Pieza::create(const Pieza& f)    //creamos las piezas con asignacion de memoria 
+{
 	switch (f.type()) {
+
 	case Pieza::PEON_BLANCO:
 		return new Peon(dynamic_cast<const Peon&>(f));
 
@@ -170,11 +172,13 @@ Pieza* Pieza::create(const Pieza& f)  {  //creamos las piezas con asignacion de 
 	case Pieza::REINA_NEGRA:
 		return new Reina(dynamic_cast<const Reina&>(f));
 
+
 	default:
 		cerr << "incorrect type-factory::create()" << endl;
 		return NULL;
 	}
 	return NULL;
+
 }
 
 

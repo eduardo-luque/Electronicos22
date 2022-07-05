@@ -7,6 +7,8 @@
 #include "Reina.h"
 #include "Alfil.h"
 
+bool flag = 0;
+
 int Movimientos::is_legal(move_t m, const Master& t) {
 	//CONDICIONES DE QUE SEA LEGAL EL MOVIMIENTO
 	//A) nuestro origen tiene que ser una ficha
@@ -30,6 +32,7 @@ int Movimientos::is_legal(move_t m, const Master& t) {
 			if ( fo->type() == Pieza::REY_BLANCO || fo->type() == Pieza::REY_NEGRO) { return 0; }
 		}
 	}
+	
 	//C)SI MATAMOS AL REY
 	if (fd) {//CASILLA DESTINO LLENA
 		if (fd->type() == Pieza::REY_NEGRO || fd->type() == Pieza::REY_BLANCO) {
@@ -127,6 +130,7 @@ int Movimientos::is_legal(move_t m, const Master& t) {
 		default: break;
 		}
 	}
+
 	return 0;
 }
 
@@ -312,6 +316,7 @@ bool Movimientos::jaque_negro(move_t ma, Master& ta) {
 	bool pb, ab, tb, cb, reinab, reyb;
 	cas_t reyn{ 0,0 }, peonb{ 0,0 }, alfilb{ 0,0 }, torreb{ 0,0 }, cabb{ 0,0 }, rb{ 0,0 };
 	int ocupada = 0;
+	 
 	pb = peon.movimiento(Pieza::PEON_BLANCO, ma);
 	ab = alfil.movimiento(Pieza::ALFIL_BLANCO, ma);
 	tb = torre.movimiento(Pieza::TORRE_BLANCA, ma);
@@ -323,11 +328,11 @@ bool Movimientos::jaque_negro(move_t ma, Master& ta) {
 			for (int j = 1; j < 9; j++) {
 				if (ta.peones[i][j] != NULL) {
 					if (ta.peones[i][j]->type() == Pieza::REY_NEGRO) {
-						//cout << "Rey negro esta en la casilla " << i << ", " << j << endl;
-						reyn.x = i;  reyn.y = j;	
+					//	cout << "Rey negro esta en la casilla " << i << ", " << j << endl;
+						reyn.x = i;  reyn.y = j;
 					}
 					if (ta.peones[i][j]->type() == Pieza::PEON_BLANCO) {
-						//cout << "Peon blanco esta en la casilla " << i << ", " << j << endl;
+					//	cout << "Peon blanco esta en la casilla " << i << ", " << j << endl;
 						peonb.x = i;  peonb.y = j;
 					}
 					if (ta.peones[i][j]->type() == Pieza::ALFIL_BLANCO) {
@@ -411,51 +416,50 @@ bool Movimientos::jaque_negro(move_t ma, Master& ta) {
 				}
 			}
 		}
-		return false;
+		
 	}
+	return false;
 }
 
 bool Movimientos::jaque_blanco(move_t ma, Master& ta) {
 	Peon peon; Reina reina; Rey rey; Torre torre; Caballo caballo; Alfil alfil;
 	bool pn, an, tn, cn, reinan, reyn;
 	cas_t reyb{ 0,0 }, peonn{ 0,0 }, alfiln{ 0,0 }, torren{ 0,0 }, cabn{ 0,0 }, rn{ 0,0 };
+	int reyb_x = 0, reyb_y = 0;
 	int ocupada = 0;
-
+	
 	pn = peon.movimiento(Pieza::PEON_NEGRO, ma);
 	an = alfil.movimiento(Pieza::ALFIL_NEGRO, ma);
 	tn = torre.movimiento(Pieza::TORRE_NEGRA, ma);
 	cn = caballo.movimiento(Pieza::CABALLO_NEGRO, ma);
 	reinan = reina.movimiento(Pieza::REINA_NEGRA, ma);
 
-	ma.ori.x = 9; ma.ori.y = 9;
-
 	if ((ma.dest.x < 10) && (ma.dest.x > 0) && (ma.dest.y < 10) && (ma.dest.y > 0)) {
 		for (int i = 1; i < 9; i++) {   //detectar posicion rey negro en todo momento
 			for (int j = 1; j < 9; j++) {
 				if (ta.peones[i][j] != NULL) {
 					if (ta.peones[i][j]->type() == Pieza::REY_BLANCO) {
-						//cout << "Rey blanco esta en la casilla " << i << ", " << j << endl;
+					//	cout << "Rey blanco esta en la casilla " << i << ", " << j << endl;
 						reyb.x = i;  reyb.y = j;
-						
 					}
 					if (ta.peones[i][j]->type() == Pieza::PEON_NEGRO) {
-						//cout << "Peon negro esta en la casilla " << i << ", " << j << endl;
+					//	cout << "Peon negro esta en la casilla " << i << ", " << j << endl;
 						peonn.x = i;  peonn.y = j;
 					}
-					if (ta.peones[i][j]->type() == Pieza::ALFIL_BLANCO) {
-						//cout << "Alfil blanco esta en la casilla " << i << ", " << j << endl;
+					if (ta.peones[i][j]->type() == Pieza::ALFIL_NEGRO) {
+					//	cout << "Alfil blanco esta en la casilla " << i << ", " << j << endl;
 						alfiln.x = i;  alfiln.y = j;
 					}
-					if (ta.peones[i][j]->type() == Pieza::TORRE_BLANCA) {
-						//cout << "Torre blanca esta en la casilla " << i << ", " << j << endl;
+					if (ta.peones[i][j]->type() == Pieza::TORRE_NEGRA) {
+					//	cout << "Torre blanca esta en la casilla " << i << ", " << j << endl;
 						torren.x = i;  torren.y = j;
 					}
-					if (ta.peones[i][j]->type() == Pieza::CABALLO_BLANCO) {
-						//cout << "Caballo blanco esta en la casilla " << i << ", " << j << endl;
+					if (ta.peones[i][j]->type() == Pieza::CABALLO_NEGRO) {
+					//	cout << "Caballo blanco esta en la casilla " << i << ", " << j << endl;
 						cabn.x = i;  cabn.y = j;
 					}
-					if (ta.peones[i][j]->type() == Pieza::REINA_BLANCA) {
-						//cout << "Reina blanca esta en la casilla " << i << ", " << j << endl;
+					if (ta.peones[i][j]->type() == Pieza::REINA_NEGRA) {
+					//	cout << "Reina blanca esta en la casilla " << i << ", " << j << endl;
 						rn.x = i;  rn.y = j;
 					}
 
@@ -482,10 +486,10 @@ bool Movimientos::jaque_blanco(move_t ma, Master& ta) {
 							}
 						}
 					}
-
+					
 					if (tn) {
 						ma.dest.x = torren.x; ma.dest.y = torren.y;
-						int v[8] = { 1,2,3,4,5,6,7 }; 
+						int v[8] = { 1,2,3,4,5,6,7 };
 						//cout << "Hay jaque blancas de torre? " << endl;
 						for (int i = 0; i < 7; i++) {
 							if (((ma.dest.x == reyb.x) && (ma.dest.y == reyb.y + v[i])) || ((ma.dest.x == reyb.x + v[i]) && (ma.dest.y == reyb.y)) ||
@@ -494,7 +498,7 @@ bool Movimientos::jaque_blanco(move_t ma, Master& ta) {
 							}
 						}
 					}
-
+					
 					if (cn) {
 						ma.dest.x = cabn.x; ma.dest.y = cabn.y;
 						//cout << "Hay jaque blancas de caballo? " << endl;
@@ -509,7 +513,7 @@ bool Movimientos::jaque_blanco(move_t ma, Master& ta) {
 
 					if (reinan) {
 						ma.dest.x = rn.x; ma.dest.y = rn.y;
-						int v[8] = { 1,2,3,4,5,6,7 }; 
+						int v[8] = { 1,2,3,4,5,6,7 };
 						for (int i = 0; i < 7; i++) {
 							//cout << "Hay jaque blancas de reina? " << endl;
 							if (((ma.dest.x == reyb.x) && (ma.dest.y == reyb.y + v[i])) || ((ma.dest.x == reyb.x + v[i]) && (ma.dest.y == reyb.y + v[i])) ||
@@ -523,8 +527,9 @@ bool Movimientos::jaque_blanco(move_t ma, Master& ta) {
 				}
 			}
 		}
-		return false;
+		
 	}
+	return false;
 }
 
 //jaque mate//

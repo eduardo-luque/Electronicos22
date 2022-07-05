@@ -1,7 +1,76 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(499,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
+  Ajedrez.cpp
+  Alfil.cpp
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Alfil.cpp(11,13): warning C4305: 'return': truncamiento de 'int' a 'bool'
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Alfil.cpp(48,30): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Alfil.cpp(49,30): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Alfil.cpp(78,30): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Alfil.cpp(79,30): warning C4305: '=': truncamiento de 'double' a 'float'
+  Caballo.cpp
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Caballo.cpp(122,30): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Caballo.cpp(123,30): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Caballo.cpp(152,30): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Caballo.cpp(153,30): warning C4305: '=': truncamiento de 'double' a 'float'
+  Coordinador.cpp
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Coordinador.cpp(25,40): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Coordinador.cpp(45,40): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Coordinador.cpp(62,40): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+  Master.cpp
   Movimientos.cpp
-C:\Users\franc\source\repos 1\travajo recu\ajedrez_04_07\ajedrez_20_06\src\Movimientos.cpp(312,31): warning C4101: 'reyb': variable local sin referencia
-C:\Users\franc\source\repos 1\travajo recu\ajedrez_04_07\ajedrez_20_06\src\Movimientos.cpp(420,31): warning C4101: 'reyn': variable local sin referencia
-C:\Users\franc\source\repos 1\travajo recu\ajedrez_04_07\ajedrez_20_06\src\Movimientos.cpp(416): warning C4715: 'Movimientos::jaque_negro': no todas las rutas de acceso de control devuelven un valor
-C:\Users\franc\source\repos 1\travajo recu\ajedrez_04_07\ajedrez_20_06\src\Movimientos.cpp(528): warning C4715: 'Movimientos::jaque_blanco': no todas las rutas de acceso de control devuelven un valor
-  Pang.vcxproj -> C:\Users\franc\source\repos 1\travajo recu\ajedrez_04_07\ajedrez_20_06\bin\AjedrezOroPlata.exe
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Movimientos.cpp(316,31): warning C4101: 'reyb': variable local sin referencia
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Movimientos.cpp(426,31): warning C4101: 'reyn': variable local sin referencia
+  Mundo.cpp
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Mundo.cpp(136,47): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Mundo.cpp(136,34): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Mundo.cpp(136,21): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Mundo.cpp(139,21): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Mundo.cpp(140,25): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Mundo.cpp(141,22): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Mundo.cpp(143,48): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Mundo.cpp(143,34): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Mundo.cpp(143,22): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+  Peon.cpp
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Peon.cpp(72,30): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Peon.cpp(73,30): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Peon.cpp(106,30): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Peon.cpp(107,30): warning C4305: '=': truncamiento de 'double' a 'float'
+  Pieza.cpp
+  Reina.cpp
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Reina.cpp(10,13): warning C4305: 'return': truncamiento de 'int' a 'bool'
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Reina.cpp(16,13): warning C4305: 'return': truncamiento de 'int' a 'bool'
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Reina.cpp(71,30): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Reina.cpp(72,30): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Reina.cpp(101,30): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Reina.cpp(102,30): warning C4305: '=': truncamiento de 'double' a 'float'
+  Rey.cpp
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Rey.cpp(67,30): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Rey.cpp(68,30): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Rey.cpp(97,30): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Rey.cpp(98,30): warning C4305: '=': truncamiento de 'double' a 'float'
+  Tablero.cpp
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Tablero.cpp(15,49): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Tablero.cpp(16,50): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Tablero.cpp(19,28): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Tablero.cpp(22,29): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Tablero.cpp(222,30): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Tablero.cpp(223,31): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+  Torre.cpp
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Torre.cpp(48,30): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Torre.cpp(49,30): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Torre.cpp(78,30): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Torre.cpp(79,30): warning C4305: '=': truncamiento de 'double' a 'float'
+  Generando código...
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Torre.cpp(44): warning C4715: 'Torre::mov_comer': no todas las rutas de acceso de control devuelven un valor
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Torre.cpp(17): warning C4715: 'Torre::movimiento': no todas las rutas de acceso de control devuelven un valor
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Rey.cpp(62): warning C4715: 'Rey::mov_comer': no todas las rutas de acceso de control devuelven un valor
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Rey.cpp(21): warning C4715: 'Rey::movimiento': no todas las rutas de acceso de control devuelven un valor
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Reina.cpp(22): warning C4715: 'Reina::movimiento': no todas las rutas de acceso de control devuelven un valor
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Reina.cpp(66): warning C4715: 'Reina::mov_comer': no todas las rutas de acceso de control devuelven un valor
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Peon.cpp(40): warning C4715: 'Peon::movimiento': no todas las rutas de acceso de control devuelven un valor
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Peon.cpp(67): warning C4715: 'Peon::mov_comer': no todas las rutas de acceso de control devuelven un valor
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Mundo.cpp(216): warning C4715: 'Mundo::MovimientoPlayer': no todas las rutas de acceso de control devuelven un valor
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Caballo.cpp(42): warning C4715: 'Caballo::movimiento': no todas las rutas de acceso de control devuelven un valor
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Caballo.cpp(118): warning C4715: 'Caballo::mov_comer': no todas las rutas de acceso de control devuelven un valor
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Alfil.cpp(16): warning C4715: 'Alfil::movimiento': no todas las rutas de acceso de control devuelven un valor
+C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\src\Alfil.cpp(43): warning C4715: 'Alfil::mov_comer': no todas las rutas de acceso de control devuelven un valor
+  Pang.vcxproj -> C:\Users\franc\source\repos 1\travajo recu\ajedrez_05_07_funciona_jaque_negras_sintematica\ajedrez_20_06\bin\AjedrezOroPlata.exe
