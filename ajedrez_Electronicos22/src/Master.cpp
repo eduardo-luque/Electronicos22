@@ -45,10 +45,10 @@ void Master::Inicializa() {  //creamos los peones blancos y negros. tambien torr
 		peones[1][6] = Pieza::create(Pieza::ALFIL_BLANCO, cas_t{ 1,6 });
 
 	//creamos reina blanca
-		peones[1][4] = Pieza::create(Pieza::REINA_BLANCA, cas_t{ 1,4 });
+		peones[1][5] = Pieza::create(Pieza::REINA_BLANCA, cas_t{ 1,5 });
 		//nFichas++;
 	//creamos rey blanco
-		peones[1][5] = Pieza::create(Pieza::REY_BLANCO, cas_t{ 1,5 });
+		peones[1][4] = Pieza::create(Pieza::REY_BLANCO, cas_t{ 1,4 });
 		//nFichas++;
 
 	//creamos fichas negras
@@ -70,10 +70,10 @@ void Master::Inicializa() {  //creamos los peones blancos y negros. tambien torr
 		peones[8][6] = Pieza::create(Pieza::ALFIL_NEGRO, cas_t{ 8,6 });
 
 	//creamos REINA negra
-		peones[8][4] = Pieza::create(Pieza::REINA_NEGRA, cas_t{ 8,4 });
+		peones[8][5] = Pieza::create(Pieza::REINA_NEGRA, cas_t{ 8,5 });
 		//nFichas++;
 	//creamos rey negro
-		peones[8][5] = Pieza::create(Pieza::REY_NEGRO, cas_t{ 8,5 });
+		peones[8][4] = Pieza::create(Pieza::REY_NEGRO, cas_t{ 8,4 });
 		//nFichas++;
 }
 

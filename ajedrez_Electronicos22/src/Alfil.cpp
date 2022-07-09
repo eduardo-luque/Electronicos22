@@ -1,12 +1,12 @@
 #include "Alfil.h"
 
-bool Alfil::movimiento(obj_t t, move_t m)
-{
+bool Alfil::movimiento(obj_t t, move_t m){
+	int v[8] = { 1,2,3,4,5,6,7 };
 	switch (t) {
 	case Pieza::ALFIL_BLANCO: case Pieza::ALFIL_NEGRO:
-		for (int i = 1; i < 9; i++) { //este bucle cubre todos los posibles movimientos diagonales de la REINA
-			if (((m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y + i)) || ((m.dest.x == m.ori.x + i) && (m.dest.y == m.ori.y - i)) ||
-				((m.dest.x == m.ori.x - i) && (m.dest.y == m.ori.y + i)) || ((m.dest.x == m.ori.x - i) && (m.dest.y == m.ori.y - i))) {
+		for (int i = 0; i < 8; i++) { //este bucle cubre todos los posibles movimientos diagonales de la REINA
+			if (((m.dest.x == m.ori.x + v[i]) && (m.dest.y == m.ori.y + v[i])) || ((m.dest.x == m.ori.x + v[i]) && (m.dest.y == m.ori.y - v[i])) ||
+				((m.dest.x == m.ori.x - v[i]) && (m.dest.y == m.ori.y - v[i])) || ((m.dest.x == m.ori.x - v[i]) && (m.dest.y == m.ori.y + v[i]))) {
 				//cout << "movimiento valido " << endl;
 				return 2;
 			}

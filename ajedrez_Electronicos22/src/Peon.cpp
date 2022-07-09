@@ -8,14 +8,14 @@ bool Peon::movimiento(obj_t t, move_t m) {
 				//cout << "movimiento valido" << endl;
 				return true;
 			}
-			else { return false; }
+			//else { return false; }
 		}
 		else {
 			if ((m.dest.x == m.ori.x + 1) && (m.dest.y == m.ori.y)) { 
 				//cout << "movimiento valido" << endl; 
 				return true; 
 			}
-			else { return false; }
+			//else { return false; }
 		}
 		break;
 	case(Pieza::PEON_NEGRO)://está permitido que avance hacia arriba(resta 1 o 2 a la x) 
@@ -24,19 +24,18 @@ bool Peon::movimiento(obj_t t, move_t m) {
 				//cout << "movimiento valido" << endl;
 				return true; 
 			}
-			else { return false; }
+			//else { return false; }
 		}
 		else {
 			if ((m.dest.x == m.ori.x - 1) && (m.dest.y == m.ori.y)) { 
 				//cout << "movimiento valido" << endl;
 				return true;
 			}
-			else { return false; }
+			//else { return false; }
 		}
 		break;
 	default: break;
 	}
-	
 }
 
 bool Peon::mov_comer(obj_t t, move_t m) {

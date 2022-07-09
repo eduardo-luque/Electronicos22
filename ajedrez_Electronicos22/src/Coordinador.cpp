@@ -232,6 +232,12 @@ void Coordinador::TurnoMultiplayer() {
 				turno = JUGADOR_N;
 				mundo.setMovimiento({ 0,0 }, { 0,0 });  //para evitar error 
 				break;
+			case 6: 
+				cout << "JAQUE MATE" << endl;
+				ETSIDI::stopMusica();
+				ETSIDI::play("sonidos/win.mp3");
+				estado = GANA_N;
+				break;
 			}
 		}
 
@@ -264,6 +270,12 @@ void Coordinador::TurnoMultiplayer() {
 				cout << "INVALIDO!!!!!!" << endl;
 				turno = JUGADOR_B;
 				mundo.setMovimiento({ 0,0 }, { 0,0 });  //para evitar error 
+				break;
+			case 6:
+				cout << "JAQUE MATE" << endl;
+				ETSIDI::stopMusica();
+				ETSIDI::play("sonidos/win.mp3");
+				estado = GANA_B;
 				break;
 			}
 		}

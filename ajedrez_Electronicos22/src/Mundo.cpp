@@ -66,42 +66,42 @@ void Mundo::Raton(int x, int y, int b, bool state, char t) { //CON ESTA FUNCION 
 					origen_b.y = tabl.ycell_sel;
 					break;
 				case(Pieza::REY_NEGRO):
-				//	cout << "rey negro!!" << endl;
+					//	cout << "rey negro!!" << endl;
 					origen_n.x = tabl.xcell_sel;
 					origen_n.y = tabl.ycell_sel;
 					break;
 				case(Pieza::REY_BLANCO):
-				//	cout << "rey blanco!!" << endl;
+					//	cout << "rey blanco!!" << endl;
 					origen_b.x = tabl.xcell_sel;
 					origen_b.y = tabl.ycell_sel;
 					break;
 				case(Pieza::TORRE_NEGRA):
-				//	cout << "torre negra!!" << endl;
+					//	cout << "torre negra!!" << endl;
 					origen_n.x = tabl.xcell_sel;
 					origen_n.y = tabl.ycell_sel;
 					break;
 				case(Pieza::TORRE_BLANCA):
-				//	cout << "torre blanca!!" << endl;
+					//	cout << "torre blanca!!" << endl;
 					origen_b.x = tabl.xcell_sel;
 					origen_b.y = tabl.ycell_sel;
 					break;
 				case(Pieza::ALFIL_BLANCO):
-				//	cout << "alfil blanco!!" << endl;
+					//	cout << "alfil blanco!!" << endl;
 					origen_b.x = tabl.xcell_sel;
 					origen_b.y = tabl.ycell_sel;
 					break;
 				case(Pieza::ALFIL_NEGRO):
-				//	cout << "alfil negro!!" << endl;
+					//	cout << "alfil negro!!" << endl;
 					origen_n.x = tabl.xcell_sel;
 					origen_n.y = tabl.ycell_sel;
 					break;
 				case(Pieza::CABALLO_BLANCO):
-				//	cout << "caballo blanco!!" << endl;
+					//	cout << "caballo blanco!!" << endl;
 					origen_b.x = tabl.xcell_sel;
 					origen_b.y = tabl.ycell_sel;
 					break;
 				case(Pieza::CABALLO_NEGRO):
-				//	cout << "caballo negro!!" << endl;
+					//	cout << "caballo negro!!" << endl;
 					origen_n.x = tabl.xcell_sel;
 					origen_n.y = tabl.ycell_sel;
 					break;
@@ -159,12 +159,15 @@ int Mundo::MovimientoPlayer(char t) {
 		if (resultadoNegras == 2) { //movimiento simple sin comer
 			mo.move({ origen_n, destino_n }, mast);
 			if (mo.jaque_blanco({ origen_n, destino_n }, mast)) { //si hay jaque
-				return 3;//jaque negras
+				return 3; //jaque negras
 			}
 			if (mo.jaque_negro({ origen_n, destino_n }, mast) == true) {
 				mo.move({ destino_n, origen_n }, mast); //lo devuelvo a la posicion porque es un movimiento invalido
 				return 5;
 			}
+			/*if (mo.jaquemate_blanco({ origen_n, destino_n }, mast) == true) { //si hay jaque mate devolvemos el final de la partida
+				return 6;
+			}*/
 			return 1; 
 		}
 		else if (resultadoNegras == 1) { //movimiento comer
@@ -176,6 +179,9 @@ int Mundo::MovimientoPlayer(char t) {
 				mo.move({ destino_n, origen_n }, mast); //lo devuelvo a la posicion porque es un movimiento invalido
 				return 5;
 			}
+			/*if (mo.jaquemate_blanco({ origen_n, destino_n }, mast) == true) {  //si hay jaque mate devolvemos el final de la partida
+				return 6;
+			}*/
 			return 1;
 		}
 		//si matamos al rey blanco
@@ -194,6 +200,9 @@ int Mundo::MovimientoPlayer(char t) {
 				mo.move({ destino_b, origen_b }, mast); //lo devuelvo a la posicion porque es un movimiento invalido
 				return 5;
 			}
+			/*if (mo.jaquemate_negro({ origen_b, destino_b }, mast) == true) {  //si hay jaque mate devolvemos el final de la partida
+				return 6;
+			}*/
 			return 1;
 		}
 		else if (resultadoBlancas == 1) { //movimiento comer
@@ -205,6 +214,9 @@ int Mundo::MovimientoPlayer(char t) {
 				mo.move({ destino_b, origen_b }, mast); //lo devuelvo a la posicion porque es un movimiento invalido
 				return 5;
 			}
+			/*if (mo.jaquemate_negro({ origen_b, destino_b }, mast) == true) {  //si hay jaque mate devolvemos el final de la partida
+				return 6;
+			}*/
 			return 1;
 		}
 		//si matamos al rey negro

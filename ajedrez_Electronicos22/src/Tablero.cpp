@@ -39,13 +39,13 @@ void Tablero::Dibuja(Master& t, int num, char tipo) {
 	for (int i = 1; i < numcasillas; i++) { //Hacemos bucle segun casillas
 		c = i % 2;  //para ir alternando el color de las casillas
 		for (int j = 1; j < numcasillas; j++) {
-			if (c == 0) {
+			if (c == 1) {
 				glColor3ub(250, 250, 250);//blancas 
-				c = 1;
+				c = 0;
 			}
 			else {
 				glColor3ub(0, 0, 0);//negras
-				c = 0;
+				c = 1;
 			}
 			glDisable(GL_LIGHTING);
 
