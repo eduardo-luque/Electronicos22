@@ -163,6 +163,8 @@ void Coordinador::Tecla(unsigned char key) {
 	}
 	else if (estado == MULTIPLAYER) {
 		if (key == 'P' || key == 'p') { estado = PAUSA; }
+		if (key == 'b' || key == 'B' || key == 'f' || key == 'F') { estado = GANA_B; }
+		if (key == 'n' || key == 'N' || key == 'i' || key == 'I') { estado = GANA_N; }
 	}
 	else if (estado == PAUSA) {
 		if (key == 'P' || key == 'p') { estado = MULTIPLAYER; }
